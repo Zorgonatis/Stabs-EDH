@@ -1,13 +1,15 @@
-# Execution Directive Heirarchy for SillyTavern
+# Stab's Execution Directive Heirarchy for SillyTavern and GLM-4.6
 
 This preset is based on some core concepts from Lucid Loom (https://lucid.cards) such as the Anti-Slop filter and color-coded NPC fonts. This preset is a fundamental restructure that borrows some of the Lucid Loom's fantastic instructions.
 
 It is a custom prompt and set of directives designed to create a consistent, immersive, and high-quality narrative experience within SillyTavern. The system is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, and a distinct writing style.
 
+Thank you for the inspiration!
+
 ## Intended Model & Tuning
 
 - **Model:** `GLM-4.6`
-- **Tuning Plan:** This preset is designed to be used with the `z.ai coding plan`.
+- **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider..
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. This is only strictly required for the coding plan API. 
 ```yaml
