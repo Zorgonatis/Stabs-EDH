@@ -9,8 +9,7 @@ It is a custom prompt and set of directives designed to create a consistent, imm
 - **Model:** `GLM-4.6`
 - **Tuning Plan:** This preset is designed to be used with the `z.ai coding plan`.
 
-The following parameters must be enabled for the tuning to work as intended, even on non-coding plans.
-
+The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. This is only strictly required for the coding plan API. 
 ```yaml
 thinking:
   type: "enabled"
@@ -22,7 +21,7 @@ top_k: 255
 
 ### Thinking Tuning
 
-The core of this system is "Thinking Tuning." By directing the AI's chain of thought to tightly integrate with a directive heirarchy, it achieves predictable, repeatable, and consistent adherence to the desired narrative style and logic. Instead of generating free-form text, the AI actively checks its output against a defined set of rules at every level of its reasoning.
+The core of this system is "Thinking Tuning." By directing the AI's chain of thought to tightly integrate with a directive heirarchy, it achieves predictable, repeatable, and consistent adherence to the desired narrative style. Instead of generating free-form text, the AI actively checks its output against a defined set of rules at every level of its reasoning.
 
 ### Benefits
 
