@@ -67,3 +67,13 @@ These rules handle specific details about the world and how information is prese
 ### Tier 4: Output Additions
 
 *   Every story response must include a specific, detailed image generation prompt at the bottom, contained within a codeblock. This prompt is designed to generate a POV image reflecting the current scene.
+
+
+# Output examples:
+
+<img width="1454" height="1077" alt="image" src="https://github.com/user-attachments/assets/4cecd050-f6ff-4ba6-a376-c7f0ee1a7d72" />
+<img width="1465" height="1038" alt="image" src="https://github.com/user-attachments/assets/35a5721b-16fb-48c1-b6dd-df045d84d309" />
+<img width="1455" height="930" alt="image" src="https://github.com/user-attachments/assets/6c611c85-1311-4a86-8bce-1c9a4ccfe636" />
+Chroma generation for the above prompt at end of response:
+<img width="744" height="1328" alt="image" src="https://github.com/user-attachments/assets/45d99ed6-395a-43d8-a380-d3ce831707a8" />
+
