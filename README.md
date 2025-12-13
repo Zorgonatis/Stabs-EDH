@@ -1,5 +1,5 @@
 # Stab's Execution Directive Heirarchy for SillyTavern and GLM-4.6
-Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features show can be easily disabled if preferred.
+Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features shown can be easily disabled if preferred.
 
 This preset is based on some core concepts from Lucid Loom (https://lucid.cards) such as the Anti-Slop filter and color-coded NPC fonts. This preset is a fundamental restructure that borrows some of the Lucid Loom's fantastic instructions.
 
