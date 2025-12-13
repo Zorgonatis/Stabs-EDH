@@ -5,6 +5,13 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
+## What's new in 1.1?
+
+- **First person definitions** - rewrote the entire prompt from the first person perspective to encourage reasoning as an inner monologue rather than analytical analysis.
+- **Additional AI identities** - Chose from Creative Writer (Default), Sitcom script writer (comedic focus) and Full Character immersive RP.
+- **Relationship Tracker** - Encourages slow burn and iterative, measurable story progress. Helps to push the bot towards guided character impersonations, but can slow things down too much for one-on-one (single NPC) scenarios.
+- **General cleanup** - Lots of tweaking, formatting and structural cleanup to present the final prompt to the model as practically as possible.
+
 ## Intended Model & Tuning
 
 - **Model:** `GLM-4.6`
