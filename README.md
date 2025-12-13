@@ -1,4 +1,4 @@
-# Stab's Execution Directive Heirarchy for SillyTavern and GLM-4.6
+# Stab's Directive Heirarchy for SillyTavern and GLM-4.6
 Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features shown can be easily disabled if preferred.
 
 This preset is based on some core concepts from Lucid Loom (https://lucid.cards) such as the Anti-Slop filter and color-coded NPC fonts. This preset is a fundamental restructure that borrows some of the Lucid Loom's fantastic instructions.
@@ -74,6 +74,9 @@ These rules handle specific details about the world and how information is prese
 
 <img width="1454" height="1077" alt="image" src="https://github.com/user-attachments/assets/4cecd050-f6ff-4ba6-a376-c7f0ee1a7d72" />
 <img width="1465" height="1038" alt="image" src="https://github.com/user-attachments/assets/35a5721b-16fb-48c1-b6dd-df045d84d309" />
+
+All below are from a single response (custom scenario, multi-NPC, relationship tracking + image output enabled)
+<img width="1418" height="956" alt="image" src="https://github.com/user-attachments/assets/71ea8fc5-8271-44b8-8296-4ed6587bb4f2" />
 <img width="1455" height="930" alt="image" src="https://github.com/user-attachments/assets/6c611c85-1311-4a86-8bce-1c9a4ccfe636" />
 Chroma generation for the above prompt at end of response:
 <img width="744" height="1328" alt="image" src="https://github.com/user-attachments/assets/45d99ed6-395a-43d8-a380-d3ce831707a8" />
