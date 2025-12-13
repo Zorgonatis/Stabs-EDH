@@ -1,4 +1,5 @@
 # Stab's Execution Directive Heirarchy for SillyTavern and GLM-4.6
+Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features show can be easily disabled if preferred.
 
 This preset is based on some core concepts from Lucid Loom (https://lucid.cards) such as the Anti-Slop filter and color-coded NPC fonts. This preset is a fundamental restructure that borrows some of the Lucid Loom's fantastic instructions.
 
@@ -7,9 +8,9 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## Intended Model & Tuning
 
 - **Model:** `GLM-4.6`
-- **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider..
+- **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider. I continue to get the best output and most reliable thinking with the official z.ai API.
 
-The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. This is only strictly required for the coding plan API under Custom provider. 
+The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. This is only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
 ```yaml
 thinking:
   type: "enabled"
