@@ -8,12 +8,12 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## What's new in 1.2?
 
 - **Support for GLM 4.7**
-- **Support for Gemini 3.0 Flash Preview** *
+- **Support for Gemini 3.0 Flash Preview** (note)
 - Reduced frequency of 'Visual Toolkit' output frequency
 - Adjusted thinking direction
 - Countless adjustments and corrections throughout all instructions, reducing confusion or uncertainty during reasoning
 
-* Toggle off all prompts with 'GLM' in the name and optionally toggle on the image prompt generator for Gemini.
+**Note**: For use with Gemini, toggle off all prompts with 'GLM' in the name and optionally toggle on the image prompt generator for Gemini.
 
 ## What's new in 1.1?
 
@@ -24,7 +24,7 @@ It is a custom prompt and set of directives designed to create a consistent (few
 
 ## Intended Model & Tuning
 
-- **Model:** `GLM-4.6`
+- **Model:** `GLM-4.7`
 - **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider. I continue to get the best output and most reliable thinking with the official z.ai API.
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. This is only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
