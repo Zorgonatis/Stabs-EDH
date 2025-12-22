@@ -87,8 +87,15 @@ These rules handle specific details about the world and how information is prese
 *   Every story response must include a specific, detailed image generation prompt at the bottom, contained within a codeblock. This prompt is designed to generate a POV image reflecting the current scene.
 
 
-# Output examples:
+# Output examples (GLM 4.7):
 
+<img width="1113" height="1185" alt="Conversation-GLM4 7" src="https://github.com/user-attachments/assets/adc5b0fc-52f6-4795-9888-cac5169c8c8d" />
+<img width="832" height="1328" alt="Chroma_01073_" src="https://github.com/user-attachments/assets/6736b6eb-c17c-4d6e-a7a5-54c58320b550" />
+<img width="1097" height="1176" alt="Conversation2-GLM4 7" src="https://github.com/user-attachments/assets/f6522b6d-b004-48dd-bc88-2966d748533c" />
+
+
+
+## Older
 <img width="1454" height="1077" alt="image" src="https://github.com/user-attachments/assets/4cecd050-f6ff-4ba6-a376-c7f0ee1a7d72" />
 <img width="1465" height="1038" alt="image" src="https://github.com/user-attachments/assets/35a5721b-16fb-48c1-b6dd-df045d84d309" />
 
