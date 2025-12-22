@@ -5,6 +5,16 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
+## What's new in 1.2?
+
+- **Support for GLM 4.7**
+- **Support for Gemini 3.0 Flash Preview** *
+- Reduced frequency of 'Visual Toolkit' output frequency
+- Adjusted thinking direction
+- Countless adjustments and corrections throughout all instructions, reducing confusion or uncertainty during reasoning
+
+* Toggle off all prompts with 'GLM' in the name and optionally toggle on the image prompt generator for Gemini.
+
 ## What's new in 1.1?
 
 - **First person definitions** - rewrote the entire prompt from the first person perspective to encourage reasoning as an inner monologue rather than analytical analysis.
