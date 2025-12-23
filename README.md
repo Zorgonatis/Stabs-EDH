@@ -14,8 +14,11 @@ This is an issue with very specific kinds of training data, but is not a core pa
 *The solution*: 'Thinking Fix' (basically, everything I just said we shouldn't do) is now optional, renamed to 'Think Adjustment' and _disabled by default_. 
 
 The directives have been sured-up, and reframed as successful output criteria, which results in more attention on the directives through reasoning
+
 The primary Role (GM) is extended to enable _drafting_ during the reasoning
+
 Pros: Same net-result as the previous system (heavily instruct CoT), high attention chain of thought. 
+
 Cons: slightly worse prompt adherence overall, small changes in multiple locations -> hard for users to reconcile changes (sorry)
 
 NOTE: Enabling the thinking fix will *improve* prompt adherence, but may trigger the content filters (useful when coming back to old conversations, see Problem 4).
@@ -23,15 +26,21 @@ NOTE: Enabling the thinking fix will *improve* prompt adherence, but may trigger
 - **Problem 2: SVG** - TL;DR SillyTavern has a really annoying bug that means half the GLM SVG output doesn't get rendered.
 
 *The Solution* - stripped SVG instructions out entirely in favour of HTML/CSS, which GLM 4.7 in particular is VERY strong with.
+
 Cons: If you have a conversation history with SVG in it, it is now 'poisoned' (see Problem 4)
 
 - **Problem 3: Everything is Sci-Fi or high tech** - Why's everything shiny and metallic?
+
 *The Solution*: A new directive, Genre Determination. It will analyze any available context for overall writing genre and use it as a basis for visual outputs, character behaviour etc.
+
 Pros: Most things aren't shiny. Will default to 'Drama, Slice-of-life' if unspecified, and adapt as needed.
+
 Cons: You have to untick this if you specify your own genres.
   
 - **Problem 4: A poison in my context** - GLM 4.7 loves to copy examples and structures.
+- 
 It may not adapt well on top of old context from previous versions of this preset.
+
 Tips: enable the 'Think Adjustment' and/or submit as part of your input: [OOC: Your directives have changed, make sure they are adhered to]
 
 
