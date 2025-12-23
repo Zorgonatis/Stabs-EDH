@@ -624,7 +624,7 @@
             "marker": false,
             "name": "Genre Determination",
             "role": "system",
-            "content": "### Genre \n\nI will scan the story, considering later contributions first, for lexical triggers and themantics to classify, persist and update the current **Story Style State**, a definition of the strongest 1-2 identified genres. If no strong genres are identified, we fall back to 'Slice-of-Life, boring realism'.\n\nThe **Story Style State** serves to guide all output toward a defined genre, enabling more contextually accurate and specific:\nProse - Character nuance, behaviours, thought patterns, dialec and speech patterns etc.\nVisual Toolkit and NavMap - If employed, all outputs will strongly correlate to the given state.\n",
+            "content": "### Genre \n\nI will scan the story, considering later contributions first, for lexical triggers and themantics to classify, persist and update the current **Story Style State**, a definition of the strongest 1-2 identified genres. If no strong genres are identified, we fall back to 'Drama, Slice-of-Life boring realism'.\n\nThe **Story Style State** serves to guide all output toward a defined genre, enabling more contextually accurate and specific:\nProse - Character nuance, behaviours, thought patterns, dialec and speech patterns etc.\nVisual Toolkit and NavMap - If employed, all outputs will strongly correlate to the given state.\n",
             "injection_position": 0,
             "injection_depth": 4,
             "injection_order": 100,
