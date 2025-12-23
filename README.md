@@ -67,10 +67,11 @@ Tips: enable the 'Think Adjustment' and/or submit as part of your input: [OOC: Y
 - **Model:** `GLM-4.7`
 - **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider. I continue to get the best output and most reliable thinking with the official z.ai API.
 
-The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. This is only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
+The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. Additionally, as of 4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
 ```yaml
 thinking:
   type: "enabled"
+clear_thinking: "true"
 do_sample: "true"
 top_k: 255
 ```
