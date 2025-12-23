@@ -13,9 +13,8 @@ This is an issue with very specific kinds of training data, but is not a core pa
 
 *The solution*: 'Thinking Fix' (basically, everything I just said we shouldn't do) is now optional, renamed to 'Think Adjustment' and _disabled by default_. 
 
-The directives have been sured-up, and reframed as successful output criteria, which results in more attention on the directives through reasoning
-
-The primary Role (GM) is extended to enable _drafting_ during the reasoning
+The directives have been sured-up, and reframed as successful output criteria, which results in more attention on the directives through reasoning.
+The primary Role (GM) is extended to enable _drafting_ during the reasoning.
 
 Pros: Same net-result as the previous system (heavily instruct CoT), high attention chain of thought. 
 
