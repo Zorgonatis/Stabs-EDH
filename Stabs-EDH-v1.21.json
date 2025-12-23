@@ -28,7 +28,7 @@
     "zai_endpoint": "coding",
     "custom_model": "glm-4.7",
     "custom_url": "https://api.z.ai/api/coding/paas/v4",
-    "custom_include_body": "thinking:\n  type: \"enabled\"\ndo_sample: \"true\"\ntop_k: 255",
+    "custom_include_body": "thinking:\n  type: \"enabled\"\nclear_thinking: \"true\"\ndo_sample: \"true\"\ntop_k: 255",
     "custom_exclude_body": "",
     "custom_include_headers": "",
     "custom_prompt_post_processing": "",
