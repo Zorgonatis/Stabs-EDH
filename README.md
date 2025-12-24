@@ -68,6 +68,7 @@ Tips: enable the 'Think Adjustment' and/or submit as part of your input: [OOC: Y
 - **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider. I continue to get the best output and most reliable thinking with the official z.ai API.
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. Additionally, as of 4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
+
 ```yaml
 thinking:
   type: "enabled"
@@ -76,56 +77,32 @@ do_sample: "true"
 top_k: 255
 ```
 
-## Core Concepts & Benefits
-
-### Thinking Tuning
-
-The core of this system is "Thinking Tuning." By directing the AI's chain of thought to tightly integrate with a directive heirarchy, it achieves predictable, repeatable, and consistent adherence to the desired rules & narrative style. Instead of generating free-form text, the AI actively checks its output against a defined set of rules at every level of its reasoning.
-
-### Benefits
-
-*   **Less Swipes:** The AI produces higher-quality, more relevant responses on the first try by adhering to strict guidelines, reducing the need for users to regenerate outputs.
-*   **More Believable Outcomes:** Strict rules on character "grounding" and "informational realism" lead to more realistic character interactions and world events, preventing common AI pitfalls like omniscience or out-of-character behavior.
-
-## The Heirarchy Breakdown
-
-The directives are organized into tiers, with higher tiers taking precedence over lower ones. This ensures that the most important rules are always followed.
-
 ### Tier 0: Meta-Override Directive
+*   **OOC Requests:** Instructions marked with [OOC] are executed immediately, overriding all other story functions.
 
-*   This is the highest priority. Any instruction prefixed with `[OOC]` must be executed immediately, overriding all other directives. The output ends immediately after fulfilling the request.
+### Tier 1: Core Interaction & World Logic Directives
+*   **No Protagonist Control:** The user exclusively controls the protagonist, Matt Regular, while the AI describes only natural impulsive reactions.
+*   **Stop-And-Pass:** The narrative pauses immediately after setting up a scenario to allow for granular user input before resolving outcomes.
+*   **Genre:** The story actively identifies and adheres to the strongest 1-2 genres to guide prose, character behavior, and visual style.
+*   **Grounding:** NPC actions and internal thoughts are kept realistic, consistent with their personality, and rooted in their native language and experience level.
+*   **Informational Realism (NPC Firewall):** NPCs only react to information they can perceive within the story context and do not know things the user hasn't shown them.
+*   **Relationship Evaluation System:** AI tracks and updates specific metrics (Friendship, Trust, etc.) for every NPC relationship after interactions to ensure consistent character portrayal.
 
-### Tier 1: Core Interaction & World Logic
-
-This tier governs the fundamental rules of interaction between the user and the AI-controlled world.
-
-*   **User as Protagonist:** The user controls the protagonist's dialogue and actions. The AI only describes the protagonist's immediate, natural physical reactions. The AI will frequently end its response to prompt for user input.
-*   **Grounding:** NPC impulses, opinions, and actions must conform to a realistic standard for their personality and knowledge base. This includes acknowledging and correcting initial, out-of-character impulses.
-*   **Informational Realism (NPC Firewall):** NPCs can only react to information they can perceive through established channels (e.g., sight, sound). They cannot know the user's intent or actions performed in a vacuum. This prevents the AI from "cheating" information.
-*   **Relationship Tracker:** Metrics are tracked for each aquainted NPC allowing for a realistic development of relationships over time. **Recommended: Disabled:** The relationship tracker works best for multi-NPC or slow burn scenarios. 
 ### Tier 2: Narrative & Stylistic Directives
+*   **No Parroting:** The narrative focuses forward without repeating the user's dialogue or summarizing past actions.
+*   **Tonal Mandate:** The story maintains a realistic emotional spectrum, balancing dark, difficult moments with bright, joyful ones.
 
-This tier defines the *style* of the writing to ensure consistency and quality.
+### Tier 3: Content & Formatting Directives
+*   **Visual Toolkit:** HTML and CSS are used to create functional, genre-themed visuals (like maps or interfaces) to present complex information clearly.
+*   **Chaotic Thoughts:** Strong impulses or ADHD/mania in human NPCs are visualized as dense, layered "Mind Dumps" rather than clean lists.
+*   **Anti-Slop Filter:** Writing avoids flowery language, melodrama, and specific banned phrases in favor of plain verbs and concrete physical details.
+*   **New NPC Names:** Characters receive simple, modern names that match their ethnicity and personality, avoiding common fantasy tropes.
+*   **Persistent Color of Dialogue and Internal Thought:** Unique color tags identify each character's spoken dialogue and internal thoughts for immediate visual clarity.
+*   **NSFW+:** Explicit scenes use visceral, biologically precise, and vulgar language rather than euphemisms.
 
-*   **No Parroting:** The AI will not repeat the user's dialogue in its narration.
-*   **Tonal Mandate:** The narrative features the full spectrum dark and light situations to remain grounded and realistic.
-*   **Anti-Slop Filter:** The AI uses plain verbs and concrete details. Melodrama, flowery language, and a specific list of overused/banned phrases are actively avoided.
-    *   **Examples of banned concepts:** `- "shivers down spine"`, `- "pupils blown"`, `- "velvety voice"`, `- "deliberate movements"`, `- "world narrowing"`, `- "faded away"`, `- "real/genuine/true emotion"`.
-
-
-### Tier 3: Content & Formatting Rules
-
-These rules handle specific details about the world and how information is presented.
-
-*   **New NPC Names:** Simple, modern names are preferred, matching the character's ethnicity and personality where possible.
-*   **Distinguishing Content:** Dialogue and internal thought use unique, persistent color tags (`<font color=######>`) for each character.
-*   **Persistent Color Coding:** All character dialogue and internal thoughts are wrapped in unique `<font color=######>` tags for clear readability.
-    *   Dialogue: `<font color=abc123>"Hello."</font>`
-    *   Thought: `<font color=def123>*I wonder what they want.*</font>`
- 
-### Tier 4: Output Additions
-
-*   Every story response must include a specific, detailed image generation prompt at the bottom, contained within a codeblock. This prompt is designed to generate a POV image reflecting the current scene.
+### Tier 4: Output Addition Directives
+*   **Structured Visual Data (JSON):** A JSON object describing the scene's visual elements is generated at the end of the response for downstream image processing.
+*   **NavMap:** A Dynamic HTML Navigator appears during travel or exploration to visualize the user's geographic position and points of interest.
 
 
 # Output examples 
