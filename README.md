@@ -14,8 +14,11 @@ It is a custom prompt and set of directives designed to create a consistent (few
 * **Stop-And-Pass:** The narrative pauses immediately after setting up a scenario to allow for granular user input before resolving outcomes. Stop-And-Pass can be quite disruptive if you are a 'lazy collaborator', better to leave it off, or the story won't progress.
   
 * Cleaned up 'Roles'
+
       *   GameMaster now does authentic dicerolls.
+
       *   My attempt at 'Full Character Immersion' role has been replaced with JacksonRiff's - it's just better.
+
       *   Added a 'Role Enhancer: Web Dev' that extends the role to one which is more 'capable' - code, worldbuilding and artistry. Recommended ON if using Visual Toolkit, otherwise off.
 
 ## Intended Model & Tuning
