@@ -5,67 +5,24 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
-## Hotfix 1.21
-Most of these changes have allowed for reducuction of token count, provide more engaging and coherent prose, and further improve responses to closer align to the narrative.
+## What's new in 1.3?
 
-- **Problem 1: Guardrails/Content Safety** - It's been discovered that some types of instructions in system prompt cause the model to validate against content safety guidelines, particularly if you try to modify it's chain of thought or apply any kind of jailbreak.
-This is an issue with very specific kinds of training data, but is not a core part of the model, it just has to be avoided.
-
-*The solution*: 'Thinking Fix' (basically, everything I just said we shouldn't do) is now optional, renamed to 'Think Adjustment' and _disabled by default_. 
-
-The directives have been sured-up, and reframed as successful output criteria, which results in more attention on the directives through reasoning.
-The primary Role (GM) is extended to enable _drafting_ during the reasoning.
-
-Pros: Same net-result as the previous system (heavily instruct CoT), high attention chain of thought. 
-
-Cons: slightly worse prompt adherence overall, small changes in multiple locations -> hard for users to reconcile changes (sorry)
-
-NOTE: Enabling the thinking fix will *improve* prompt adherence, but may trigger the content filters (useful when coming back to old conversations, see Problem 4).
-
-- **Problem 2: SVG** - TL;DR SillyTavern has a really annoying bug that means half the GLM SVG output doesn't get rendered.
-
-*The Solution* - stripped SVG instructions out entirely in favour of HTML/CSS, which GLM 4.7 in particular is VERY strong with.
-
-Cons: If you have a conversation history with SVG in it, it is now 'poisoned' (see Problem 4)
-
-- **Problem 3: Everything is Sci-Fi or high tech** - Why's everything shiny and metallic?
-
-*The Solution*: A new directive, Genre Determination. It will analyze any available context for overall writing genre and use it as a basis for visual outputs, character behaviour etc.
-
-Pros: Most things aren't shiny. Will default to 'Drama, Slice-of-life' if unspecified, and adapt as needed.
-
-Cons: You have to untick this if you specify your own genres.
-  
-- **Problem 4: A poison in my context** - GLM 4.7 loves to copy examples and structures.
-- 
-It may not adapt well on top of old context from previous versions of this preset.
-
-Tips: enable the 'Think Adjustment' and/or submit as part of your input: [OOC: Your directives have changed, make sure they are adhered to]
-
-
-## What's new in 1.2?
-
-- **Support for GLM 4.7**
-- **Support for Gemini 3.0 Flash Preview** (note)
-- Reduced frequency of 'Visual Toolkit' output frequency
-- Adjusted thinking direction
-- Countless adjustments and corrections throughout all instructions, reducing confusion or uncertainty during reasoning
-
-**Note**: For use with Gemini, toggle off all prompts with 'GLM' in the name and optionally toggle on the image prompt generator for Gemini.
-
-
-
-## What's new in 1.1?
-
-- **First person definitions** - rewrote the entire prompt from the first person perspective to encourage reasoning as an inner monologue rather than analytical analysis.
-- **Additional AI identities** - Chose from Creative Writer (Default), Sitcom script writer (comedic focus) and Full Character immersive RP.
-- **Relationship Tracker** - Encourages slow burn and iterative, measurable story progress. Helps to push the bot towards guided character impersonations, but can slow things down too much for one-on-one (single NPC) scenarios.
-- **General cleanup** - Lots of tweaking, formatting and structural cleanup to present the final prompt to the model as practically as possible.
+- Further tuning for GLM 4.7
+- Visual Toolkit: removed character thought representations from the general toolkit - they were overriding internal thought prose and activating too frequently.
+- New Directives:
+-   **Chaotic Thoughts:** Strong impulses or ADHD/mania in human NPCs are visualized as dense, layered "Mind Dumps" rather than clean lists. (see fun examples below)
+-     Very strong visual style that may not suit everyone.
+-   **Stop-And-Pass:** The narrative pauses immediately after setting up a scenario to allow for granular user input before resolving outcomes.
+-     note: Stop-And-Pass can be quite disruptive if you are a 'lazy collaborator', better to leave it off, or the story won't progress.
+- Cleaned up 'Roles'
+-   GameMaster now does authentic dicerolls.
+-   My attempt at 'Full Character Immersion' role has been replaced with JacksonRiff's - it's just better.
+-   Added a 'Role Enhancer: Web Dev' that extends the role to one which is more 'capable' - code, worldbuilding and artistry. Recommended ON if using Visual Toolkit, otherwise off.
 
 ## Intended Model & Tuning
 
 - **Model:** `GLM-4.7`
-- **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM-4.6 provider. I continue to get the best output and most reliable thinking with the official z.ai API.
+- **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM provider. I continue to get the best output and most reliable thinking with the official z.ai API.
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking, sampling and top_k is set for creative writing. Additionally, as of 4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
 
@@ -101,11 +58,16 @@ top_k: 255
 *   **NSFW+:** Explicit scenes use visceral, biologically precise, and vulgar language rather than euphemisms.
 
 ### Tier 4: Output Addition Directives
-*   **Structured Visual Data (JSON):** A JSON object describing the scene's visual elements is generated at the end of the response for downstream image processing.
+*   **Image Data:** Choose between a natural language prompt generator for GLM or Gemini, or optionally try 'Structured Data' which outputs relevant scene information into JSON - feeding this into Gemini is a great way to make reliable, detail rich prompts.
 *   **NavMap:** A Dynamic HTML Navigator appears during travel or exploration to visualize the user's geographic position and points of interest.
 
 
 # Output examples 
+1.3
+<img width="1450" height="711" alt="X1" src="https://github.com/user-attachments/assets/db27ce43-e9fe-4346-8538-f3fd57a061f4" />
+<img width="1496" height="1048" alt="X2" src="https://github.com/user-attachments/assets/fbd03267-e217-409b-a429-554d063f9190" />
+<img width="1486" height="881" alt="X3" src="https://github.com/user-attachments/assets/f9f3e96e-d169-44a0-bcf8-7cde02cc4f9a" />
+
 
 1.21
 
