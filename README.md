@@ -7,17 +7,17 @@ It is a custom prompt and set of directives designed to create a consistent (few
 
 ## What's new in 1.3?
 
-- Further tuning for GLM 4.7
-- Visual Toolkit: removed character thought representations from the general toolkit - they were overriding internal thought prose and activating too frequently.
-- New Directives:
-- **Chaotic Thoughts:** Strong impulses or ADHD/mania in human NPCs are visualized as dense, layered "Mind Dumps" rather than clean lists. (see fun examples below)
-      Very strong visual style that may not suit everyone.
-- **Stop-And-Pass:** The narrative pauses immediately after setting up a scenario to allow for granular user input before resolving outcomes.
+* Further tuning for GLM 4.7
+* Visual Toolkit: removed character thought representations from the general toolkit - they were overriding internal thought prose and activating too frequently.
+* New Directives:
+* **Chaotic Thoughts:** Strong impulses or ADHD/mania in human NPCs are visualized as dense, layered "Mind Dumps" rather than clean lists. (see fun examples below)
+  * Very strong visual style that may not suit everyone.
+* **Stop-And-Pass:** The narrative pauses immediately after setting up a scenario to allow for granular user input before resolving outcomes.
       note: Stop-And-Pass can be quite disruptive if you are a 'lazy collaborator', better to leave it off, or the story won't progress.
-- Cleaned up 'Roles'
--   GameMaster now does authentic dicerolls.
--   My attempt at 'Full Character Immersion' role has been replaced with JacksonRiff's - it's just better.
--   Added a 'Role Enhancer: Web Dev' that extends the role to one which is more 'capable' - code, worldbuilding and artistry. Recommended ON if using Visual Toolkit, otherwise off.
+* Cleaned up 'Roles'
+      *   GameMaster now does authentic dicerolls.
+      *   My attempt at 'Full Character Immersion' role has been replaced with JacksonRiff's - it's just better.
+      *   Added a 'Role Enhancer: Web Dev' that extends the role to one which is more 'capable' - code, worldbuilding and artistry. Recommended ON if using Visual Toolkit, otherwise off.
 
 ## Intended Model & Tuning
 
