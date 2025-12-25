@@ -6,6 +6,8 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
 ## What's new in 1.3?
+I'm releasing my first 'character card', a Sci-Fi sitcom focused story with strong base characters and backgrounds. This preset update compliments the release. 
+(p.s. it's here: )
 
 * Further tuning for GLM 4.7
 * Visual Toolkit: removed character thought representations from the general toolkit - they were overriding internal thought prose and activating too frequently.
