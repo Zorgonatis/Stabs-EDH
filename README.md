@@ -6,7 +6,7 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
 ## What's new in 1.4?
-- Added Jailbreak/Content Safety attention bypass. I consider this the first successful GLM 4.7 jailbreak.
+- Added Jailbreak/Content Safety attention bypass.
 - Prompt Adherence improved dramatically (now behaves closer to 4.6), using this 'self-prefill' method for the jailbreak to then move to the preset heirarchy. It won't fall back to 'generic storytelling draft mode' where it misses most of the prompt.
 - Writing quality seems to have improved a lot. This is expected - the AI is no longer looking for content safety issues and is more tightly bound to the EDH.
 
