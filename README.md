@@ -1,5 +1,6 @@
 Psst... need help and support, have ideas or perhaps want to contribute? Join our discord server: [CLICK HERE!](https://discord.gg/N5TZStF4) for all the latest.
-Marinara users MUST DISABLE this REGEX (it breaks HTML-driven features of this preset):
+
+**Marinara users MUST DISABLE this REGEX (it breaks HTML-driven features of this preset)**:
 <img width="905" height="699" alt="image" src="https://github.com/user-attachments/assets/5fd345dc-c797-4ca3-a7ef-a35e04533cad" />
 
 # Stab's Directive Hierarchy for SillyTavern and GLM-4.7 / Gemini 3.0
