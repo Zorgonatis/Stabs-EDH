@@ -7,16 +7,25 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
+## What's new in 1.6?
+### Vastly improved the post-user message (which is what drives the content safety bypass and further attention]
+*   **Result:** Much faster thinking process, less unnecessary considerations or fluff. Much faster and accurate to the prompt overall.
+
+### Revisited and fixed Impersonation Mode
+*   **Why?:** It was inconsistent and didn't take enough creative control of the user character's inputs.
+*   **Result:** Less time spent checking the user inputs and more on fleshing them out, higher quality Own Character writing.
+*   Note: If you use this, your future non-assisted inputs may be written out to the AI response as well. An unfortunate side effect but I figure most people will either use it mostly or not at all (in which case it should just be disabled)
+
+### Token optimisation
+*   Concious of the additions and features packed in, we need to keep things light. This is a WIP but basic cleanup has begun.
+
 ## What's new in 1.5?
 - Content Safety: Tweaked the implementation based on community feedback and findings. It works reliably, but there are still occasions where thinking stops prematurely.
 - **User Impersonation/Lazy Inputs**: Examples below. A powerful tool: Anything sent in [brackets] but without 'OOC' gives the AI permission to write for you. E.g. [decide where my character goes next] or, "Oh, I heard something funny today." [tells a joke] "pretty good yeah?"
 - Turned off some features by default (Relationship Tracker, Image outputs) to give a better feel for new/novice/out of the box users.
 - Requests welcome 
 
-## What's new in 1.4?
-- Added Jailbreak/Content Safety attention bypass.
-- Prompt Adherence improved dramatically (now behaves closer to 4.6), using this 'self-prefill' method for the jailbreak to then move to the preset heirarchy. It won't fall back to 'generic storytelling draft mode' where it misses most of the prompt.
-- Writing quality seems to have improved a lot. This is expected - the AI is no longer looking for content safety issues and is more tightly bound to the EDH.
+
 
 
 # Intended Model & Tuning
