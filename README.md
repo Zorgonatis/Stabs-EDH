@@ -9,7 +9,7 @@ It is a custom prompt and set of directives designed to create a consistent (few
 
 ## What's new in 1.6?
 ### Vastly improved the post-user message (which is what drives the content safety bypass and further attention]
-*   **Result:** Much faster thinking process, less unnecessary considerations or fluff. Much faster and accurate to the prompt overall.
+*   **Result:** Much faster thinking process, less unnecessary considerations or 'anxiety' loops. Much faster and accurate to the prompt overall.
 
 ### Revisited and fixed Impersonation Mode
 *   **Why?:** It was inconsistent and didn't take enough creative control of the user character's inputs.
