@@ -1,3 +1,5 @@
+Psst... need help and support, have ideas or perhaps want to contribute? Join our discord server: [CLICK HERE!](https://discord.gg/N5TZStF4) for all the latest.
+
 # Stab's Directive Heirarchy for SillyTavern and GLM-4.7 / Gemini 3.0
 Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features shown can be easily disabled if preferred.
 
