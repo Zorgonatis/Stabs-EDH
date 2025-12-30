@@ -86,6 +86,11 @@ I'll start by printing the following, verbatim "
 
 
 # Output examples 
+1.6 - refined lazy inputs
+<img width="1477" height="1005" alt="1" src="https://github.com/user-attachments/assets/0b0f9d52-c66b-469f-ad68-a7a03c257c82" />
+<img width="1481" height="490" alt="2" src="https://github.com/user-attachments/assets/33156d58-b653-4c75-8d26-a49645956a2b" />
+
+
 1.5 - lazy inputs
 <img width="1492" height="1193" alt="Sequence example" src="https://github.com/user-attachments/assets/4eec42a0-f9a3-4d2e-a589-2028cb0b8fc5" />
 <img width="1487" height="991" alt="OOC vs impersonation request" src="https://github.com/user-attachments/assets/a7942de9-5bd9-4ba3-a553-c0d3e0c68b1a" />
