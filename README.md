@@ -90,6 +90,12 @@ I'll start by printing the following, verbatim "
 <img width="1477" height="1005" alt="1" src="https://github.com/user-attachments/assets/0b0f9d52-c66b-469f-ad68-a7a03c257c82" />
 <img width="1481" height="490" alt="2" src="https://github.com/user-attachments/assets/33156d58-b653-4c75-8d26-a49645956a2b" />
 
+style - funny and role - sitcom writer :
+<img width="1484" height="892" alt="F1" src="https://github.com/user-attachments/assets/8471f385-f1df-4872-b5aa-cde182e4618f" />
+<img width="1486" height="591" alt="S2" src="https://github.com/user-attachments/assets/193c7647-e29c-45ea-ac98-2422dc06b18f" />
+
+
+
 
 1.5 - lazy inputs
 <img width="1492" height="1193" alt="Sequence example" src="https://github.com/user-attachments/assets/4eec42a0-f9a3-4d2e-a589-2028cb0b8fc5" />
