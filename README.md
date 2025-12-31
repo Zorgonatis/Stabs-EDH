@@ -11,11 +11,11 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
 ## What's new in 1.61?
-*   In the last release, I expanded on guiding the model precisely to parts of the prompt. This reduced model confusion (faster, more immediate outputs) but it had a severe side effect of not considering it's instructions deeply enough, and not planning as a 'writer', more like a code assistant.
+### In the last release, I expanded on guiding the model precisely to parts of the prompt. This reduced model confusion (faster, more immediate outputs) but it had a severe side effect of not considering it's instructions deeply enough, and not planning as a 'writer', more like a code assistant.
 *   **Change:** Reverted the content safety to a much simpler instruction. GLM knows how to plan writing, so we have to let it.
 *   **Result:** You should see a lot less weird behaviour with the thinking process in general, bringing some stability back to the preset
 
-*   User impersonation and GLM hallucinating square brackets
+### User impersonation and GLM hallucinating square brackets
 *   The instructions were needlessly complex. They have been refactored: having the 'User Impersonation' toggle enabled now always gives the AI permission to write for you. Disable it if you don't want that. You still instruct it in the same way, with [anything in square brackets] hydrated with dialogue, actions and thoughts for your character.
 
 
