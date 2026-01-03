@@ -10,6 +10,11 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
+
+## Installation
+To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
+
+
 ## What's new in 1.61?
 ### In the last release, I expanded on guiding the model precisely to parts of the prompt. This reduced model confusion (faster, more immediate outputs) but it had a severe side effect of not considering it's instructions deeply enough, and not planning as a 'writer', more like a code assistant.
 *   **Change:** Reverted the content safety to a much simpler instruction. GLM knows how to plan writing, so we have to let it.
