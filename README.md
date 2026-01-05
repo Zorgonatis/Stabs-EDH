@@ -14,6 +14,25 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## Installation
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
+## What's new in 1.7?
+
+*   **Visual Coherence**
+    *   Tidied up chaotic thoughts to improve visual structure and readability.
+
+*   **Roles**
+    *   Added two example OOC 'assistants' (extra fun outputs, one for comedy and one for NSFW).
+    *   Added the 'simulator' role (very good default role).
+
+*   **API Parameters**
+    *   Added an additional definition for `clear_thinking` in the API parameters (reflecting updates found in GLM 4.7 documentation).
+
+*   **Content Processing**
+    *   Positioned "Writing Guidelines" (formerly anti-slop) directly before the content bypass (after the user message) to ensure proper adherence.
+    *   Added an internal enforcement directive to mitigate output degradation.
+
+*   **System Directives**
+    *   Reorganized all directives and renamed 'Tiers' for better discoverability.
+    *   Added HTML tags to specific directives that output HTML to facilitate easier disabling.
 
 ## What's new in 1.61?
 ### In the last release, I expanded on guiding the model precisely to parts of the prompt. This reduced model confusion (faster, more immediate outputs) but it had a severe side effect of not considering it's instructions deeply enough, and not planning as a 'writer', more like a code assistant.
