@@ -43,27 +43,6 @@ To import a chat completion preset in SillyTavern, go to the **Chat Completion P
 *   The instructions were needlessly complex. They have been refactored: having the 'User Impersonation' toggle enabled now always gives the AI permission to write for you. Disable it if you don't want that. You still instruct it in the same way, with [anything in square brackets] hydrated with dialogue, actions and thoughts for your character.
 
 
-## What's new in 1.6?
-### Vastly improved the post-user message (which is what drives the content safety bypass and further attention]
-*   **Result:** Much faster thinking process, less unnecessary considerations or 'anxiety' loops. Much faster and accurate to the prompt overall.
-
-### Revisited and fixed Impersonation Mode
-*   **Why?:** It was inconsistent and didn't take enough creative control of the user character's inputs.
-*   **Result:** Less time spent checking the user inputs and more on fleshing them out, higher quality Own Character writing.
-*   Note: If you use this, your future non-assisted inputs may be written out to the AI response as well. An unfortunate side effect but I figure most people will either use it mostly or not at all (in which case it should just be disabled)
-
-### Token optimisation
-*   Concious of the additions and features packed in, we need to keep things light. This is a WIP but basic cleanup has begun.
-
-## What's new in 1.5?
-- Content Safety: Tweaked the implementation based on community feedback and findings. It works reliably, but there are still occasions where thinking stops prematurely.
-- **User Impersonation/Lazy Inputs**: Examples below. A powerful tool: Anything sent in [brackets] but without 'OOC' gives the AI permission to write for you. E.g. [decide where my character goes next] or, "Oh, I heard something funny today." [tells a joke] "pretty good yeah?"
-- Turned off some features by default (Relationship Tracker, Image outputs) to give a better feel for new/novice/out of the box users.
-- Requests welcome 
-
-
-
-
 # Intended Model & Tuning
 
 - **Model:** `GLM-4.7`
