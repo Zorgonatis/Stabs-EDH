@@ -28,7 +28,6 @@ To import a chat completion preset in SillyTavern, go to the **Chat Completion P
 
 *   **Content Processing**
     *   Positioned "Writing Guidelines" (formerly anti-slop) directly before the content bypass (after the user message) to ensure proper adherence.
-    *   Added an internal enforcement directive to mitigate output degradation.
 
 *   **System Directives**
     *   Reorganized all directives and renamed 'Tiers' for better discoverability.
