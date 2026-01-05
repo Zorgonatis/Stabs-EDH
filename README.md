@@ -122,6 +122,10 @@ I'll start by printing the following, verbatim "
 
 
 # Output examples 
+1.7
+<img width="1464" height="1165" alt="SEGFAULT" src="https://github.com/user-attachments/assets/8007d052-2ef5-412d-aa6c-2f99ab895d45" />
+
+
 1.6 - refined lazy inputs
 <img width="1477" height="1005" alt="1" src="https://github.com/user-attachments/assets/0b0f9d52-c66b-469f-ad68-a7a03c257c82" />
 <img width="1481" height="490" alt="2" src="https://github.com/user-attachments/assets/33156d58-b653-4c75-8d26-a49645956a2b" />
