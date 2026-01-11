@@ -143,6 +143,12 @@ These are add-ons that overlay the narrative with specific features.
 
 
 # Output examples 
+2.0
+<img width="1447" height="1045" alt="grpg2" src="https://github.com/user-attachments/assets/92328c85-c82f-4689-a67f-76fa24bc75a2" />
+<img width="1469" height="1115" alt="GRpg" src="https://github.com/user-attachments/assets/d4374f48-1afe-4145-8e1c-b987c6fe1d2f" />
+<img width="1472" height="1079" alt="Bon" src="https://github.com/user-attachments/assets/9b20452f-adaf-45fd-bb20-2e239798af1a" />
+
+
 1.7
 <img width="1464" height="1165" alt="SEGFAULT" src="https://github.com/user-attachments/assets/8007d052-2ef5-412d-aa6c-2f99ab895d45" />
 
