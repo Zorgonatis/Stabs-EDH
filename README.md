@@ -45,9 +45,7 @@ Shoutout to the Discord gang for help testing and thanks to everyone who has con
 *   **GM Role Removed:** Deprecated the Game Master role. Out-of-the-box experience was sub-par; external tools are recommended.
 *   **OOC Sharing:** Enabled multiple OOC Assistants to share and compete for space within the OOC output div.
 
-### User impersonation and GLM hallucinating square brackets
-*   The instructions were needlessly complex. They have been refactored: having the 'User Impersonation' toggle enabled now always gives the AI permission to write for you. Disable it if you don't want that. You still instruct it in the same way, with [anything in square brackets] hydrated with dialogue, actions and thoughts for your character.
-
+***
 
 # Intended Model & Tuning
 
