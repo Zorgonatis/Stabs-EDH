@@ -14,7 +14,6 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## Installation
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
-Hotfix 2.02 fixes a bad order of overrides (group toggle wouldn't work properly), also missing T4 summary in task steering.
 ### Directives 2.0 Overview
 
 #### Hotfixes to 2.05
