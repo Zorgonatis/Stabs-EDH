@@ -17,6 +17,16 @@ To import a chat completion preset in SillyTavern, go to the **Chat Completion P
 Hotfix 2.02 fixes a bad order of overrides (group toggle wouldn't work properly), also missing T4 summary in task steering.
 ### Directives 2.0 Overview
 
+#### Hotfixes to 2.05
+*  fixes a bad order of overrides (group toggle wouldn't work properly)
+*  missing T4 summary in task steering.
+*  Fixed ST Impersonation mode (lots of directives don't fire now under the impersonation trigger)
+*  Massively improved the unreliable narrator - it's hidden messages now work reliably and do add a unique layer to the storytelling (thx @HornySilicon )
+*  Simulator role expanded slightly, and the overall preset further scanned to remove specific references to 'writing' and 'novel' style references (didn't have many, but alledgedly helps with a more simulation-focused role)
+*  Added a brief 'Well Defined NPCs' directive that, when enabled, generates a character sheet for each new NPC as part of the response.
+*  Slight changes to the task steering and a few minor changes here and there based on a review from Claude.
+
+
 In short, 2.0 is a much better out of the box experience for the average user. It was never meant to turn into a full ready to go preset, so this has taken a bit of time to get right.
 Shoutout to the Discord gang for help testing and thanks to everyone who has continued to share their good (and bad) gens, knowledge and time.
 
