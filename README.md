@@ -1,8 +1,5 @@
 Psst... need help and support, have ideas or perhaps want to contribute? Join our discord server: [CLICK HERE!](https://discord.gg/Ugk2qHpmk8) for all the latest.
 
-**Marinara users MUST DISABLE this REGEX (it breaks HTML-driven features of this preset)**:
-<img width="905" height="699" alt="image" src="https://github.com/user-attachments/assets/5fd345dc-c797-4ca3-a7ef-a35e04533cad" />
-
 # Stab's Directive Hierarchy for SillyTavern and GLM-4.7 / Gemini 3.0
 Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features shown can be easily disabled if preferred.
 
@@ -14,15 +11,19 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## Installation
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
+It will ask to import Regex (described below). I recommend you do so, it can easily be turned off (also ensure any non-preset regex is turned off - they may affect things negetively:
+<img width="770" height="608" alt="image" src="https://github.com/user-attachments/assets/1e5f46c8-93ed-4654-897f-78c127f53f7a" />
+
+
 ### Directives 2.1 Overview
 
-#### **Context Management (Regex Support)**
+#### **Context Management (Regex)**
 Two automated scripts are now integrated to manage token usage and context clarity:
 *   **Strip VTK:** Removes HTML/CSS visual toolkit code from the AI request message.
 *   **Strip OOC:** Removes the Out-Of-Character assistant commentary blocks from AI request message.
 *   **Configuration (Min Depth 3):** These scripts preserve the most recent interactions (the last two turns) to ensure immediate context and dialogue cohesion remain intact.
 *   **Usage Tip:** These are active by default. If you prefer the raw, unedited history for any reason, you can disable them/decline them on import.
-*   **Note:** This does not remove any information from the chat log, just what is sent to the model.
+*   **Note:** This does not remove any information from the chat log, just what is sent to the model. All new HTML and OOC outputs will be wrapped in identifying XML comments.
 
 #### **Enhanced NPC Generation (Better NPCs)**
 The methodology for creating characters has been overhauled to increase depth and memorability:
