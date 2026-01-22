@@ -14,8 +14,14 @@ To import a chat completion preset in SillyTavern, go to the **Chat Completion P
 It will ask to import Regex (described below). I recommend you do so, it can easily be turned off (also ensure any non-preset regex is turned off - they may affect things negetively:
 <img width="770" height="608" alt="image" src="https://github.com/user-attachments/assets/1e5f46c8-93ed-4654-897f-78c127f53f7a" />
 
+### Then what?
 
-### Directives 2.1 Overview
+Go into the AI Response Options in SillyTavern (top left), scroll down to the prompt management and find 📄 𝗥𝗘𝗔𝗗𝗠𝗘 📄  (open with Pen icon).
+Follow the suggestions, notably reading the 'Overview' section of each Directive below.
+Then load up a chat and try it out!
+
+
+### Directives Release 2.1 Overview
 
 #### **Context Management (Regex)**
 Two automated scripts are now integrated to manage token usage and context clarity:
