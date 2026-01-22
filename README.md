@@ -14,45 +14,27 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## Installation
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
-### Directives 2.0 Overview
+### Directives 2.1 Overview
 
-#### Hotfixes to 2.05
-*  fixes a bad order of overrides (group toggle wouldn't work properly)
-*  missing T4 summary in task steering.
-*  Fixed ST Impersonation mode (lots of directives don't fire now under the impersonation trigger)
-*  Massively improved the unreliable narrator - it's hidden messages now work reliably and do add a unique layer to the storytelling (thx @HornySilicon )
-*  Simulator role expanded slightly, and the overall preset further scanned to remove specific references to 'writing' and 'novel' style references (didn't have many, but alledgedly helps with a more simulation-focused role)
-*  Added a brief 'Well Defined NPCs' directive that, when enabled, generates a character sheet for each new NPC as part of the response.
-*  Slight changes to the task steering and a few minor changes here and there based on a review from Claude.
+#### **Context Management (Regex Support)**
+Two automated scripts are now integrated to manage token usage and context clarity:
+*   **Strip VTK:** Removes HTML/CSS visual toolkit code from the AI request message.
+*   **Strip OOC:** Removes the Out-Of-Character assistant commentary blocks from AI request message.
+*   **Configuration (Min Depth 3):** These scripts preserve the most recent interactions (the last two turns) to ensure immediate context and dialogue cohesion remain intact.
+*   **Usage Tip:** These are active by default. If you prefer the raw, unedited history for any reason, you can disable them/decline them on import.
+*   **Note:** This does not remove any information from the chat log, just what is sent to the model.
 
+#### **Enhanced NPC Generation (Better NPCs)**
+The methodology for creating characters has been overhauled to increase depth and memorability:
+*   **Backwards Creation:** The process no longer starts with a name. Instead, it begins by defining 1-2 core pillars—such as distinct physical features, unique accessories, or specific personality traits. The name is selected last to ensure it fits the established ethnicity and persona perfectly.
+*   **High-Fidelity Introductions:** When an NPC is introduced for the first time, the narrative provides a dense, multi-sensory description covering all perceivable channels. This ensures you have a concrete, complete mental image of their appearance, demeanor, and presence immediately.
 
-In short, 2.0 is a much better out of the box experience for the average user. It was never meant to turn into a full ready to go preset, so this has taken a bit of time to get right.
-Shoutout to the Discord gang for help testing and thanks to everyone who has continued to share their good (and bad) gens, knowledge and time.
+#### **Narrative Reliability (Unreliable Narrator)**
+The narration mechanics have been refined for better storytelling flow:
+*   **Purposeful Deception:** Deceptive elements or hidden details are less likely to trigger for non
 
-### Directives 2.0 Changelog
-
-**Core Mechanics & Directives**
-*   **New Assistant**: Added a neutral, non-judgemental OOC assistant (Faceless) for those who want options without personality.
-*   **Refactored Directives:** Rewrote *Grounding* and *Informational Realism* to be more concise and token-efficient.
-*   **Physics Integration:** Merged physics parameters directly into the *Grounding* directive.
-*   **Environmental Factors:** Added a new directive to strictly track and simulate Time, Location, and Weather at the start of every turn.
-*   **Active Directive List:** Implemented a dynamic checklist of active directives for the AI to process item-by-item.
-
-**Visuals & Formatting**
-*   **HTML Overhaul:** Completely rewrote all HTML-generating prompts for consistency and stability.
-*   **WebDev Theming:** Set **Dark** as the default theme for the WebDev enhancement.
-*   **NPC Tracker:** Renamed "Relationship Tracker" to **NPC Tracker**; expanded scope to now track Condition, Clothing, Current Goal, and Inventory.
-
-**System Logic & Configuration**
-*   **NSFW Consent Policy:** Disabled the NSFW directive by default; toggling this on *is literally providing your consent to the model* for extreme NSFW content.
-*   **Task Steering:** Implemented a system to inject crucial enhancements or last-minute decisions at the end of the prompt.
-*   **Jailbreak Settings:** Disabled the Jailbreak by default (added a note requiring 10+ messages of context); separated its logic from Task Steering.
-*   **Perspective Shift:** Converted system instructions to a consistent second-person perspective ("You are...") or removed unnecessary pronouns.
-*   **Group Chat Toggle:** Added a toggle to facilitate multi-character scenarios.
-
-**Roles & Personas**
-*   **GM Role Removed:** Deprecated the Game Master role. Out-of-the-box experience was sub-par; external tools are recommended.
-*   **OOC Sharing:** Enabled multiple OOC Assistants to share and compete for space within the OOC output div.
+#### **Colored Speech/Thoughts**
+Changed slightly to use `_underscores to drive italics_` _instead of_ `*asterisks*` to avoid nesting issues and rendering problems.
 
 ***
 
@@ -128,7 +110,10 @@ These are add-ons that overlay the narrative with specific features.
 
 ## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼𝗻𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Writing Guidelines:** Enforces plain, concrete language and physical details; strictly bans flowery prose, melodrama, and a specific list of "cliché" phrases (like "shivers down spine" or "ozone").
-*   **New NPC Names:** Enforces modern, realistic names that match ethnicity and personality, avoiding fantasy tropes like "Elara."
+*   #### **Enhanced NPC Generation (Better NPCs)**
+The methodology for creating characters has been overhauled to increase depth and memorability:
+*   **Backwards Creation:** The process no longer starts with a name. Instead, it begins by defining 1-2 core pillars—such as distinct physical features, unique accessories, or specific personality traits. The name is selected last to ensure it fits the established ethnicity and persona perfectly.
+*   **High-Fidelity Introductions:** When an NPC is introduced for the first time, the narrative provides a dense, multi-sensory description covering all perceivable channels. This ensures you have a concrete, complete mental image of their appearance, demeanor, and presence immediately.
 *   **NSFW Content:** Confirms consent for mature themes and requires explicit, visceral, and biologically precise language during sexual encounters rather than euphemisms.
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
