@@ -11,8 +11,11 @@ It is a custom prompt and set of directives designed to create a consistent (few
 ## Installation
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
-It will ask to import Regex (described below). I recommend you do so, it can easily be turned off (also ensure any non-preset regex is turned off - they may affect things negetively:
+It will ask to import Regex (described below). I recommend you do so and leave them on, but can easily be turned off: 
+
 <img width="770" height="608" alt="image" src="https://github.com/user-attachments/assets/1e5f46c8-93ed-4654-897f-78c127f53f7a" />
+
+*Check any non-preset regex is turned off* - they can break things.
 
 ### Then what?
 
