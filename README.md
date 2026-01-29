@@ -54,7 +54,7 @@ This repository contains presets for two different AI models. Choose the one tha
 
 ## GLM-4.7/Gemini Preset
 
-**File:** `Stabs-EDH-v2.1.json`
+**File:** `Stabs-GLM-Directives-v2.1.json`
 
 ### Intended Model & Tuning
 
@@ -107,7 +107,7 @@ The following directives are unique to the Kimi preset and enhance realism in di
 
 # Common Directives & Features
 
-*The following directives and features apply to both GLM-4.7 and Kimi presets.*
+*The following directives and features apply to both GLM-4.7 and Kimi presets. Note: they are defined differently in each preset*
 
 ## Stab's Directives - Overview
 
