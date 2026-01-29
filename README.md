@@ -1,14 +1,15 @@
 Psst... need help and support, have ideas or perhaps want to contribute? Join our discord server: [CLICK HERE!](https://discord.gg/Ugk2qHpmk8) for all the latest.
 
-# Stab's Directive Hierarchy for SillyTavern and GLM-4.7 / Gemini 3.0
+# Stab's Directive Hierarchy for SillyTavern
+
 Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features shown can be easily disabled if preferred.
 
 This preset is based on some core concepts from Lucid Loom (https://lucid.cards) and Marinara's Universal (https://spicymarinara.github.io/). This preset is a fundamental restructure that borrows some of their fantastic instructions and ideas.
 
-It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict heirarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
-
+It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict hierarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
 ## Installation
+
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
 It will ask to import Regex (described below). I recommend you do so and leave them on, but can easily be turned off: 
@@ -22,7 +23,6 @@ It will ask to import Regex (described below). I recommend you do so and leave t
 Go into the AI Response Options in SillyTavern (top left), scroll down to the prompt management and find 📄 𝗥𝗘𝗔𝗗𝗠𝗘 📄  (open with Pen icon).
 Follow the suggestions, notably reading the 'Overview' section of each Directive below.
 Then load up a chat and try it out!
-
 
 ### Directives Release 2.1 Overview
 
@@ -46,9 +46,17 @@ The narration mechanics have been refined for better storytelling flow:
 #### **Colored Speech/Thoughts**
 Changed slightly to use `_underscores to drive italics_` _instead of_ `*asterisks*` to avoid nesting issues and rendering problems.
 
-***
+---
 
-# Intended Model & Tuning
+# Available Model Presets
+
+This repository contains presets for two different AI models. Choose the one that matches your setup:
+
+## GLM-4.7 Preset
+
+**File:** `Stabs-EDH-v2.1.json`
+
+### Intended Model & Tuning
 
 - **Model:** `GLM-4.7`
 - **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM provider. I continue to get the best output and most reliable thinking with the official z.ai API.
@@ -73,7 +81,38 @@ A 'jailbreak' is also included (but disabled by default), injecting the followin
     *Decision:* I will generate the response.
 ```
 
-# Stab's Directives - Overview
+### GLM-4.7 Output Examples
+
+<img width="1422" height="1927" alt="hehe" src="https://github.com/user-attachments/assets/070339e8-1cc0-4cfa-9633-54375e9f1013" />
+<img width="1447" height="1045" alt="grpg2" src="https://github.com/user-attachments/assets/92328c85-c82f-4689-a67f-76fa24bc75a2" />
+<img width="1469" height="1115" alt="GRpg" src="https://github.com/user-attachments/assets/d4374f48-1afe-4145-8e1c-b987c6fe1d2f" />
+<img width="1472" height="1079" alt="Bon" src="https://github.com/user-attachments/assets/9b20452f-adaf-45fd-bb20-2e239798af1a" />
+
+---
+
+## Kimi Preset
+
+**File:** `Stabs-Kimi-Directives-v0.3-K2.5.json`
+
+### Intended Model & Tuning
+
+- **Model:** Kimi K2.5
+
+<!-- TODO: Add Kimi-specific tuning parameters here -->
+
+<!-- TODO: Add Kimi-specific modifications/additions here -->
+
+### Kimi Output Examples
+
+<!-- TODO: Add Kimi output examples here -->
+
+---
+
+# Common Directives & Features
+
+*The following directives and features apply to both GLM-4.7 and Kimi presets.*
+
+## Stab's Directives - Overview
 
 **Summary:**
 A roleplay preset designed for SillyTavern that enforces strict adherence to simulation logic and narrative realism. Unlike standard presets that aim for a satisfying story arc, this preset prioritizes "grounded immersion," treating the narrative world as truth which continues regardless of the user's involvement. It prevents the AI from "hand-holding" or resolving conflicts too neatly. Instead, it enforces a structured workflow where the AI manages environmental consistency, complex NPC relationships, and atmospheric visual formatting (via HTML/CSS), while requiring the user to drive the protagonist's actions. It creates a "messy," authentic experience where NPCs act on their own impulses and knowledge, not just to serve the plot.
@@ -118,12 +157,14 @@ These are add-ons that overlay the narrative with specific features.
 *   **No Parroting:** Forbids the AI from repeating user dialogue; NPCs must respond naturally without summarizing past events unnecessarily.
 *   **Tonal Mandate:** Requires the narrative to span the full emotional spectrum, balancing dark/serious moments with light/happy ones to maintain realism.
 
-## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼𝗻𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
+## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼𝗵𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Writing Guidelines:** Enforces plain, concrete language and physical details; strictly bans flowery prose, melodrama, and a specific list of "cliché" phrases (like "shivers down spine" or "ozone").
-*   #### **Enhanced NPC Generation (Better NPCs)**
+
+#### **Enhanced NPC Generation (Better NPCs)**
 The methodology for creating characters has been overhauled to increase depth and memorability:
 *   **Backwards Creation:** The process no longer starts with a name. Instead, it begins by defining 1-2 core pillars—such as distinct physical features, unique accessories, or specific personality traits. The name is selected last to ensure it fits the established ethnicity and persona perfectly.
 *   **High-Fidelity Introductions:** When an NPC is introduced for the first time, the narrative provides a dense, multi-sensory description covering all perceivable channels. This ensures you have a concrete, complete mental image of their appearance, demeanor, and presence immediately.
+
 *   **NSFW Content:** Confirms consent for mature themes and requires explicit, visceral, and biologically precise language during sexual encounters rather than euphemisms.
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
@@ -132,7 +173,7 @@ The methodology for creating characters has been overhauled to increase depth an
 *   **Chaotic Thoughts:** Visualizes intense internal impulses or mania using scattered, overlapping HTML elements with emojis and varied fonts to represent mental noise.
 *   **NavMap:** Provides a visual, animated progress map during travel sequences, tracking the journey from Origin to Destination.
 *   **Persistent Color of Dialogue:** Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
-*   **POV Image Model:** Generates a dense, first-person paragraph prompt at the end of responses optimized for AI image generators.
+*   **POV Image Model:** Generates a dense, first-person paragraph prompt at end of responses optimized for AI image generators.
 *   **Structured Visual Data (SVD):** Outputs a JSON data block of the scene's visual elements for advanced processing (on OOC request).
 
 ---
@@ -140,26 +181,20 @@ The methodology for creating characters has been overhauled to increase depth an
 ### 💡 Tips for Configuration
 
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
-*   **OOC vs. Narrative:** The "Gooner" and "Segfault" assistants are distinct from the narrative voice. They will appear at the bottom of responses to chat with you out-of-character. If you want a purely serious experience, ensure these are disabled or set to "Faceless" for neutral options.
+*   **OOC vs. Narrative:** The "Gooner" and "Segfault" assistants are distinct from the narrative voice. They will appear at bottom of responses to chat with you out-of-character. If you want a purely serious experience, ensure these are disabled or set to "Faceless" for neutral options.
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.
 
+---
 
-# Output examples 
-2.0
-<img width="1422" height="1927" alt="hehe" src="https://github.com/user-attachments/assets/070339e8-1cc0-4cfa-9633-54375e9f1013" />
-<img width="1447" height="1045" alt="grpg2" src="https://github.com/user-attachments/assets/92328c85-c82f-4689-a67f-76fa24bc75a2" />
-<img width="1469" height="1115" alt="GRpg" src="https://github.com/user-attachments/assets/d4374f48-1afe-4145-8e1c-b987c6fe1d2f" />
-<img width="1472" height="1079" alt="Bon" src="https://github.com/user-attachments/assets/9b20452f-adaf-45fd-bb20-2e239798af1a" />
+## Historical Output Examples (GLM-4.7)
 
-
-1.7
+### Version 1.7
 <img width="1464" height="1165" alt="SEGFAULT" src="https://github.com/user-attachments/assets/8007d052-2ef5-412d-aa6c-2f99ab895d45" />
 
-
-1.6 - refined lazy inputs
+### Version 1.6 - refined lazy inputs
 <img width="1477" height="1005" alt="1" src="https://github.com/user-attachments/assets/0b0f9d52-c66b-469f-ad68-a7a03c257c82" />
 <img width="1481" height="490" alt="2" src="https://github.com/user-attachments/assets/33156d58-b653-4c75-8d26-a49645956a2b" />
 
-style - funny and role - sitcom writer :
+### Style - Funny and Role - Sitcom Writer
 <img width="1484" height="892" alt="F1" src="https://github.com/user-attachments/assets/8471f385-f1df-4872-b5aa-cde182e4618f" />
 <img width="1486" height="591" alt="S2" src="https://github.com/user-attachments/assets/193c7647-e29c-45ea-ac98-2422dc06b18f" />
