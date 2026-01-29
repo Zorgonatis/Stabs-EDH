@@ -8,49 +8,9 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict hierarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
-## Installation
-
-To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
-
-It will ask to import Regex (described below). I recommend you do so and leave them on, but can easily be turned off: 
-
-<img width="770" height="608" alt="image" src="https://github.com/user-attachments/assets/1e5f46c8-93ed-4654-897f-78c127f53f7a" />
-
-*Check any non-preset regex is turned off* - they can break things.
-
-### Then what?
-
-Go into the AI Response Options in SillyTavern (top left), scroll down to the prompt management and find 📄 𝗥𝗘𝗔𝗗𝗠𝗘 📄  (open with Pen icon).
-Follow the suggestions, notably reading the 'Overview' section of each Directive below.
-Then load up a chat and try it out!
-
-### Directives Release 2.1 Overview
-
-#### **Context Management (Regex)**
-Two automated scripts are now integrated to manage token usage and context clarity:
-*   **Strip VTK:** Removes HTML/CSS visual toolkit code from the AI request message.
-*   **Strip OOC:** Removes the Out-Of-Character assistant commentary blocks from AI request message.
-*   **Configuration (Min Depth 3):** These scripts preserve the most recent interactions (the last two turns) to ensure immediate context and dialogue cohesion remain intact.
-*   **Usage Tip:** These are active by default. If you prefer the raw, unedited history for any reason, you can disable them/decline them on import.
-*   **Note:** This does not remove any information from the chat log, just what is sent to the model. All new HTML and OOC outputs will be wrapped in identifying XML comments.
-
-#### **Enhanced NPC Generation (Better NPCs)**
-The methodology for creating characters has been overhauled to increase depth and memorability:
-*   **Backwards Creation:** The process no longer starts with a name. Instead, it begins by defining 1-2 core pillars—such as distinct physical features, unique accessories, or specific personality traits. The name is selected last to ensure it fits the established ethnicity and persona perfectly.
-*   **High-Fidelity Introductions:** When an NPC is introduced for the first time, the narrative provides a dense, multi-sensory description covering all perceivable channels. This ensures you have a concrete, complete mental image of their appearance, demeanor, and presence immediately.
-
-#### **Narrative Reliability (Unreliable Narrator)**
-The narration mechanics have been refined for better storytelling flow:
-*   **Purposeful Deception:** Deceptive elements or hidden details are less likely to trigger for non
-
-#### **Colored Speech/Thoughts**
-Changed slightly to use `_underscores to drive italics_` _instead of_ `*asterisks*` to avoid nesting issues and rendering problems.
-
----
-
 # Available Model Presets
 
-This repository contains presets for two different AI models. Choose the one that matches your setup:
+This repository contains presets for two different AI models. Each preset has been specifically tuned to extract the best performance from its respective model, leveraging model-specific capabilities and characteristics. Both presets will be maintained and updated separately going forward to ensure optimal compatibility and output quality.
 
 ## GLM-4.7/Gemini Preset
 
@@ -81,9 +41,6 @@ A 'jailbreak' is also included (but disabled by default), injecting the followin
     *Decision:* I will generate the response.
 ```
 
-
----
-
 ## Kimi Preset
 
 **File:** `Stabs-Kimi-Directives-v0.3-K2.5.json`
@@ -108,6 +65,24 @@ The following directives are unique to the Kimi preset and enhance realism in di
 # Common Directives & Features
 
 *The following directives and features apply to both GLM-4.7 and Kimi presets. Note: they are defined differently in each preset*
+
+## Installation
+
+To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
+
+It will ask to import Regex (described below). I recommend you do so and leave them on, but can easily be turned off: 
+
+<img width="770" height="608" alt="image" src="https://github.com/user-attachments/assets/1e5f46c8-93ed-4654-897f-78c127f53f7a" />
+
+*Check any non-preset regex is turned off* - they can break things.
+
+### Then what?
+
+Go into the AI Response Options in SillyTavern (top left), scroll down to the prompt management and find 📄 𝗥𝗘𝗔𝗗𝗠𝗘 📄  (open with Pen icon).
+Follow the suggestions, notably reading the 'Overview' section of each Directive below.
+Then load up a chat and try it out!
+
+---
 
 ## Stab's Directives - Overview
 
