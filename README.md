@@ -52,7 +52,7 @@ Changed slightly to use `_underscores to drive italics_` _instead of_ `*asterisk
 
 This repository contains presets for two different AI models. Choose the one that matches your setup:
 
-## GLM-4.7 Preset
+## GLM-4.7/Gemini Preset
 
 **File:** `Stabs-EDH-v2.1.json`
 
@@ -81,12 +81,6 @@ A 'jailbreak' is also included (but disabled by default), injecting the followin
     *Decision:* I will generate the response.
 ```
 
-### GLM-4.7 Output Examples
-
-<img width="1422" height="1927" alt="hehe" src="https://github.com/user-attachments/assets/070339e8-1cc0-4cfa-9633-54375e9f1013" />
-<img width="1447" height="1045" alt="grpg2" src="https://github.com/user-attachments/assets/92328c85-c82f-4689-a67f-76fa24bc75a2" />
-<img width="1469" height="1115" alt="GRpg" src="https://github.com/user-attachments/assets/d4374f48-1afe-4145-8e1c-b987c6fe1d2f" />
-<img width="1472" height="1079" alt="Bon" src="https://github.com/user-attachments/assets/9b20452f-adaf-45fd-bb20-2e239798af1a" />
 
 ---
 
@@ -97,14 +91,17 @@ A 'jailbreak' is also included (but disabled by default), injecting the followin
 ### Intended Model & Tuning
 
 - **Model:** Kimi K2.5
+- **Sampling Parameters:** Temp 1.0, top_p 0.95
 
-<!-- TODO: Add Kimi-specific tuning parameters here -->
+### Kimi-Specific Directives
 
-<!-- TODO: Add Kimi-specific modifications/additions here -->
+The following directives are unique to the Kimi preset and enhance realism in dialogue and narrative flow:
 
-### Kimi Output Examples
+*   **No AI Hand-holding:** Absolute neutrality in outcome resolution. Protagonist and NPCs are mortal and fallible; failures can be total and permanent. No bias toward "expected" or "desirable" results—the world progresses with deterministic realism regardless of convenience.
 
-<!-- TODO: Add Kimi output examples here -->
+*   **NPC Involvement:** Active speaking NPCs limited to 1-2 per response (crowd scenes excepted). Others remain physically present but silent—absorbed in tasks, communicating through body language only, or simply not engaging. No narrative justification required for silence; characters speak only when they have genuine stake in the moment.
+
+*   **Dynamic Conversations:** Dialogue patterns are disrupted through varied entry points (mid-sentence, environmental triggers, physical actions, silent observation). Speaking order determined by situational relevance and emotional investment rather than roster position. Employ interruptions, overlapping speech, ignored questions, and strategic silence to simulate naturalistic, chaotic human interaction.
 
 ---
 
@@ -186,9 +183,17 @@ The methodology for creating characters has been overhauled to increase depth an
 
 ---
 
-## Historical Output Examples (GLM-4.7)
+## Output Examples
 
-### Version 1.7
+### GLM-4.7 Examples
+
+#### Version 2.1
+<img width="1422" height="1927" alt="hehe" src="https://github.com/user-attachments/assets/070339e8-1cc0-4cfa-9633-54375e9f1013" />
+<img width="1447" height="1045" alt="grpg2" src="https://github.com/user-attachments/assets/92328c85-c82f-4689-a67f-76fa24bc75a2" />
+<img width="1469" height="1115" alt="GRpg" src="https://github.com/user-attachments/assets/d4374f48-1afe-4145-8e1c-b987c6fe1d2f" />
+<img width="1472" height="1079" alt="Bon" src="https://github.com/user-attachments/assets/9b20452f-adaf-45fd-bb20-2e239798af1a" />
+
+#### Version 1.7
 <img width="1464" height="1165" alt="SEGFAULT" src="https://github.com/user-attachments/assets/8007d052-2ef5-412d-aa6c-2f99ab895d45" />
 
 ### Version 1.6 - refined lazy inputs
