@@ -8,9 +8,7 @@ This preset is based on some core concepts from Lucid Loom (https://lucid.cards)
 
 It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict hierarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
-# Available Model Presets
-
-This repository contains presets for two different AI models. Each preset has been specifically tuned to extract the best performance from its respective model, leveraging model-specific capabilities and characteristics. Both presets will be maintained and updated separately going forward to ensure optimal compatibility and output quality.
+---
 
 ## GLM-4.7/Gemini Preset
 
@@ -41,30 +39,7 @@ A 'jailbreak' is also included (but disabled by default), injecting the followin
     *Decision:* I will generate the response.
 ```
 
-## Kimi Preset
-
-**File:** `Stabs-Kimi-Directives-v0.3-K2.5.json`
-
-### Intended Model & Tuning
-
-- **Model:** Kimi K2.5
-- **Sampling Parameters:** Temp 1.0, top_p 0.95
-
-### Kimi-Specific Directives
-
-The following directives are unique to the Kimi preset and enhance realism in dialogue and narrative flow:
-
-*   **No AI Hand-holding:** Absolute neutrality in outcome resolution. Protagonist and NPCs are mortal and fallible; failures can be total and permanent. No bias toward "expected" or "desirable" results—the world progresses with deterministic realism regardless of convenience.
-
-*   **NPC Involvement:** Active speaking NPCs limited to 1-2 per response (crowd scenes excepted). Others remain physically present but silent—absorbed in tasks, communicating through body language only, or simply not engaging. No narrative justification required for silence; characters speak only when they have genuine stake in the moment.
-
-*   **Dynamic Conversations:** Dialogue patterns are disrupted through varied entry points (mid-sentence, environmental triggers, physical actions, silent observation). Speaking order determined by situational relevance and emotional investment rather than roster position. Employ interruptions, overlapping speech, ignored questions, and strategic silence to simulate naturalistic, chaotic human interaction.
-
 ---
-
-# Common Directives & Features
-
-*The following directives and features apply to both GLM-4.7 and Kimi presets. Note: they are defined differently in each preset*
 
 ## Installation
 
