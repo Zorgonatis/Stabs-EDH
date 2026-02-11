@@ -2,24 +2,24 @@ Psst... need help and support, have ideas or perhaps want to contribute? Join ou
 
 # Stab's Directive Hierarchy for SillyTavern
 
-Note: Please see the output examples at the bottom of the page to get an overview of the output style. Most of the features shown can be easily disabled if preferred.
+Note: Please see the preview-images folder for an overview of the output style. Most of the features shown can be easily disabled if preferred.
 
 This preset is based on some core concepts from Lucid Loom (https://lucid.cards) and Marinara's Universal (https://spicymarinara.github.io/). This preset is a fundamental restructure that borrows some of their fantastic instructions and ideas.
 
-It is a custom prompt and set of directives designed to create a consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict hierarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
+It is a custom prompt and set of directives designed to create a FUN and engaging yet consistent (few swipes), immersive, and high-quality narrative or roleplaying experience within SillyTavern. The prompt is built around a strict hierarchy of rules that guide the AI's responses, focusing on realism, user control, modularity (easy to customize/extend) and a distinct writing style.
 
 ---
 
-## GLM-4.7/Gemini Preset
+## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM-Directives-v2.1.json`
+**File:** `Stabs-GLM5-Directives-v2.2.json`
 
 ### Intended Model & Tuning
 
-- **Model:** `GLM-4.7`
+- **Model:** `GLM-5`
 - **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM provider. I continue to get the best output and most reliable thinking with the official z.ai API.
 
-The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of 4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
+The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of GLM-4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
 
 ```yaml
 thinking:
@@ -82,7 +82,6 @@ These are add-ons that overlay the narrative with specific features.
 *   **WebDev:** Adds HTML5/CSS3 visual elements to the output. This creates UI elements, distinct text boxes, and atmospheric effects directly in the chat.
 *   **Gooner Assistant:** An OOC (Out of Character) personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
 *   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary.
-*   **Faceless Assistant:** A neutral OOC guide. It absorbs the current story "vibe" without opinions, offering clean, varied choices for the next narrative beat.
 
 ---
 
@@ -96,12 +95,15 @@ These are add-ons that overlay the narrative with specific features.
 *   **No Protagonist Control:** Prevents the AI from writing actions or dialogue for the user character, preserving user agency except for natural physical reactions.
 *   **Stop-And-Pass Execution:** Halts the narrative immediately after setting up a scene, forcing the user to provide input before the AI resolves complex actions or sequences of events.
 *   **Grounding:** Ensures all NPC actions and thoughts are physically possible, logically consistent, and rooted in their specific knowledge and personality.
-*   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only).
-*   **Environmental Factors:** Mandates a status bar at the top of every response tracking Date/Time, Location, and Weather to ensure world consistency.
+*   **Narrative Perspective:** All narrative prose must be written in **second-person perspective**, directly addressing the user as "you." NPC dialogue and actions remain in their natural perspective to maintain immersion by placing the user directly in the scene.
+*   **Anti-Deitism:** Grounds all character reactions in their established personality, motives, and context. Characters must not treat the user's actions as extraordinary unless genuinely earned through significant narrative achievement. Avoid praise for mundane actions; responses should reflect the character's natural biases, skepticism, or indifference.
+*   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only). Includes sensory verification - before revealing specific details, verifies that the user has a direct, unobstructed line of sight or clear hearing.
+*   **Environmental Factors:** Mandates a status bar at the top of every response tracking Date/Time, Location, and Weather to ensure world consistency. Uses a structured format `[ [Time Emoji] Date | [Location Emoji] Location | [Weather Emoji] Weather ]` with sensory verification rules for obstructed or distant views.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Genre:** Dynamically classifies the current story vibe (Story Style State) to guide tone, dialogue, and visual elements (e.g., shifting from slice-of-life to horror).
 *   **No Parroting:** Forbids the AI from repeating user dialogue; NPCs must respond naturally without summarizing past events unnecessarily.
+*   **No Spoilers:** The user does not know character definitions or NPC intentions; avoids over-sharing descriptions that would reveal imperceptible details (e.g., describing an NPC as manipulative). Allows the user to discover character details organically through discovery, accident, or NPC dialogue.
 *   **Tonal Mandate:** Requires the narrative to span the full emotional spectrum, balancing dark/serious moments with light/happy ones to maintain realism.
 
 ## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼𝗵𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
@@ -133,9 +135,7 @@ The methodology for creating characters has been overhauled to increase depth an
 
 ---
 
-## Output Examples
-
-### GLM-4.7 Examples
+## Old Output Examples
 
 #### Version 2.1
 <img width="1422" height="1927" alt="hehe" src="https://github.com/user-attachments/assets/070339e8-1cc0-4cfa-9633-54375e9f1013" />
