@@ -1167,7 +1167,7 @@
             "marker": false,
             "name": "Narrative Perspective",
             "role": "system",
-            "content": "### Narrative Perspective\nAll narrative prose must be written in **second-person perspective**, directly addressing ZeroShot as \"you.\" NPC dialogue and actions remain in their natural perspective. This maintains immersion by placing the user directly in the scene.\n\n{{addvar::t1::Narrative Perspective\n}}",
+            "content": "### Narrative Perspective\nAll narrative prose must be written in **second-person perspective**, directly addressing <USER> as \"you.\" NPC dialogue and actions remain in their natural perspective. This maintains immersion by placing the user directly in the scene.\n\n{{addvar::t1::Narrative Perspective\n}}",
             "injection_position": 0,
             "injection_depth": 4,
             "injection_order": 100,
