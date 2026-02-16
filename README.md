@@ -12,12 +12,13 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.2.json`
+**File:** `Stabs-GLM5-Directives-v2.3.json`
 
 ### Intended Model & Tuning
 
-- **Model:** `GLM-5`
-- **Tuning Plan:** This preset was created with the `z.ai coding plan`, but is fully compatible with any GLM provider. I continue to get the best output and most reliable thinking with the official z.ai API.
+- **Model:** `GLM-5` (thinking variant recommended)
+- **Default Provider:** `NanoGPT` with model `zai-org/glm-5:thinking`
+- **Alternative:** This preset is fully compatible with any GLM provider including the official z.ai API.
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of GLM-4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
 
@@ -80,8 +81,17 @@ A selection of modes to define the AI's core personality and writing style.
 These are add-ons that overlay the narrative with specific features.
 
 *   **WebDev:** Adds HTML5/CSS3 visual elements to the output. This creates UI elements, distinct text boxes, and atmospheric effects directly in the chat.
-*   **Gooner Assistant:** An OOC (Out of Character) personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
-*   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary.
+*   **Unreliable Narrator:** Allows the AI to hide brief, sensitive information from the user using XML comments. Enables foreshadowing, unperceived details, and NPC hidden actions.
+
+## 🤖 Extra Assistants
+
+OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants now use HTML-only formatting (no markdown).
+
+*   **Custom Assistant:** A customizable template with an editable persona field. Enabled by default with a placeholder persona ("Dave the penguin").
+*   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary. *Disabled by default.*
+*   **Gooner Assistant:** An OOC personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
+*   **George and Nico:** Features the Broken Sword protagonists as collaborative commentators, providing both perspectives on scenes.
+*   **Faceless Assistant:** A malleable identity that absorbs the Style State and world as inspiration, evolving over time without fixed opinions.
 
 ---
 
@@ -94,11 +104,11 @@ These are add-ons that overlay the narrative with specific features.
 ## 𝗧𝗜𝗘𝗥 𝟭: 𝗖𝗼𝗿𝗲 𝗜𝗻𝘁𝗲𝗿𝗮𝗰𝘁𝗶𝗼𝗻 & 𝗪𝗼𝗿𝗹𝗱 𝗟𝗼𝗴𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **No Protagonist Control:** Prevents the AI from writing actions or dialogue for the user character, preserving user agency except for natural physical reactions.
 *   **Stop-And-Pass Execution:** Halts the narrative immediately after setting up a scene, forcing the user to provide input before the AI resolves complex actions or sequences of events.
-*   **Grounding:** Ensures all NPC actions and thoughts are physically possible, logically consistent, and rooted in their specific knowledge and personality.
+*   **NPC Cognitive Bounds:** A consolidated directive ensuring NPCs are grounded, fallible, and bound by their perception and knowledge. Covers Knowledge Limits (no omniscience), Perceptual Limits (line of sight verification), Physical Grounding (achievable actions with consequences), Relationship Depth (varies by history), and Internal Voice (native language thoughts).
 *   **Narrative Perspective:** All narrative prose must be written in **second-person perspective**, directly addressing the user as "you." NPC dialogue and actions remain in their natural perspective to maintain immersion by placing the user directly in the scene.
 *   **Anti-Deitism:** Grounds all character reactions in their established personality, motives, and context. Characters must not treat the user's actions as extraordinary unless genuinely earned through significant narrative achievement. Avoid praise for mundane actions; responses should reflect the character's natural biases, skepticism, or indifference.
 *   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only). Includes sensory verification - before revealing specific details, verifies that the user has a direct, unobstructed line of sight or clear hearing.
-*   **Environmental Factors:** Mandates a status bar at the top of every response tracking Date/Time, Location, and Weather to ensure world consistency. Uses a structured format `[ [Time Emoji] Date | [Location Emoji] Location | [Weather Emoji] Weather ]` with sensory verification rules for obstructed or distant views.
+*   **Environmental Factors:** Displays time, location, and weather at the top of responses. Now includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Genre:** Dynamically classifies the current story vibe (Story Style State) to guide tone, dialogue, and visual elements (e.g., shifting from slice-of-life to horror).
@@ -118,8 +128,8 @@ The methodology for creating characters has been overhauled to increase depth an
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **NPC Tracker:** Generates a detailed, collapsible stats block for every active NPC tracking their condition, inventory, and evolving relationship metrics (Trust, Intimacy, Loyalty).
-*   **Visual Toolkit:** Uses CSS Grid/Flexbox and animations to create styled text boxes, atmospherics, and interactive UI elements that match the scene's genre.
-*   **Chaotic Thoughts:** Visualizes intense internal impulses or mania using scattered, overlapping HTML elements with emojis and varied fonts to represent mental noise.
+*   **Visual Toolkit:** Produces Style State themed augments within the narrative. Multiple outputs allowed. Includes styled containers for dialogue/actions, subtext highlighting, document mockups (phones, emails), and reality distortion effects.
+*   **Chaotic Thoughts:** Visualizes intense internal impulses, reactions, or vulnerability using dense HTML/CSS structures with hierarchical typography, mental debris (emojis, kaomoji), and contradiction overlays.
 *   **NavMap:** Provides a visual, animated progress map during travel sequences, tracking the journey from Origin to Destination.
 *   **Persistent Color of Dialogue:** Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
 *   **POV Image Model:** Generates a dense, first-person paragraph prompt at end of responses optimized for AI image generators.
@@ -130,7 +140,7 @@ The methodology for creating characters has been overhauled to increase depth an
 ### 💡 Tips for Configuration
 
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
-*   **OOC vs. Narrative:** The "Gooner" and "Segfault" assistants are distinct from the narrative voice. They will appear at bottom of responses to chat with you out-of-character. If you want a purely serious experience, ensure these are disabled or set to "Faceless" for neutral options.
+*   **Extra Assistants:** Assistants now use HTML-only formatting. The Custom Assistant is enabled by default and can be customized by editing the "Personas:" field in the directive. 
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.
 
 ---

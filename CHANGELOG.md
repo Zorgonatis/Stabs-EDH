@@ -2,6 +2,69 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.3.0] - 2026-02-15
+
+### Added
+- **NPC Cognitive Bounds Directive (Tier 1):**
+  - New consolidated directive combining grounding and perception rules
+  - Covers Knowledge Limits, Perceptual Limits, Physical Grounding
+  - Includes Relationship Depth guidance and Internal Voice rules
+  
+- **Custom Assistant Template:**
+  - New customizable assistant with editable persona field
+  - Enabled by default with placeholder "Dave the penguin" persona
+  
+- **Extra Assistants Header/End Directives:**
+  - New wrapper directives for cleaner assistant organization
+
+- **George and Nico Assistant:**
+  - New assistant featuring Broken Sword protagonists
+  - Replaces Journalist Assistant
+
+### Changed
+- **Task Steering GLM5 - Complete Restructure:**
+  - New "START HERE - Deep Thinking CoT Instructions" header
+  - Explicit S1-S3 stages with checkboxes for structured execution
+  - Added mock skeleton creation step before final output
+  - New `{{getvar::assistants}}` variable for cleaner assistant handling
+  - Added guidance for known character definitions in S2
+
+- **Environmental Factors Directive - Full Rewrite:**
+  - Simplified output format
+  - Added Time Scaling table with action-type-based advancement
+  - Added Time Skip Protocol with user intervention checks
+  - More flexible emoji usage
+
+- **Extra Assistants Formatting:**
+  - Renamed all assistants with `║` prefix for visual hierarchy
+  - Added HTML-only prohibition (no markdown in assistant outputs)
+  - Changed variable from `enhancements` to `assistants`
+
+- **Directive Output Formatting:**
+  - All Tier headers now use bold markdown
+  - All addvar outputs include checkbox format (`- [ ]`)
+  - Creates consistent checklist-style resolution
+
+- **Visual Toolkit - Simplified:**
+  - Removed detailed technical specifications
+  - Now focuses on Style State themed augments
+
+- **Chaotic Thoughts - Streamlined:**
+  - Simplified title and content structure
+
+- **Web Dev:**
+  - Added prohibition for markdown within HTML
+
+### Deprecated
+- **Grounding Directive:** Functionality merged into NPC Cognitive Bounds
+- **Journalist Assistant:** Replaced by George and Nico
+
+### Configuration
+- Default API changed from OpenRouter to NanoGPT
+- NanoGPT model set to `zai-org/glm-5:thinking`
+- SEGFAULT assistant now disabled by default
+- Custom Assistant enabled by default
+
 ## [2.2.0] - 2026-02-11
 
 ### Added
