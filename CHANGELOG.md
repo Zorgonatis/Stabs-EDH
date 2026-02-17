@@ -2,6 +2,31 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.0] - 2026-02-17
+
+### Added
+- **Failure Achievements Directive (Tier 4):**
+  - New directive celebrating missteps and blunders with sarcastic trophy-style popups
+  - Adapts to current Style State for theming
+  - Triggers on: failed checks, embarrassing moments, backfired choices, social failures
+  - "Roasting with affection" tone - playful acknowledgment of screw-ups
+  - Maximum one per response; skips for genuinely tragic or dark moments
+
+### Changed
+- **All Assistants - Complete Overhaul:**
+  - New unified layout structure for all assistants
+  - Floating sidebar layout (110px fixed-width left sidebar with 90px circular avatar)
+  - Support for AvatarURL field for custom images
+  - Expanded build instructions for commentary, options, and footer
+  - Added accessibility guidelines (minimum font sizes: 11px footer, 15px body; color contrast)
+  - Custom Assistant now has structured INPUT section with Persona and AvatarURL fields
+
+### Configuration
+- Default API changed from NanoGPT to OpenRouter
+- NanoGPT model updated to `zai-org/glm-5-original:thinking`
+- ZAI model updated from `glm-4.7` to `glm-5`
+- OpenAI max context increased from 131,072 to 200,000 tokens
+
 ## [2.3.0] - 2026-02-15
 
 ### Added

@@ -12,13 +12,13 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.3.json`
+**File:** `Stabs-GLM5-Directives-v2.4.json`
 
 ### Intended Model & Tuning
 
 - **Model:** `GLM-5` (thinking variant recommended)
-- **Default Provider:** `NanoGPT` with model `zai-org/glm-5:thinking`
-- **Alternative:** This preset is fully compatible with any GLM provider including the official z.ai API.
+- **Default Provider:** `OpenRouter` with model `z-ai/glm-5`
+- **Alternative:** This preset is fully compatible with any GLM provider including NanoGPT (`zai-org/glm-5-original:thinking`) or the official z.ai API.
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of GLM-4.7, we should include clear_thinking: 'true' to not reuse past reasoning context. These are only strictly required for the coding plan API under Custom provider (recommended over z.ai direct provider in ST). 
 
@@ -85,9 +85,9 @@ These are add-ons that overlay the narrative with specific features.
 
 ## 🤖 Extra Assistants
 
-OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants now use HTML-only formatting (no markdown).
+OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants now use a unified HTML layout with floating sidebar (avatar, name, subtitle, mood) and accessibility-compliant formatting.
 
-*   **Custom Assistant:** A customizable template with an editable persona field. Enabled by default with a placeholder persona ("Dave the penguin").
+*   **Custom Assistant:** A fully customizable template with INPUT fields for Persona and AvatarURL. Enabled by default with placeholder persona ("Dave the penguin"). Supports custom avatar images.
 *   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary. *Disabled by default.*
 *   **Gooner Assistant:** An OOC personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
 *   **George and Nico:** Features the Broken Sword protagonists as collaborative commentators, providing both perspectives on scenes.
@@ -134,6 +134,7 @@ The methodology for creating characters has been overhauled to increase depth an
 *   **Persistent Color of Dialogue:** Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
 *   **POV Image Model:** Generates a dense, first-person paragraph prompt at end of responses optimized for AI image generators.
 *   **Structured Visual Data (SVD):** Outputs a JSON data block of the scene's visual elements for advanced processing (on OOC request).
+*   **Failure Achievements:** Celebrates missteps, blunders, and awkward failures with sarcastic trophy-style HTML popups. Triggers on failed checks, embarrassing moments, backfired choices, and social mishaps. Uses a "roasting with affection" tone—playful, not cruel. Adapts to the current Style State for theming. Maximum one per response; skips for genuinely tragic or dark moments.
 
 ---
 
