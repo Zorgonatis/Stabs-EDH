@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.json`
+**File:** `Stabs-GLM5-Directives-v2.4.1.json`
 
 ### Intended Model & Tuning
 
@@ -28,6 +28,8 @@ thinking:
   clear_thinking: "true"
 do_sample: "true"
 ```
+
+**Post-Processing Strict:** This preset uses `Semi-strict (Alternating roles with tools)` post-processing mode. This causes the two user messages (your input + the Task Steering directive) to be merged into a single instruction, resulting in tighter instruction following. This setting is configured in the preset and will apply automatically on import.
 
 A 'jailbreak' is also included (but disabled by default), injecting the following string near to the end of prompt. This is a softer implementation than versions prior to 2.0:
 
@@ -108,6 +110,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Narrative Perspective:** All narrative prose must be written in **second-person perspective**, directly addressing the user as "you." NPC dialogue and actions remain in their natural perspective to maintain immersion by placing the user directly in the scene.
 *   **Anti-Deitism:** Grounds all character reactions in their established personality, motives, and context. Characters must not treat the user's actions as extraordinary unless genuinely earned through significant narrative achievement. Avoid praise for mundane actions; responses should reflect the character's natural biases, skepticism, or indifference.
 *   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only). Includes sensory verification - before revealing specific details, verifies that the user has a direct, unobstructed line of sight or clear hearing.
+*   **NPC Behavioural Coherence:** Ensures NPCs respond authentically to the reality their actions create. When behavior contradicts stated intent, NPCs must notice and reconcile, reveal their true intent (the mask slips), or experience psychological break. Prevents holding patterns where words and actions conflict for the sake of maintaining scene tension.
 *   **Environmental Factors:** Displays time, location, and weather at the top of responses. Now includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀

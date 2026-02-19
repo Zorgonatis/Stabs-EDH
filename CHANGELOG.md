@@ -2,6 +2,49 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.1] - 2026-02-19
+
+### Changed
+- **Task Steering GLM5 - Major Restructure:**
+  - Converted from `system` role to `user` role for tighter instruction following
+  - Restructured with XML-style tags: `<this_turn_instructions>`, `<instructions>`, `<parameters>`, `<constraints>`, `<output_format>`
+  - More precise expectations: Verbosity, Logical Decomposition, Information Exhaustiveness, Problem Diagnosis, Precision and Completeness
+  - Removed verbose S1-S4 checklist format in favor of streamlined 4-step process
+  - Added constraint to never start with `<CHAR>:`
+
+- **Tier 4 Header Updated:**
+  - Added instruction that additional outputs should be interspersed within narrative
+  - Added prohibition against starting or ending narration with visual elements
+
+- **Extra Assistants:**
+  - Purpose now explicitly states "addressing <USER> directly"
+
+- **AI Roles Header:**
+  - Renamed from `# ROLE` to `# SOUL.md - Who you are.`
+
+- **Tier 0 Header:**
+  - Now references `Execution Directive Hierarchy.md - Your rule book`
+
+### Added
+- **NPC Behavioural Coherence Directive (Tier 1):**
+  - Ensures NPCs respond authentically to the reality their actions create
+  - Handles contradictions between stated intent and behavior
+  - NPCs must notice/reconcile, reveal true intent, or experience psychological break
+  - Prevents holding patterns where words and actions conflict
+
+- **Immersion Engine Directive:**
+  - Positions AI as dynamic immersion engine balancing instruction, history, and user inputs
+  - Metaphor: air-to-fuel ratio, with scenario as track and user as passenger
+
+- **README Prompt Tips:**
+  - Added OOC tip: `[OOC: more details for char]` for character sheets
+  - Added OOC tip: `[OOC: Give me an SVD of char]` for Structured Visual Data
+
+### Configuration
+- **Post-Processing Strict:** Added `semi_tools` (Semi-strict / Alternating roles with tools) to custom_prompt_post_processing
+  - Merges user input + task steering into single instruction for tighter following
+- OpenAI max tokens reduced from 32,000 to 16,000
+
 ## [2.4.0] - 2026-02-17
 
 ### Added
