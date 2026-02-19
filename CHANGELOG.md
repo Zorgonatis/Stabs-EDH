@@ -2,6 +2,49 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.3] - 2026-02-19
+
+### Added
+- **Narrative Length Control Directive (Tier 2):**
+  - New directive controlling output size with Small/Medium/Large tiers
+  - Default: Short (2-4 paragraphs, single beat)
+  - Includes time/scene progression limits
+  - Enforces STOP before resolution moments
+
+- **NPC Scene Presence Limit Directive (Tier 3):**
+  - Limits active (speaking/acting) NPCs to 1-2 per response
+  - Defines active vs passive NPC presence
+  - Provides priority guidelines when cap is reached
+  - Exceptions for full-cast gatherings and climactic moments
+
+### Changed
+- **Task Steering GLM5:**
+  - Restructured execution steps with sub-steps (3A: Identify positions, 3B: Craft skeleton)
+  - Added validation sub-step (4A: Correct oversights)
+  - Updated output format instruction to reference step 3B
+
+- **Visual Toolkit:**
+  - Changed from "augments" to "fun augments"
+  - Restructured execution triggers with clearer categories
+  - Added separate triggers for TECH (interfaces/UIs), LITERATURE/LISTS/DOCUMENTS
+
+- **Style State / Genre:**
+  - Moved from Tier 2 to Tier 3 for better directive ordering
+
+- **Stop-and-Pass:**
+  - Renamed to "Stop-and-Pass (Slow, good for RPG) - CRITICAL"
+  - Added "- CRITICAL" emphasis to directive name and checkbox
+
+- **Color Dialogue/Thoughts:**
+  - Added prohibition: "Keep paragraphs intact & together"
+
+- **Web Dev:**
+  - Enhanced mandatory wrapper instruction for VTK placement
+  - Clarified placement guidance: "placed appropriately (unless location specified, within the planned narrative)"
+
+### Configuration
+- **OpenRouter Sort Models:** Changed from "alphabetically" to "pricing.prompt"
+
 ## [2.4.2] - 2026-02-19
 
 ### Fixed

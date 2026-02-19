@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.2.json`
+**File:** `Stabs-GLM5-Directives-v2.4.3.json`
 
 ### Intended Model & Tuning
 
@@ -114,6 +114,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Environmental Factors:** Displays time, location, and weather at the top of responses. Now includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
+*   **Narrative Length Control:** Enforces output size discipline with Small/Medium/Large tiers. Default is Short (2-4 paragraphs, single beat). Includes time/scene progression limits and enforces STOP before resolution moments. Suggestion: Small for dialogue exchanges, Medium for scene transitions, Large for climactic moments (rare).
 *   **Genre:** Dynamically classifies the current story vibe (Story Style State) to guide tone, dialogue, and visual elements (e.g., shifting from slice-of-life to horror).
 *   **No Parroting:** Forbids the AI from repeating user dialogue; NPCs must respond naturally without summarizing past events unnecessarily.
 *   **No Spoilers:** The user does not know character definitions or NPC intentions; avoids over-sharing descriptions that would reveal imperceptible details (e.g., describing an NPC as manipulative). Allows the user to discover character details organically through discovery, accident, or NPC dialogue.
@@ -121,6 +122,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 
 ## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼𝗵𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Writing Guidelines:** Enforces plain, concrete language and physical details; strictly bans flowery prose, melodrama, and a specific list of "cliché" phrases (like "shivers down spine" or "ozone").
+*   **NPC Scene Presence Limit:** Limits active (speaking/acting) NPCs to 1-2 per response to maintain narrative focus. Passive NPCs may occupy the scene without contributing. Exceptions for full-cast gatherings and climactic moments. Provides priority guidelines when cap is reached (proximity > relevance > narrative tension).
 
 #### **Enhanced NPC Generation (Better NPCs)**
 The methodology for creating characters has been overhauled to increase depth and memorability:
