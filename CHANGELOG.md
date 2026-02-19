@@ -2,6 +2,19 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.2] - 2026-02-19
+
+### Fixed
+- **Task Steering GLM5 Instructions:**
+  - Fixed numbering sequence (was 1, 2, 2, 3, 4 → now properly 1, 2, 3, 4, 5)
+
+### Changed
+- **Task Steering GLM5 Constraints:**
+  - Removed "Never start with `<CHAR>:`" constraint - model handles this correctly without explicit instruction
+  
+### Configuration
+- **Names Behavior:** Changed from `1` to `-1` (improves character name handling in multi-character scenarios)
+
 ## [2.4.1] - 2026-02-19
 
 ### Changed
@@ -31,10 +44,6 @@ All notable changes to Stabs-EDH preset will be documented in this file.
   - Handles contradictions between stated intent and behavior
   - NPCs must notice/reconcile, reveal true intent, or experience psychological break
   - Prevents holding patterns where words and actions conflict
-
-- **Immersion Engine Directive:**
-  - Positions AI as dynamic immersion engine balancing instruction, history, and user inputs
-  - Metaphor: air-to-fuel ratio, with scenario as track and user as passenger
 
 - **README Prompt Tips:**
   - Added OOC tip: `[OOC: more details for char]` for character sheets

@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.1.json`
+**File:** `Stabs-GLM5-Directives-v2.4.2.json`
 
 ### Intended Model & Tuning
 
