@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.4.json`
+**File:** `Stabs-GLM5-Directives-v2.4.5.json`
 
 ### Intended Model & Tuning
 
@@ -73,11 +73,11 @@ A roleplay preset designed for SillyTavern that enforces strict adherence to sim
 
 A selection of modes to define the AI's core personality and writing style. 
 
-*   **Simulator:** Controls all world parameters and physics. Prioritizes factually realistic NPCs and grounded behavior over narrative convenience. *Disabled by default in v2.4.4.*
+*   **Simulator:** Controls all world parameters and physics. Prioritizes factually realistic NPCs and grounded behavior over narrative convenience. *Disabled by default in v2.4.5.*
 *   **Creative Writer:** Manages story mechanics, pacing, and character depth. Ensures a blend of tones and logical progression.
 *   **Sitcom Script Writer:** Focuses on humor, witty banter, and emotional arcs. Useful for lighter scenes or specific character interactions.
 *   **Literal RP:** Enforces authentic immersion in the moment. Avoids literary prose, focusing on messy, unresolved, and psychologically complex reality.
-*   **Deep Researcher:** Emphasizes methodical, exhaustive analysis of system prompts and directives. Focuses on "impeccable attention to detail" for improved instruction adherence. *Experimental; enabled by default in v2.4.4.*
+*   **Deep Researcher:** Emphasizes methodical, exhaustive analysis of system prompts and directives. Focuses on "impeccable attention to detail" for improved instruction adherence. *Experimental; enabled by default in v2.4.5.*
 
 ## ⚙️ Role Enhancements
 
@@ -90,8 +90,8 @@ These are add-ons that overlay the narrative with specific features.
 
 OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants now use a unified HTML layout with floating sidebar (avatar, name, subtitle, mood) and accessibility-compliant formatting.
 
-*   **Custom Assistant:** A fully customizable template with INPUT fields for Persona and AvatarURL. Enabled by default with placeholder persona ("Dave the penguin"). Supports custom avatar images.
-*   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary. *Disabled by default.*
+*   **Custom Assistant:** A fully customizable template with INPUT fields for Persona and AvatarURL. Disabled by default with placeholder persona ("Dave the penguin"). Supports custom avatar images.
+*   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary. *Enabled by default in v2.4.5.*
 *   **Gooner Assistant:** An OOC personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
 *   **George and Nico:** Features the Broken Sword protagonists as collaborative commentators, providing both perspectives on scenes.
 *   **Faceless Assistant:** A malleable identity that absorbs the Style State and world as inspiration, evolving over time without fixed opinions.
@@ -147,7 +147,7 @@ The methodology for creating characters has been overhauled to increase depth an
 ### 💡 Tips for Configuration
 
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
-*   **Extra Assistants:** Assistants now use HTML-only formatting. The Custom Assistant is enabled by default and can be customized by editing the "Personas:" field in the directive. 
+*   **Extra Assistants:** Assistants now use HTML-only formatting. SEGFAULT is enabled by default in v2.4.5. The Custom Assistant can be customized by editing the "Personas:" field in the directive.
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.
 
 ---

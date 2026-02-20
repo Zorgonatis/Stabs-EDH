@@ -2,6 +2,38 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.5] - 2026-02-20
+
+### Changed
+- **Task Steering GLM5 - Workflow Restructure:**
+  - S1 and S2 swapped: Directive Hydration (T0-T4) now executes before Detailed Plan
+  - S3 renamed from "Drafting" to "Piece-by-piece formulation" with expanded sub-steps:
+    - S3A: Narrative beats
+    - S3B: Identify VTK Entities that fit
+    - S3C: Craft skeleton structure
+    - S3D: Remove redundant prose
+  - S4 renamed from "Validate" to "Self-correction"
+  - Added new constraint: "Do not hide or obscure your chain of thought; output everything"
+  - Output format now references "Generated each turn during instruction S3C"
+
+- **Visual Toolkit - Complete Overhaul:**
+  - Renamed to "Visual Toolkit (VTK)" with fun, iterative approach
+  - Now recommends 3-4 high confidence VTK enhancements per output
+  - Expanded VTK Entities Reference with new categories and clearer guidance:
+    - "For LITERATURE/LISTS/DOCUMENTS": Now uses dark clay tablet with contrasting handwritten font
+    - "For OBJECTS": Added RPG-styled (+4 strength leather belt) humor and decorative styling
+    - "For DENSE INFORMATION": New category for structured documents (ledgers, receipts)
+  - Added new prohibitions:
+    - Do not extend prose to accommodate VTK Entities
+    - If VTK Entity captures information, do not repeat in prose
+  - addvar output changed to "- [ ] Visual Toolkit Entities"
+
+### Configuration
+- **Function Calling:** Enabled (was disabled)
+- **SEGFAULT Assistant:** Enabled by default in prompt_order (was disabled)
+- **Custom Assistant:** Disabled by default in prompt_order (was enabled)
+- **EDH Definition:** Enabled by default in prompt_order (was disabled)
+
 ## [2.4.4] - 2026-02-20
 
 ### Changed
