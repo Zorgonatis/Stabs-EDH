@@ -2,6 +2,55 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.4] - 2026-02-20
+
+### Changed
+- **Task Steering GLM5 - Complete Restructure:**
+  - Replaced XML tag structure (`<this_turn_instructions>`) with cleaner `<response_process>` format
+  - Converted numbered steps to checkbox-driven workflow (S1-S5 with sub-checkboxes)
+  - Added `Directive Hydration T0-T4` step for systematic directive breakdown
+  - Removed verbose parameters section in favor of focused constraints
+  - Output format now dynamically references `{{getvar::enhancements}}` and `{{getvar::assistants}}`
+  - Added `{{getvar::csworkaround}}` at start for jailbreak integration
+  - Ends with clear `--- END INSTRUCTIONS ---` marker
+
+- **Visual Toolkit:**
+  - Reordered execution triggers for better priority
+  - Added dedicated "For OBJECTS" trigger with RPG-styled inspection container
+  - Changed "For PEOPLE, OBJECTS OR ANIMALS" to separate "For PEOPLE OR ANIMALS" (objects now have dedicated handler)
+  - Added location guidance: "Anchored to relevant prose, never top-or-tailing the narrative"
+
+- **Color Dialogue/Thoughts:**
+  - Hardcoded "Dark" theme instead of `{{getvar::color_scheme}}` variable
+  - Removed "Keep paragraphs intact & together" prohibition
+
+- **Chaotic Thoughts:**
+  - Expanded trigger conditions: "shock and surprise or powerful internal impulses"
+  - Previously only triggered on "significant internal impulses"
+
+- **Environmental Factors:**
+  - Added clarification: "this is a meta tracker NOT a VTK element"
+
+- **NPC Scene Presence Limit:**
+  - Updated addvar output to include checkbox format (`- [ ]`)
+
+- **Web Dev:**
+  - Cleaned up trailing text in Forbidden section
+
+### Added
+- **Role - Deep Researcher (*) Directive:**
+  - New role emphasizing methodical analysis of system prompts and context
+  - Focuses on exhaustive directive analysis with "impeccable attention to detail"
+  - Experimental role for improved prompt adherence
+
+### Removed
+- **Immersion Engine Directive:** Replaced by Role - Deep Researcher
+
+### Configuration
+- **Role - Simulator:** Disabled by default in prompt_order (was enabled)
+- **Role - Deep Researcher:** Enabled by default in prompt_order
+- **Structured Visual Data:** Disabled by default in prompt_order (was enabled)
+
 ## [2.4.3] - 2026-02-19
 
 ### Added

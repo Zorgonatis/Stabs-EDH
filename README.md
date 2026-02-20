@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.3.json`
+**File:** `Stabs-GLM5-Directives-v2.4.4.json`
 
 ### Intended Model & Tuning
 
@@ -73,10 +73,11 @@ A roleplay preset designed for SillyTavern that enforces strict adherence to sim
 
 A selection of modes to define the AI's core personality and writing style. 
 
-*   **Simulator:** Controls all world parameters and physics. Prioritizes factually realistic NPCs and grounded behavior over narrative convenience.
+*   **Simulator:** Controls all world parameters and physics. Prioritizes factually realistic NPCs and grounded behavior over narrative convenience. *Disabled by default in v2.4.4.*
 *   **Creative Writer:** Manages story mechanics, pacing, and character depth. Ensures a blend of tones and logical progression.
 *   **Sitcom Script Writer:** Focuses on humor, witty banter, and emotional arcs. Useful for lighter scenes or specific character interactions.
 *   **Literal RP:** Enforces authentic immersion in the moment. Avoids literary prose, focusing on messy, unresolved, and psychologically complex reality.
+*   **Deep Researcher:** Emphasizes methodical, exhaustive analysis of system prompts and directives. Focuses on "impeccable attention to detail" for improved instruction adherence. *Experimental; enabled by default in v2.4.4.*
 
 ## ⚙️ Role Enhancements
 
@@ -133,7 +134,7 @@ The methodology for creating characters has been overhauled to increase depth an
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **NPC Tracker:** Generates a detailed, collapsible stats block for every active NPC tracking their condition, inventory, and evolving relationship metrics (Trust, Intimacy, Loyalty).
-*   **Visual Toolkit:** Produces Style State themed augments within the narrative. Multiple outputs allowed. Includes styled containers for dialogue/actions, subtext highlighting, document mockups (phones, emails), and reality distortion effects.
+*   **Visual Toolkit:** Produces Style State themed augments within the narrative. Multiple outputs allowed. Includes styled containers for dialogue/actions, subtext highlighting, document mockups (phones, emails), RPG-styled inspection containers for objects, and reality distortion effects.
 *   **Chaotic Thoughts:** Visualizes intense internal impulses, reactions, or vulnerability using dense HTML/CSS structures with hierarchical typography, mental debris (emojis, kaomoji), and contradiction overlays.
 *   **NavMap:** Provides a visual, animated progress map during travel sequences, tracking the journey from Origin to Destination.
 *   **Persistent Color of Dialogue:** Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
