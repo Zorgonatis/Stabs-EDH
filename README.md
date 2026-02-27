@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.5.json`
+**File:** `Stabs-GLM5-Directives-v2.4.6.json`
 
 ### Intended Model & Tuning
 
@@ -71,13 +71,13 @@ A roleplay preset designed for SillyTavern that enforces strict adherence to sim
 
 ## 🎭 AI Roles
 
-A selection of modes to define the AI's core personality and writing style. 
+A selection of modes to define the AI's core personality and writing style.
 
-*   **Simulator:** Controls all world parameters and physics. Prioritizes factually realistic NPCs and grounded behavior over narrative convenience. *Disabled by default in v2.4.5.*
+*   **Simulator:** Controls all world parameters and physics. Prioritizes factally realistic NPCs and grounded behavior over narrative convenience. *Disabled by default in v2.4.6.*
 *   **Creative Writer:** Manages story mechanics, pacing, and character depth. Ensures a blend of tones and logical progression.
 *   **Sitcom Script Writer:** Focuses on humor, witty banter, and emotional arcs. Useful for lighter scenes or specific character interactions.
 *   **Literal RP:** Enforces authentic immersion in the moment. Avoids literary prose, focusing on messy, unresolved, and psychologically complex reality.
-*   **Deep Researcher:** Emphasizes methodical, exhaustive analysis of system prompts and directives. Focuses on "impeccable attention to detail" for improved instruction adherence. *Experimental; enabled by default in v2.4.5.*
+*   **Director:** Immersive Experience Director with theatrical/cinematic approach. Features Directorial Process (6-step method), Key Traits table, and emphasis on scene direction, perception control, and narrative staging. *Recommended but large token footprint; enabled by default in v2.4.6.*
 
 ## ⚙️ Role Enhancements
 
@@ -91,10 +91,11 @@ These are add-ons that overlay the narrative with specific features.
 OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants now use a unified HTML layout with floating sidebar (avatar, name, subtitle, mood) and accessibility-compliant formatting.
 
 *   **Custom Assistant:** A fully customizable template with INPUT fields for Persona and AvatarURL. Disabled by default with placeholder persona ("Dave the penguin"). Supports custom avatar images.
-*   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary. *Enabled by default in v2.4.5.*
+*   **Segfault Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary. *Enabled by default in v2.4.6.*
 *   **Gooner Assistant:** An OOC personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
 *   **George and Nico:** Features the Broken Sword protagonists as collaborative commentators, providing both perspectives on scenes.
 *   **Faceless Assistant:** A malleable identity that absorbs the Style State and world as inspiration, evolving over time without fixed opinions.
+*   **Dr. Emmett Brown (BTTF):** Character persona assistant for Back to the Future roleplay. *Disabled by default.*
 
 ---
 
@@ -111,7 +112,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Narrative Perspective:** All narrative prose must be written in **second-person perspective**, directly addressing the user as "you." NPC dialogue and actions remain in their natural perspective to maintain immersion by placing the user directly in the scene.
 *   **Anti-Deitism:** Grounds all character reactions in their established personality, motives, and context. Characters must not treat the user's actions as extraordinary unless genuinely earned through significant narrative achievement. Avoid praise for mundane actions; responses should reflect the character's natural biases, skepticism, or indifference.
 *   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only). Includes sensory verification - before revealing specific details, verifies that the user has a direct, unobstructed line of sight or clear hearing.
-*   **NPC Behavioural Coherence:** Ensures NPCs respond authentically to the reality their actions create. When behavior contradicts stated intent, NPCs must notice and reconcile, reveal their true intent (the mask slips), or experience psychological break. Prevents holding patterns where words and actions conflict for the sake of maintaining scene tension.
+*   **NPC Behavioural Coherence:** Ensures NPCs respond authentically to the reality their actions create. When behavior contradicts stated intent, NPCs must notice and reconcile, reveal their true intent (the mask slips), or experience psychological break. Prevents holding patterns where words and actions conflict for the sake of maintaining scene tension. NPCs initiate conflict, intimacy, and escalation based on their own drives—without preamble. Danger arrives without foreshadowing; boundaries are discovered through interaction, not lecture.
 *   **Environmental Factors:** Displays time, location, and weather at the top of responses. Now includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
@@ -121,7 +122,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **No Spoilers:** The user does not know character definitions or NPC intentions; avoids over-sharing descriptions that would reveal imperceptible details (e.g., describing an NPC as manipulative). Allows the user to discover character details organically through discovery, accident, or NPC dialogue.
 *   **Tonal Mandate:** Requires the narrative to span the full emotional spectrum, balancing dark/serious moments with light/happy ones to maintain realism.
 
-## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼𝗵𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
+## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼n𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Writing Guidelines:** Enforces plain, concrete language and physical details; strictly bans flowery prose, melodrama, and a specific list of "cliché" phrases (like "shivers down spine" or "ozone").
 *   **NPC Scene Presence Limit:** Limits active (speaking/acting) NPCs to 1-2 per response to maintain narrative focus. Passive NPCs may occupy the scene without contributing. Exceptions for full-cast gatherings and climactic moments. Provides priority guidelines when cap is reached (proximity > relevance > narrative tension).
 
@@ -147,7 +148,7 @@ The methodology for creating characters has been overhauled to increase depth an
 ### 💡 Tips for Configuration
 
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
-*   **Extra Assistants:** Assistants now use HTML-only formatting. SEGFAULT is enabled by default in v2.4.5. The Custom Assistant can be customized by editing the "Personas:" field in the directive.
+*   **Extra Assistants:** Assistants now use HTML-only formatting. SEGFAULT is enabled by default in v2.4.6. The Custom Assistant can be customized by editing the "Personas:" field in the directive.
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.
 
 ---

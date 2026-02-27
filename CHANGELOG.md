@@ -2,6 +2,55 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.6] - 2026-02-27
+
+### Changed
+- **Role - Deep Researcher → Role - Director:**
+  - Complete rewrite from academic researcher to Immersive Experience Director
+  - New theatrical/cinematic approach with Directorial Process (6-step method)
+  - Added Key Traits table: Methodical Precision, Creative Adaptability, Perceptual Manipulation, Multi-Stream Processing, Scene Awareness
+  - Includes "What You Are Not" clarifications
+  - Emphasizes scene direction, perception control, and narrative staging
+  - Renamed from "Role - Deep Researcher (*)" to "Role - Director (Recommended but large)"
+
+- **NPC Behavioural Coherence:**
+  - Expanded with new emphasis on proactive NPC agency
+  - Added: NPCs initiate conflict, intimacy, and escalation based on own drives
+  - Added: World does not cushion falls; rescue is never guaranteed
+  - Added: Danger arrives without foreshadowing; close calls sometimes result in collision
+  - Added: Boundaries discovered through interaction, not lecture
+
+- **Task Steering:**
+  - Added `{{getvar::assistantcheck}}` integration for assistant tracking
+  - Renamed from "TASK STEERING GLM5 🎯" to "TASK STEERING 🎯"
+  - Simplified constraint #4 wording (removed redundant "or")
+
+- **AI Roles Header:**
+  - Renamed from "SOUL.md - Who you are." to "SELF.md"
+  - Cleaned up setvar syntax (removed unnecessary spaces)
+  - Added `{{setvar::assistantcheck:}}` for assistant tracking
+
+- **Extra Assistants:**
+  - Renamed from "╔══ 𝗘𝘅𝘁𝗿𝗮 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁𝘀 (*)" to "╔══ 𝗘𝘅𝘁𝗿𝗮 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 (prompt)"
+  - Added bold formatting to "full-width HTML block"
+  - Added `{{addvar::assistantcheck::- [ ] Extra Assistant\n}}` output
+
+- **Structured Visual Data:**
+  - Genericized reference from "**NPC Definition of The Mansion**" to "**NPC Definition of <CHAR>**"
+
+- **Role Prompt Naming Cleanup:**
+  - "Role - Writer (Recommended)" → "Role - Writer"
+  - "Role - Simulator (Recommended)" → "Role - Simulator"
+
+### Added
+- **New Assistant: Dr. Emmett Brown (BTTF):**
+  - Character persona assistant for Back to the Future roleplay
+  - Includes AvatarURL reference for visual identity
+  - Disabled by default in prompt_order
+
+### Configuration
+- File size increased from 120K to 123K (89 → 90 prompts)
+
 ## [2.4.5] - 2026-02-20
 
 ### Changed
