@@ -2,6 +2,14 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.4.7] - 2026-03-03
+
+### Fixed
+- **Extra Assistants Toggle Bug:**
+  - Added missing `{{setvar::assistants::}}` variable injection to AI Roles header
+  - Fixes issue where Extra Assistants feature would remain stuck on even when disabled
+  - The `assistants` variable is now properly set, allowing the toggle to function correctly
+
 ## [2.4.6] - 2026-02-27
 
 ### Changed
