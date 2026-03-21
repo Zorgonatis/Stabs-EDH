@@ -12,7 +12,7 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ## GLM-5/Gemini Preset
 
-**File:** `Stabs-GLM5-Directives-v2.4.7.json`
+**File:** `Stabs-GLM5-Directives-v2.5.json`
 
 ### Intended Model & Tuning
 
@@ -109,7 +109,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **No Protagonist Control:** Prevents the AI from writing actions or dialogue for the user character, preserving user agency except for natural physical reactions.
 *   **Stop-And-Pass Execution:** Halts the narrative immediately after setting up a scene, forcing the user to provide input before the AI resolves complex actions or sequences of events.
 *   **NPC Cognitive Bounds:** A consolidated directive ensuring NPCs are grounded, fallible, and bound by their perception and knowledge. Covers Knowledge Limits (no omniscience), Perceptual Limits (line of sight verification), Physical Grounding (achievable actions with consequences), Relationship Depth (varies by history), and Internal Voice (native language thoughts).
-*   **Narrative Perspective:** All narrative prose must be written in **second-person perspective**, directly addressing the user as "you." NPC dialogue and actions remain in their natural perspective to maintain immersion by placing the user directly in the scene.
+*   **Narrative Perspective:** Configurable via SETTINGS prompt (default: Third Person Limited). Supports all perspective types including Omniscient, Objective, First/Second Person, and First Person Plural. *Changed in v2.5: Now uses dynamic `{{getvar::narrativeperspective}}` variable.*
 *   **Anti-Deitism:** Grounds all character reactions in their established personality, motives, and context. Characters must not treat the user's actions as extraordinary unless genuinely earned through significant narrative achievement. Avoid praise for mundane actions; responses should reflect the character's natural biases, skepticism, or indifference.
 *   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only). Includes sensory verification - before revealing specific details, verifies that the user has a direct, unobstructed line of sight or clear hearing.
 *   **NPC Behavioural Coherence:** Ensures NPCs respond authentically to the reality their actions create. When behavior contradicts stated intent, NPCs must notice and reconcile, reveal their true intent (the mask slips), or experience psychological break. Prevents holding patterns where words and actions conflict for the sake of maintaining scene tension. NPCs initiate conflict, intimacy, and escalation based on their own drives—without preamble. Danger arrives without foreshadowing; boundaries are discovered through interaction, not lecture.
@@ -135,7 +135,7 @@ The methodology for creating characters has been overhauled to increase depth an
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **NPC Tracker:** Generates a detailed, collapsible stats block for every active NPC tracking their condition, inventory, and evolving relationship metrics (Trust, Intimacy, Loyalty).
-*   **Visual Toolkit:** Produces Style State themed augments within the narrative. Multiple outputs allowed. Includes styled containers for dialogue/actions, subtext highlighting, document mockups (phones, emails), RPG-styled inspection containers for objects, and reality distortion effects.
+*   **Visual Toolkit:** Transforms narrative moments into rich visual experiences using HTML/CSS. Features creative "flavors": Mindscape (internal conflict/emotions), Interface (tech/UI), Document (papers/ledgers), Artifact (RPG-style object inspection), Subtext (hidden meanings), and Dialogue Spotlight. Quantity is scene-driven with creative freedom principles. *New in v2.5: Complete rewrite with flavors table and simplified approach.*
 *   **Chaotic Thoughts:** Visualizes intense internal impulses, reactions, or vulnerability using dense HTML/CSS structures with hierarchical typography, mental debris (emojis, kaomoji), and contradiction overlays.
 *   **NavMap:** Provides a visual, animated progress map during travel sequences, tracking the journey from Origin to Destination.
 *   **Persistent Color of Dialogue:** Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
@@ -147,6 +147,10 @@ The methodology for creating characters has been overhauled to increase depth an
 
 ### 💡 Tips for Configuration
 
+*   **SETTINGS Prompt (New in v2.5):** A new centralized configuration prompt allows customization of key narrative behaviors via setvar macros. Edit the 🛠️ SETTINGS 🛠️ prompt to change:
+    *   `narrativeperspective`: Third Person Limited (default), Omniscient, Objective, First/Second Person
+    *   `stylestateoverride`: Genre override or "None (Dynamic)" for AI detection
+    *   `narrativelengthoverride`: Short-Medium (default), Small, Medium, Large
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
 *   **Extra Assistants:** Assistants now use HTML-only formatting. SEGFAULT is enabled by default in v2.4.6. The Custom Assistant can be customized by editing the "Personas:" field in the directive.
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.

@@ -2,6 +2,57 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.5.0] - 2026-03-21
+
+### Added
+- **SETTINGS Configuration Prompt:**
+  - New centralized configuration prompt for narrative customization
+  - Dynamic macro variables for runtime overrides:
+    - `{{setvar::narrativeperspective::THIRD PERSON LIMITED}}`
+    - `{{setvar::stylestateoverride::None (Dynamic)}}`
+    - `{{setvar::narrativelengthoverride::Short-Medium}}`
+  - Includes comprehensive documentation for all narrative perspective options (Third Person Limited/Omniscient/Objective, First/Second Person, First Person Plural)
+  - Enabled by default in prompt_order
+
+- **AI Roles End Marker:**
+  - New empty marker prompt (`╚══ AI Roles End`) for visual hierarchy closure
+
+### Changed
+- **Visual Toolkit (VTK) - Complete Rewrite:**
+  - Replaced prescriptive rules with creative "flavors" table:
+    - **Mindscape**: Internal conflict, strong emotions, impulses (hierarchical screams, mental debris, contradiction overlays)
+    - **Interface**: Tech, communication, digital media (phone UI, terminals, holographic displays)
+    - **Document**: Papers, letters, ledgers, lore (dark paper, handwritten notes)
+    - **Artifact**: Objects worth examining (RPG-style inspection cards with stats)
+    - **Subtext**: Hidden meanings, magical influence (underlined phrases, animated effects)
+    - **Dialogue Spotlight**: Key NPC moments (themed containers)
+  - Added Creative Freedom Principles: quantity flexibility, hybridization, innovation, organic placement
+  - Added Technical Foundation section: HTML5/CSS3, CSS Grid, Flexbox, custom properties, @keyframes animations
+  - Added `<!-- VTK_START -->` / `<!-- VTK_END -->` wrapper comments
+  - Added prohibition: No animated `box-shadow` (use border/background/opacity instead)
+  - Removed rigid "3-4 high confidence" requirement in favor of scene-driven quantity
+
+- **Narrative Perspective:**
+  - Changed from hardcoded second-person to `{{getvar::narrativeperspective}}` variable
+  - Now configurable via SETTINGS prompt (default: THIRD PERSON LIMITED)
+
+- **Style State / Genre:**
+  - Renamed to "Dynamic Style State"
+  - Added `State Override: {{getvar::stylestateoverride}}` integration
+  - Simplified reference list (removed specific VTK/Chaotic Thoughts/NavMap mentions)
+
+- **Narrative Length Control:**
+  - Default changed from hardcoded "Short" to `{{getvar::narrativelengthoverride}}`
+  - Now configurable via SETTINGS prompt (default: Short-Medium)
+
+- **Visual Hierarchy (Box-Drawing Characters):**
+  - AI Roles header: `➢` → `╔══`
+  - Role Enhancements header: `➢` → `╠══`
+  - Individual role prompts: Added `║` prefix for visual nesting
+
+### Configuration
+- File size increased from 123KB to 126KB (90 → 92 prompts)
+
 ## [2.4.7] - 2026-03-03
 
 ### Fixed
