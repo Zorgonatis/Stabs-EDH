@@ -27,3 +27,6 @@ __pycache__/
 # Backup files
 *.bak
 *.backup
+
+# Process documentation
+UPDATE_PROCESS.md

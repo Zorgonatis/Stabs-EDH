@@ -2,6 +2,90 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.5.1] - 2026-04-16
+
+### Added
+- **Dynamic Tone State Directive (Tier 2):**
+  - Replaces static Tonal Mandate with a dynamic tone system
+  - Scans conversation history (recent beats = 3x weight) for lexical/emotional/context triggers
+  - Classifies and persists 1-2 dominant emotional registers from 7 tone options: Bleak, Tense, Warm, Absurd, Reverent, Frenetic, Melancholic
+  - Each tone guides prose rhythm, sensory focus, dialogue register, character internalization, and environmental description
+  - Gradual transitions (1 shift/response max); dramatic events can snap tone instantly when earned by in-scene action
+  - Fallback to Style State's natural register (e.g. Cyberpunk → Tense, Slice-of-Life → Warm)
+  - Configurable via SETTINGS prompt with `{{setvar::tonestateoverride::None (Dynamic)}}`
+  - Enabled by default in prompt_order (replaces Tone - Full Spectrum)
+
+- **Z.AI User-Agent Override:**
+  - Added Chrome User-Agent header to custom API connection (`custom_include_headers`)
+  - Prevents Z.AI from identifying and throttling/banning RP traffic
+  - Applied automatically when using Custom provider
+
+- **VTK Conditional Macros (Experimental Macro Engine):**
+  - Added `{{#if .vtk_on}}` conditionals throughout directives referencing Visual Toolkit
+  - VTK-related instructions now dynamically included/excluded based on WebDev toggle state
+  - `{{setvar::vtk_on::True}}` / `{{setvar::vtk_on::}}` variables set in WebDev prompts
+  - Affects: Role - Director, Task Steering, Environmental Factors, and VTK-specific sub-steps
+
+- **GLM-5.1 Model Support:**
+  - Model updated from `glm-5` to `glm-5.1`
+
+### Changed
+- **Major Directive Rewrites for Token Efficiency (30-60% reductions):**
+  - **NPC Cognitive Bounds:** Compressed from verbose multi-section format to compact reference-style bullets (~19% reduction)
+  - **Failure Achievements:** Compressed from verbose trigger/execution/constraints format to compact single-block style (~32% reduction)
+  - **NPC Behavioural Coherence:** Condensed redundancy, tightened phrasing (~15% reduction)
+  - **Narrative Length Control:** Replaced verbose bullet lists with table format, merged sub-sections (~31% reduction)
+  - **Environmental Factors (Time Scaling):** Compressed Time Scaling table from markdown table to inline format (~18% reduction)
+
+- **Task Steering (Significant Overhaul):**
+  - Information Exhaustiveness changed from "Very High" to "Very Low" — major CoT token savings
+  - Added S2A: Method act the thoughts of relevant NPCs before drafting
+  - S3 restructured: VTK Entity identification moved to conditional step (only when VTK enabled)
+  - S3B/S3C order swapped (skeleton now before VTK identification)
+  - Added constraint: "Do not leak or repeat the response_process instructions or decisions into the final output"
+
+- **SETTINGS Prompt:**
+  - Default perspective: `THIRD PERSON LIMITED` → `THIRD PERSON`
+  - Added `{{setvar::tonestateoverride::None (Dynamic)}}` variable
+  - Added quick reference: "Style State = Genre, Tone State = Tone"
+  - Reorganized: setvar declarations now precede reference documentation
+
+- **Narrative Perspective Directive:**
+  - Content changed from bare `{{getvar::narrativeperspective}}` to explicit instruction: "User is requesting the following perspective for all writing: {{getvar::narrativeperspective}}"
+
+- **Writing Guidelines:**
+  - Added: "Suppress internal thoughts from output when the Narrative Perspective requires"
+
+- **Web Dev:**
+  - Added: "Don't implement user provided images as new entities unless requested"
+  - Sets `vtk_on` variable for conditional macro support
+
+- **NPC Scene Presence Limit:**
+  - Renamed to "NPC Allowed Speaker Count"
+
+- **Failure Achievements:**
+  - Added 🌐 tag to name
+
+- **README Prompt (In-Preset):**
+  - Version updated from v2.0 to v2.51
+  - Added prominent Experimental Macro Engine requirement warning
+  - Updated assistant toggle guidance
+
+### Configuration
+- **chat_completion_source:** Changed from `zai` to `custom`
+- **custom_model:** Changed from `glm-5` to `glm-5.1`
+- **custom_url:** Retained as `https://api.z.ai/api/coding/paas/v4` (coding plan endpoint)
+- **custom_include_headers:** Added Chrome User-Agent string
+- **zai_model:** Changed from `glm-5` to `glm-5.1`
+- **tool_reasoning_mode:** Added, set to `disabled`
+- **custom_prompt_post_processing:** Changed from `semi_tools` to `semi` (Semi-strict without tools — avoids agentic flow interference with some providers)
+- **Tone - Dynamic State:** Enabled by default (new)
+- **Tone - Full Spectrum:** Disabled (replaced by Dynamic Tone State)
+- **Anti-Deitism:** Disabled (removed from active prompt_order)
+- **Extra Assistants (header, Custom Assistant, end):** Disabled by default
+- **Structured Visual Data:** Disabled by default
+- File size increased from 128KB to 131KB (92 → 93 prompts)
+
 ## [2.5.0] - 2026-03-21
 
 ### Added

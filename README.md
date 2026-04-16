@@ -10,15 +10,17 @@ It is a custom prompt and set of directives designed to create a FUN and engagin
 
 ---
 
-## GLM-5/Gemini Preset
+## GLM-5.1 Preset
 
-**File:** `Stabs-GLM5-Directives-v2.5.json`
+**File:** `Stabs-GLM5.1-Directives-v2.51.json`
 
 ### Intended Model & Tuning
 
-- **Model:** `GLM-5` (thinking variant recommended)
-- **Default Provider:** `Z.AI` with model `glm-5`
-- **Alternative:** This preset is compatible with any GLM provider, but results may vary: Z.AI is the consistent choice.
+- **Model:** `GLM-5.1` (thinking variant recommended)
+- **Default Provider:** `Custom` with model `glm-5.1` via `api.z.ai/api/coding/paas/v4`
+- **Alternative:** This preset is fully compatible with any GLM provider including OpenRouter (`z-ai/glm-5`) or NanoGPT (`zai-org/glm-5-original:thinking`).
+
+**IMPORTANT — Z.AI User-Agent Override:** This preset uses a Custom provider configuration with a Chrome User-Agent header. This prevents Z.AI from identifying and throttling/banning accounts for RP use. The override is applied automatically via `custom_include_headers`.
 
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of GLM-4.7, we can include clear_thinking: 'true' to not reuse past reasoning context. 
 These are NOT required but do not hurt to set in case of poor backend configuration. 
@@ -30,7 +32,7 @@ thinking:
 do_sample: "true"
 ```
 
-**Post-Processing Strict:** This preset uses `Semi-strict (Alternating roles with tools)` post-processing mode. This causes the two user messages (your input + the Task Steering directive) to be merged into a single instruction, resulting in tighter instruction following. This setting is configured in the preset and will apply automatically on import.
+**Post-Processing Strict:** This preset uses `Semi-strict` post-processing mode (without tools). This causes the two user messages (your input + the Task Steering directive) to be merged into a single instruction, resulting in tighter instruction following. The non-tools variant avoids agentic flow interference with some providers. This setting is configured in the preset and will apply automatically on import.
 
 Both a jailbreak and NSFW Consent toggle are also included (but both disabled by default). Try the consent first, and jailbreak only if you get refusals.
 
@@ -40,7 +42,9 @@ Both a jailbreak and NSFW Consent toggle are also included (but both disabled by
 
 To import a chat completion preset in SillyTavern, go to the **Chat Completion Presets tab (sliders icon)**, ensure you're using the Chat Completion API, then click the **Import button (paper with arrow)** and select your preset file.
 
-It will ask to import Regex (described below). I recommend you do so and leave them on, but can easily be turned off: 
+> **CRITICAL: Experimental Macro Engine MUST be enabled.** Go to **User Settings → find the "Experimental Macro Engine" checkbox** and ensure it is turned ON. This preset uses `{{#if}}` conditional macros throughout — without it enabled, VTK and other conditional directives will break.
+
+It will ask to import Regex (described below). I recommend you do so and leave them on, but can easily be turned off:
 
 <img width="770" height="608" alt="image" src="https://github.com/user-attachments/assets/1e5f46c8-93ed-4654-897f-78c127f53f7a" />
 
@@ -102,25 +106,35 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **No Protagonist Control:** Prevents the AI from writing actions or dialogue for the user character, preserving user agency except for natural physical reactions.
 *   **Stop-And-Pass Execution:** Halts the narrative immediately after setting up a scene, forcing the user to provide input before the AI resolves complex actions or sequences of events.
 *   **NPC Cognitive Bounds:** A consolidated directive ensuring NPCs are grounded, fallible, and bound by their perception and knowledge. Covers Knowledge Limits (no omniscience), Perceptual Limits (line of sight verification), Physical Grounding (achievable actions with consequences), Relationship Depth (varies by history), and Internal Voice (native language thoughts).
-*   **Narrative Perspective:** Configurable via SETTINGS prompt (default: Third Person Limited). Supports all perspective types including Omniscient, Objective, First/Second Person, and First Person Plural. *Changed in v2.5: Now uses dynamic `{{getvar::narrativeperspective}}` variable.*
+*   **Narrative Perspective:** Configurable via SETTINGS prompt (default: Third Person). Supports all perspective types including Omniscient, Objective, First/Second Person, and First Person Plural. *Changed in v2.5.1: Default changed to Third Person; thoughts suppressed when perspective requires it.*
 *   **Anti-Deitism:** Grounds all character reactions in their established personality, motives, and context. Characters must not treat the user's actions as extraordinary unless genuinely earned through significant narrative achievement. Avoid praise for mundane actions; responses should reflect the character's natural biases, skepticism, or indifference.
 *   **Informational Realism (NPC Firewall):** Strictly limits NPC knowledge to what they have realistically observed or heard, preventing omniscience and requiring strict adherence to communication channels (e.g., voice-only). Includes sensory verification - before revealing specific details, verifies that the user has a direct, unobstructed line of sight or clear hearing.
 *   **NPC Behavioural Coherence:** Ensures NPCs respond authentically to the reality their actions create. When behavior contradicts stated intent, NPCs must notice and reconcile, reveal their true intent (the mask slips), or experience psychological break. Prevents holding patterns where words and actions conflict for the sake of maintaining scene tension. NPCs initiate conflict, intimacy, and escalation based on their own drives—without preamble. Danger arrives without foreshadowing; boundaries are discovered through interaction, not lecture.
 *   **Environmental Factors:** Displays time, location, and weather at the top of responses. Now includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
-*   **Narrative Length Control:** Enforces output size discipline with Small/Medium/Large tiers. Default is Short (2-4 paragraphs, single beat). Includes time/scene progression limits and enforces STOP before resolution moments. Suggestion: Small for dialogue exchanges, Medium for scene transitions, Large for climactic moments (rare).
+*   **Narrative Length Control:** Enforces output size discipline with Small/Medium/Large tiers. Default is Short-Medium. Includes scene progression limits and enforces STOP before resolution moments. Small for dialogue exchanges, Medium for scene transitions, Large for climactic moments (rare).
 *   **Genre:** Dynamically classifies the current story vibe (Story Style State) to guide tone, dialogue, and visual elements (e.g., shifting from slice-of-life to horror).
 *   **No Parroting:** Forbids the AI from repeating user dialogue; NPCs must respond naturally without summarizing past events unnecessarily.
 *   **No Spoilers:** The user does not know character definitions or NPC intentions; avoids over-sharing descriptions that would reveal imperceptible details (e.g., describing an NPC as manipulative). Allows the user to discover character details organically through discovery, accident, or NPC dialogue.
-*   **Tonal Mandate:** Requires the narrative to span the full emotional spectrum, balancing dark/serious moments with light/happy ones to maintain realism.
+*   **Dynamic Tone State:** Scans conversation history for emotional/context triggers and dynamically classifies the dominant tone (Bleak, Tense, Warm, Absurd, Reverent, Frenetic, Melancholic). Each tone guides prose rhythm, sensory focus, dialogue register, and environmental description. Gradual transitions (1 max/response); dramatic events can snap tone instantly when earned. Fallback to Style State's natural register. Configurable via SETTINGS `tonestateoverride`. *New in v2.5.1 — replaces static Tonal Mandate.*
 
 ## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼n𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Writing Guidelines:** Enforces plain, concrete language and physical details; strictly bans flowery prose, melodrama, and a specific list of "cliché" phrases (like "shivers down spine" or "ozone").
+<<<<<<< HEAD
 *   **NPC Scene Presence Limit:** Limits active (speaking/acting) NPCs to 1-2 per response to maintain narrative focus. Passive NPCs may occupy the scene without contributing. Exceptions for full-cast gatherings and climactic moments. Provides priority guidelines when cap is reached (proximity > relevance > narrative tension).
 *   **Enhanced NPC Generation (Better NPCs):** The methodology for creating characters has been overhauled to increase depth and memorability:
 *   The process no longer starts with a name. Instead, it begins by defining 1-2 core pillars—such as distinct physical features, unique accessories, or specific personality traits. The name is selected last to ensure it fits the established ethnicity and persona.
 *   When an NPC is introduced for the first time, the narrative provides a dense, multi-sensory description covering all perceivable channels. This ensures you have a concrete, complete mental image of their appearance, demeanor, and presence immediately.
+=======
+*   **NPC Allowed Speaker Count:** Limits active (speaking/acting) NPCs to 1-2 per response to maintain narrative focus. Passive NPCs may occupy the scene without contributing. Exceptions for full-cast gatherings and climactic moments. Provides priority guidelines when cap is reached (proximity > relevance > narrative tension).
+
+#### **Enhanced NPC Generation (Better NPCs)**
+The methodology for creating characters has been overhauled to increase depth and memorability:
+*   **Backwards Creation:** The process no longer starts with a name. Instead, it begins by defining 1-2 core pillars—such as distinct physical features, unique accessories, or specific personality traits. The name is selected last to ensure it fits the established ethnicity and persona perfectly.
+*   **High-Fidelity Introductions:** When an NPC is introduced for the first time, the narrative provides a dense, multi-sensory description covering all perceivable channels. This ensures you have a concrete, complete mental image of their appearance, demeanor, and presence immediately.
+
+>>>>>>> 1c947d3 (Release v2.5.1 - Dynamic Tone State, GLM-5.1, Z.AI UA override, token efficiency rewrites)
 *   **NSFW Content:** Confirms consent for mature themes and requires explicit, visceral, and biologically precise language during sexual encounters rather than euphemisms.
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
@@ -129,18 +143,19 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Persistent Color of Dialogue:** Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
 *   **POV Image Model:** Generates a dense, first-person paragraph prompt at end of responses optimized for AI image generators.
 *   **Structured Visual Data (SVD):** Outputs a JSON data block of the scene's visual elements for advanced processing (on OOC request).
-*   **Failure Achievements:** Celebrates missteps, blunders, and awkward failures with sarcastic trophy-style HTML popups. Triggers on failed checks, embarrassing moments, backfired choices, and social mishaps. Uses a "roasting with affection" tone—playful, not cruel. Adapts to the current Style State for theming. Maximum one per response; skips for genuinely tragic or dark moments.
+*   **Failure Achievements:** Celebrates missteps, blunders, and awkward failures with sarcastic trophy-style HTML popups. Triggers on failed checks, embarrassing moments, backfired choices, and social mishaps. Uses a "roasting with affection" tone—playful, not cruel. Adapts to the current Style State for theming. Maximum one per response; skips for genuinely tragic or dark moments. *Rewritten in v2.5.1 for token efficiency (~32% reduction).*
 
 ---
 
 ### 💡 Tips for Configuration
 
-*   **SETTINGS Prompt (New in v2.5):** A new centralized configuration prompt allows customization of key narrative behaviors via setvar macros. Edit the 🛠️ SETTINGS 🛠️ prompt to change:
-    *   `narrativeperspective`: Third Person Limited (default), Omniscient, Objective, First/Second Person
+*   **SETTINGS Prompt (Updated in v2.5.1):** A centralized configuration prompt for customization of key narrative behaviors via setvar macros. Edit the 🛠️ SETTINGS 🛠️ prompt to change:
+    *   `narrativeperspective`: Third Person (default), Omniscient, Objective, First/Second Person
     *   `stylestateoverride`: Genre override or "None (Dynamic)" for AI detection
+    *   `tonestateoverride`: Tone override or "None (Dynamic)" for AI detection (new in v2.5.1)
     *   `narrativelengthoverride`: Short-Medium (default), Small, Medium, Large
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
-*   **Extra Assistants:** Assistants now use HTML-only formatting. SEGFAULT is enabled by default in v2.4.6. The Custom Assistant can be customized by editing the "Personas:" field in the directive.
+*   **Extra Assistants:** Assistants use HTML-only formatting. Extra Assistants are now disabled by default in v2.5.1 — toggle them on once you're familiar with the preset. The Custom Assistant can be customized by editing the "Personas:" field in the directive.
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.
 
 ---
