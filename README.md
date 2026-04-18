@@ -158,7 +158,8 @@ OOC personalities that appear at the bottom of responses to provide commentary a
     *   `stylestateoverride`: Genre override or "None (Dynamic)" for AI detection
     *   `tonestateoverride`: Tone override or "None (Dynamic)" for AI detection
     *   `narrativelengthoverride`: Medium (default), Small, Large
-    *   `reasoningeffort`: Med (default), Low, High — controls how thoroughly the model reasons through directives (new in v2.6)
+    *   `narrativelengthoverride`: Medium (default), Small, Large
+*   **Reasoning Effort:** Controlled via the SETTINGS `reasoningeffort` variable. **Med** (default) balances quality and speed, **Low** skips planning/drafting for fastest responses, **High** enables full directive breakdown, NPC method-acting, and self-correction. *New in v2.6.*
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
 *   **Extra Assistants:** Assistants use HTML-only formatting. All assistants are disabled by default — toggle them on once you're familiar with the preset. The Custom Assistant can be customized by editing the "Persona:" field in the directive.
 *   **Stop-And-Pass:** This directive significantly changes pacing. If you feel the story is "stalling," it's likely because the AI is waiting for you to perform a specific action (like opening a door or attacking) rather than doing it for you.
