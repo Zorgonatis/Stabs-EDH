@@ -2,6 +2,51 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.6.0] - 2026-04-18
+
+### Added
+- **Reasoning Effort System:**
+  - New configurable `reasoningeffort` variable with three levels: Low, Med (default), High
+  - Controls how thoroughly the model processes chain-of-thought, directive hydration, and self-correction steps
+  - **High:** Full directive breakdown, method-acting NPCs, detailed planning, multi-option iteration, and self-correction — best quality, highest token cost
+  - **Med (default):** Balanced approach — considers directives without full breakdown, identifies key requirements without drafting, moderate self-correction
+  - **Low:** Minimal reasoning, skips planning/drafting steps entirely, no self-correction — fastest response, lowest token cost
+  - Configurable via SETTINGS prompt: `{{setvar::reasoningeffort::Med}}`
+
+- **Reasoning Effort Definitions Prompt:**
+  - New system prompt that maps each effort level to specific task parameters (Directives Application, Logical Decomposition, Information Exhaustiveness, Problem Diagnosis, Precision and Completeness)
+  - Injected before Task Steering via `injection_position: 0, injection_depth: 4`
+  - Enabled by default in prompt_order
+
+### Changed
+- **Task Steering — Major Rework:**
+  - All planning steps now conditional on reasoning effort level using `{{#if}}` macros
+  - S1 (Directive Hydration): Full breakdown on High, simple consideration on Low/Med; DECIDE step skipped on Low
+  - S2 (Planning): "Detailed Plan" on High, "Medium Effort Plan" on Med, "Basic, low effort plan" on Low; S2A (method-acting NPCs) only on High
+  - S3 (Formulation): Full draft+iterate on High, identify key requirements without drafting on Med, skip drafting on Low; S3A/S3B/S3C sub-steps conditional
+  - S4 (Self-correction): Skipped entirely on Low effort
+  - Parameters section now uses `{{getvar::task_parameters}}` populated by Reasoning Effort Definitions
+  - Constraints 6-7 (process all instructions, show CoT) only active on Med/High
+  - Added crucial constraint on Low/Med: "AVOID drafting any content before the final output"
+  - Output format reference updated from S3C to S3A
+
+- **SETTINGS Prompt — Complete Rewrite:**
+  - Replaced verbose reference documentation block with compact inline comments
+  - Added `{{setvar::reasoningeffort::Med}}` variable with valid options in parentheses
+  - Default perspective changed from `THIRD PERSON` to `THIRD PERSON LIMITED`
+  - Default narrative length changed from `Short-Medium` to `Medium`
+  - All setvar declarations now have inline `{{//}}` comments listing valid options
+  - Removed full perspective reference examples (Third Limited, Omniscient, etc.)
+
+- **README Prompt (In-Preset):**
+  - Updated tips: now directs users to review settings (writing rules, reasoning effort) instead of toggling assistants
+  - Removed SVD tip from README; simplified assistant guidance
+
+### Configuration
+- **function_calling:** Changed from `true` to `false`
+- **Reasoning Effort Definitions:** Enabled by default in prompt_order (new prompt)
+- File size increased from 131KB to 131KB (93 → 94 prompts)
+
 ## [2.5.1] - 2026-04-16
 
 ### Added
