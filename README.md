@@ -24,7 +24,7 @@ The following directives are active when you import the preset:
 | **Tier 1** | No Protagonist Control, NPC Behavioural Coherence, NPC Cognitive Bounds, Narrative Perspective |
 | **Tier 2** | Narrative Length Control, No Parroting, No Spoilers, Dynamic Tone State |
 | **Tier 3** | Style State / Genre, Writing Guidelines (Anti-Slop), Better NPCs |
-| **Tier 4** | Visual Toolkit, Color Dialogue/Thoughts, Chaotic Thoughts, Failure Achievements, Environmental Factors |
+| **Tier 4** | Visual Toolkit, Color Dialogue/Thoughts, Failure Achievements, Environmental Factors |
 
 > **Tip:** Directives not listed above are available but disabled — toggle them on in your prompt management to activate.
 
@@ -143,7 +143,6 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Visual Toolkit (VTK)** *(Enabled):* Transforms narrative moments into rich visual experiences using HTML/CSS. Features creative "flavors": Mindscape (internal conflict/emotions), Interface (tech/UI), Document (papers/ledgers), Artifact (RPG-style object inspection), Subtext (hidden meanings), and Dialogue Spotlight. Quantity is scene-driven with creative freedom principles. *New in v2.5: Complete rewrite with flavors table and simplified approach.*
 *   **Persistent Color of Dialogue** *(Enabled):* Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification.
-*   **Chaotic Thoughts** *(Enabled):* Visualizes raw, scattered human consciousness (ADHD, mania, strong impulses) using dense multimedia HTML/CSS structures. Features mental debris (emoji, kaomoji, ASCII art), hierarchical typography, contradiction overlays. Only triggers for biological NPCs during strong emotional moments.
 *   **Failure Achievements** *(Enabled):* Celebrates missteps, blunders, and awkward failures with sarcastic trophy-style HTML popups. Triggers on failed checks, embarrassing moments, backfired choices, and social mishaps. Uses a "roasting with affection" tone—playful, not cruel. Adapts to the current Style State for theming. Maximum one per response; skips for genuinely tragic or dark moments. *Rewritten in v2.5.1 for token efficiency (~32% reduction).*
 *   **Environmental Factors** *(Enabled):* Displays time, location, and weather at the top of responses. Includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
 *   **NPC Tracker** *(Disabled):* Generates a detailed, collapsible stats block for every active NPC tracking their condition, inventory, and evolving relationship metrics (Trust, Intimacy, Loyalty) scored -100 to 100.
