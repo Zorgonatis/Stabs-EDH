@@ -23,7 +23,7 @@ The following directives are active when you import the preset:
 | **Tier 0** | OOC Priority |
 | **Tier 1** | No Protagonist Control, NPC Behavioural Coherence, NPC Cognitive Bounds, Narrative Perspective |
 | **Tier 2** | Genre - Dynamic State, Narrative Length Control, No Parroting, No Spoilers, Dynamic Tone State |
-| **Tier 3** | Writing Guidelines (Anti-Slop), Better NPCs |
+| **Tier 3** | Writing Guidelines (Anti-Slop), Better NPCs, Story Strings |
 | **Tier 4** | Visual Toolkit, Color Dialogue/Thoughts, Environmental Factors |
 
 > **Tip:** Directives not listed above are available but disabled — toggle them on in your prompt management to activate.
@@ -139,7 +139,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
     *   **Character Template Output:** On OOC request, generates a detailed character sheet for any NPC.
 *   **NPC Allowed Speaker Count** *(Disabled):* Limits active (speaking/acting) NPCs to 1-2 per response to maintain narrative focus. Passive NPCs may occupy the scene without contributing. Exceptions for full-cast gatherings and climactic moments. Provides priority guidelines when cap is reached (proximity > relevance > narrative tension).
 *   **NSFW Content** *(Disabled):* Confirms consent for mature themes and requires explicit, visceral, and biologically precise language during sexual encounters rather than euphemisms.
-*   **Story Strings** *(Disabled):* Generates 4-6 hidden narrative path predictions per output (expected, unlikely, random, chaotic) that subtly influence NPC actions and dialogue to enhance prose uniqueness. Paths are invisible to the user. *New in v2.6.1.*
+*   **Story Strings** *(Enabled):* Generates 4-6 hidden narrative path predictions per output (expected, unlikely, random, chaotic) that subtly influence NPC actions and dialogue to enhance prose uniqueness. Paths are invisible to the user. *New in v2.6.1.*
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Visual Toolkit (VTK)** *(Enabled):* Transforms narrative moments into rich visual experiences using HTML/CSS. Features creative "flavors": Mindscape (internal conflict/emotions/cognition), Interface (tech/UI), Document (papers/ledgers), Artifact (RPG-style object inspection), Subtext (hidden meanings), Dialogue Spotlight, Reaction Spotlight (sudden realizations via enlarged emoji), and Failure Achievement (comedic failure trophy popups). Quantity is scene-driven; multiple fitting flavors should be included or hybridized. VTK entities are exempt from narrative perspective constraints. *Updated in v2.6.1: New flavors, creative freedom principles expanded.*

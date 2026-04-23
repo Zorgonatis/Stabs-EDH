@@ -10,7 +10,7 @@ All notable changes to Stabs-EDH preset will be documented in this file.
   - Paths subtly influence NPC actions, dialogue, and VTK entities without being visible to user/USER
   - Outputs as HTML comments: `<!-- SS: [...] -->`
   - Sets `storystrings` variable; integrates into Task Steering as conditional S1A step
-  - Disabled by default; Tier 3 classification
+  - Enabled by default; Tier 3 classification
 
 - **Reaction Spotlight VTK Flavor:**
   - New VTK flavor for sudden realizations and knee-jerk surprise (rare — Mindscape preferred)
@@ -80,7 +80,7 @@ All notable changes to Stabs-EDH preset will be documented in this file.
 
 ### Configuration
 - File size increased from 128KB to 132KB (94 → 95 prompts)
-- Story Strings added to prompt_order (disabled by default)
+- Story Strings added to prompt_order (enabled by default)
 - Failure Achievements 🌐 removed from prompt_order
 
 ## [2.6.0] - 2026-04-18
