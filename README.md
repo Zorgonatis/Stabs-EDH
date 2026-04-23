@@ -62,8 +62,6 @@ Then load up a chat and try it out!
 - **Default Provider:** `Custom` with model `glm-5.1` via `api.z.ai/api/coding/paas/v4`
 - **Alternatives:** This preset is fully compatible with any GLM provider.
 
-**IMPORTANT — Z.AI User-Agent Override:** This preset uses a Custom provider configuration with a Chrome User-Agent header. This prevents Z.AI from identifying and throttling/banning accounts for RP use. The override is applied automatically via `custom_include_headers`. **to remove later - z.ai backpeddled**
-
 The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of GLM-4.7, we can include clear_thinking: 'true' to not reuse past reasoning context.
 These are NOT required but do not hurt to set in case of poor backend configuration.
 
