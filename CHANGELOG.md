@@ -2,6 +2,87 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.6.1] - 2026-04-23
+
+### Added
+- **Story Strings Directive (Tier 3):**
+  - New optional directive generating 4-6 hidden narrative path predictions per output (expected, unlikely, random, chaotic)
+  - Paths subtly influence NPC actions, dialogue, and VTK entities without being visible to user/USER
+  - Outputs as HTML comments: `<!-- SS: [...] -->`
+  - Sets `storystrings` variable; integrates into Task Steering as conditional S1A step
+  - Disabled by default; Tier 3 classification
+
+- **Reaction Spotlight VTK Flavor:**
+  - New VTK flavor for sudden realizations and knee-jerk surprise (rare — Mindscape preferred)
+  - Uses hyper-enlarged face emoji (150-250px) paired with brief styled internal thought
+
+- **Failure Achievement VTK Flavor:**
+  - Failure Achievements functionality absorbed into VTK as a native flavor
+  - Same triggers (comedic failures, backfires, embarrassment) and constraints (max 1/response, skip tragic moments)
+  - Deployed as a VTK entity with Style State palette theming
+
+- **Task Steering — New Steps:**
+  - S1A: Story String Generation (conditional on `storystrings` variable)
+  - S4C: Check for hybridization opportunities (conditional on VTK being enabled)
+
+- **Narrative Perspective Reference Table:**
+  - Added inline reference table showing pronouns, thought visibility, and knowledge scope for 1st Person, 2nd Person, 3rd Limited, and 3rd Omniscient
+
+- **SETTINGS — Enhanced Guidance:**
+  - Added OOC tip: "Ask the AI [OOC:] to explain what perspectives, styles, tones and length would look like with examples"
+  - Added "Copy paste them to avoid mistakes" guidance for configuration values
+
+- **VTK Creative Freedom — New Principles:**
+  - **Unrestricted Perspective:** VTK entities exempt from narrative perspective constraints
+  - **Flavor Options:** When multiple flavors fit, include ALL or hybridize — do not discard good VTK ideas
+
+### Changed
+- **Genre - Dynamic State:**
+  - Renamed from "Style State / Genre" to "Genre - Dynamic State"
+  - Moved from Tier 3 (`t3` addvar) to Tier 2 (`t2` addvar) for better directive ordering
+
+- **Failure Achievements:**
+  - Standalone directive removed from prompt_order (prompt retained but disabled)
+  - Functionality fully absorbed into VTK as "Failure Achievement" flavor
+  - The standalone prompt remains available for manual toggle if preferred
+
+- **SETTINGS:**
+  - Default `reasoningeffort` changed from `Med` to `High` (note: shipped as `Med` in export — adjust in SETTINGS if desired)
+  - Default `narrativeperspective` value changed from `THIRD PERSON LIMITED` to `3rd Limited` (shorthand format)
+  - Valid options updated to shorthand: `(1st Person, 2nd Person, 3rd Limited, 3rd Omniscient)`
+
+- **Color Dialogue/Thoughts:**
+  - User-color constraint for impersonation now conditional via `{{#if .impersonation}}` macro
+  - Thought suppression now exempts VTK entities when VTK is enabled
+  - Internal thoughts described as "human-like reasoning" instead of "impulses"
+
+- **Visual Toolkit (VTK):**
+  - Mindscape flavor expanded to include "cognition" in Best For column
+  - Style State Integration renamed to "Style and Tone State Integration"
+
+- **User Impersonation:**
+  - Perspective text clarified: "Portrayed strictly in the Second Person Perspective"
+  - Added `impersonate` variable for conditional macro support
+
+- **NSFW Content:**
+  - Added constraint: NPCs must not ask user for menus/options during encounters — "when in doubt, ACT"
+
+- **README (In-Preset):**
+  - Version updated to v2.61
+  - Clarified NSFW/Jailbreak toggle guidance with specific use cases
+
+- **AI Roles Header:**
+  - Added `impersonation` and `storystrings` variable initialization/reset
+
+### Removed
+- **Tone - Full Spectrum:** Removed from prompt_order (was already disabled)
+- **Tone - Funny:** Removed from prompt_order (was already disabled)
+
+### Configuration
+- File size increased from 128KB to 132KB (94 → 95 prompts)
+- Story Strings added to prompt_order (disabled by default)
+- Failure Achievements 🌐 removed from prompt_order
+
 ## [2.6.0] - 2026-04-18
 
 ### Added
