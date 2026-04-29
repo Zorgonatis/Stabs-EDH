@@ -2,6 +2,77 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.6.2] - 2026-04-29
+
+### Added
+- **Brain Power Toggle System:**
+  - New toggleable prompt group replacing SETTINGS-based `reasoningeffort` configuration
+  - Three options as individual toggle prompts: **Vibes Only** (Low), **Balanced** (Med), **Overthinking** (High)
+  - Each sets the `reasoningeffort` variable internally — no manual SETTINGS editing required
+  - Default: **Balanced** (Med) — enabled by default in prompt_order
+  - Header prompt includes inline guidance describing each level
+  - Visual hierarchy using `╭──` / `│` / `╰──` box-drawing characters matching existing preset style
+
+- **Perspective Toggle System:**
+  - New toggleable prompt group replacing SETTINGS-based `narrativeperspective` configuration
+  - Four sub-categories, each with its own toggle selection — pick one from each:
+    - **Perspective** (narrative voice): First (I/Me), Second (You), Third (They) — sets `perspective` variable
+    - **Scope** (thought visibility): Limited (One Mind), Omniscient (All Minds) — sets `thoughtscope` variable
+    - **Your Lens** (user portrayal): First (I act), Second (You act), Third (They act) — sets `userperspective` variable
+    - **Tense**: Past (Was), Present (Is), Future (Will Be) — sets `tense` variable
+  - Default configuration: Third Person + Omniscient + Second Person (You act) + Past Tense
+  - Header prompt also handles variable resets (replaces AI Roles header reset responsibilities)
+  - Visual hierarchy using `╭──` / `├──` / `│` / `╰──` box-drawing characters with emoji sub-headers (🔭 Scope, 🎭 Your Lens, ⏳ Tense)
+
+- **API `reasoning_effort` Parameter:**
+  - Added `reasoning_effort: "max"` to `custom_include_body` for native model reasoning control
+  - Aligned for DeepSeek V4 Pro compatibility — the model API receives maximum reasoning effort while internal Brain Power controls CoT step depth
+
+- **Task Steering — CoT Entry Point:**
+  - Added strict instruction: AI must abandon all presumed next steps and print "Okay, let's execute the Directives" before proceeding
+  - Renamed `<response_process>` → `<reasoning_and_response_process>`
+  - Renamed `<instructions>` → `<CoT_instructions>`
+  - Steps now prefixed with "Step-by-step, checked off as processed:"
+
+### Changed
+- **Narrative Perspective Directive:**
+  - Completely rewritten: now dynamically builds a descriptive statement from the four toggle variables (`perspective`, `userperspective`, `thoughtscope`, `tense`) using conditional macros
+  - Removed the old `{{getvar::narrativeperspective}}` SETTINGS variable reference
+  - Example output: "Third Person with <USER> in Second Person, Omniscient (all character thoughts) and written from Past Tense"
+  - Reference table retained for quick lookup
+
+- **SETTINGS Prompt:**
+  - Removed `{{setvar::reasoningeffort::Med}}` — now controlled by Brain Power toggle prompts
+  - Removed `{{setvar::narrativeperspective::...}}` — now controlled by Perspective toggle prompts
+  - Remaining SETTINGS variables: `stylestateoverride`, `tonestateoverride`, `narrativelengthoverride`
+
+- **Story Strings:**
+  - Simplified: removed HTML comment output format (`<!-- SS: [...] -->`)
+  - Now generates predictions internally only — no visible output in responses
+
+- **No Protagonist Control:**
+  - Added "(in the requested Narrative Perspective)" to impulsive reactions guidance
+  - Expanded environmental examples: "nature elements, law of physics and relativity"
+
+- **OOC Priority:**
+  - Added "and discard the remainder of your current plan" to ensure clean context switch on OOC triggers
+
+- **Unreliable Narrator:**
+  - Added new rule: "Hidden information does not have to translate to actionable outcomes — the user may never know"
+
+- **User Impersonation:**
+  - Fixed variable name: `impersonate` → `impersonation` for consistency with AI Roles header initialization
+
+- **Extensions Block:**
+  - Moved from end of JSON to start of file (no functional change — SillyTavern import order)
+
+### Configuration
+- 20 new prompts added (Brain Power: 5 prompts, Perspective: 15 prompts)
+- Brain Power toggles added to prompt_order (Balanced enabled by default)
+- Perspective toggles added to prompt_order (defaults: Third, Omniscient, Second/You act, Past)
+- Total prompts: 95 → 115
+- File no longer has trailing `extensions` block (moved to top)
+
 ## [2.6.1] - 2026-04-23
 
 ### Added

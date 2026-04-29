@@ -20,6 +20,8 @@ The following directives are active when you import the preset:
 |----------|-----------------|
 | **AI Role** | Director (Recommended but large) |
 | **Role Enhancements** | WebDev, Unreliable Narrator |
+| **Perspective** | Third Person, Omniscient, You act, Past Tense |
+| **Brain Power** | Balanced (Med) |
 | **Tier 0** | OOC Priority |
 | **Tier 1** | No Protagonist Control, NPC Behavioural Coherence, NPC Cognitive Bounds, Narrative Perspective |
 | **Tier 2** | Genre - Dynamic State, Narrative Length Control, No Parroting, No Spoilers, Dynamic Tone State |
@@ -48,13 +50,13 @@ Go into the AI Response Options in SillyTavern (top left), scroll down to the pr
 Follow the suggestions, notably reading the 'Overview' section of each Directive below.
 Then load up a chat and try it out!
 
-**Quick customisation:** Edit the 🛠️ SETTINGS 🛠️ prompt in prompt management to adjust narrative perspective, genre/tone overrides, output length, and reasoning effort — all without touching individual directives. See the [Tips for Configuration](#-tips-for-configuration) section below for details.
+**Quick customisation:** Use the toggle prompts in prompt management for narrative perspective (👁️ Perspective) and CoT depth (🧠⚡ Brain Power). Edit the 🛠️ SETTINGS 🛠️ prompt to adjust genre, tone, and output length. See the [Tips for Configuration](#-tips-for-configuration) section below for details.
 
 ---
 
 ## GLM-5.1 Preset
 
-**File:** `Stabs-GLM5.1-Directives-v2.61.json`
+**File:** `Stabs-GLM5.1-Directives-v2.62.json`
 
 ### Intended Model & Tuning
 
@@ -69,6 +71,7 @@ These are NOT required but do not hurt to set in case of poor backend configurat
 thinking:
   type: "enabled"
   clear_thinking: "true"
+reasoning_effort: "max"
 do_sample: "true"
 ```
 
@@ -95,6 +98,42 @@ Add-ons that overlay the narrative with specific features. Both are enabled by d
 *   **WebDev** *(Enabled):* Adds HTML5/CSS3 visual elements to the output. This creates UI elements, distinct text boxes, and atmospheric effects directly in the chat. Sets the `vtk_on` variable used by conditional macros throughout the preset.
 *   **Unreliable Narrator** *(Enabled):* Allows the AI to hide brief, sensitive information from the user using XML comments. Enables foreshadowing, unperceived details, and NPC hidden actions.
 
+## 👁️ Perspective
+
+Granular control over narrative perspective — pick **one from each sub-category** via toggles in prompt management. *New in v2.6.2 — replaces the SETTINGS-based `narrativeperspective` variable with a decomposed, toggleable system.*
+
+### Perspective (Narrative Voice)
+*   **First (I/Me)**: First-person narration.
+*   **Second (You)**: Second-person narration.
+*   **Third (They)** *(Enabled by default)*: Third-person narration.
+
+### 🔭 Scope (Thought Visibility)
+*   **Limited (One Mind)**: Only the viewpoint character's internal thoughts are shown.
+*   **Omniscient (All Minds)** *(Enabled by default)*: All characters' internal thoughts are visible.
+
+### 🎭 Your Lens (User Portrayal)
+Controls how `<USER>` is referred to in the prose.
+*   **First (I act)**: User portrayed as "I".
+*   **Second (You act)** *(Enabled by default)*: User portrayed as "You".
+*   **Third (They act)**: User portrayed as "They".
+
+### ⏳ Tense
+*   **Past (Was)** *(Enabled by default)*: Past tense narration.
+*   **Present (Is)**: Present tense narration.
+*   **Future (Will Be)**: Future tense narration.
+
+> **Note:** The Narrative Perspective directive (Tier 1) takes these four toggle values and dynamically builds a descriptive instruction for the AI. No SETTINGS editing required.
+
+## 🧠⚡ Brain Power
+
+Controls how thoroughly the model processes your request through its chain-of-thought. Select **one** via toggle in prompt management — no SETTINGS editing required. *New in v2.6.2 — replaces the SETTINGS-based `reasoningeffort` variable.*
+
+*   **Vibes Only** *(Disabled):* Minimal planning, skips drafting steps entirely, no self-correction — fastest response, lowest token cost.
+*   **Balanced** *(Enabled by default):* Medium-effort planning with drafting avoided. Considers directives without full breakdown, identifies key requirements.
+*   **Overthinking:** Maximum CoT depth — full directive breakdown, NPC method-acting, detailed planning, multi-option iteration, and self-correction. Best quality, highest token cost.
+
+> **Note:** The API body also sends `reasoning_effort: "max"` to the model natively, ensuring maximum reasoning budget regardless of which Brain Power toggle is active. The toggle controls CoT *step depth* (how many internal steps the model follows), not the model's raw reasoning capacity.
+
 ## 🤖 Extra Assistants
 
 OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants use a unified HTML layout with floating sidebar (avatar, name, subtitle, mood) and accessibility-compliant formatting. **All assistants are disabled by default** — toggle them on once you're familiar with the preset.
@@ -117,7 +156,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 ## 𝗧𝗜𝗘𝗥 𝟭: 𝗖𝗼𝗿𝗲 𝗜𝗻𝘁𝗲𝗿𝗮𝗰𝘁𝗶𝗼𝗻 & 𝗪𝗼𝗿𝗹𝗱 𝗟𝗼𝗴𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **No Protagonist Control** *(Enabled):* Prevents the AI from writing actions or dialogue for the user character, preserving user agency except for natural physical reactions.
 *   **NPC Cognitive Bounds** *(Enabled):* Ensures NPCs are grounded, fallible, and bound by their perception and knowledge. Covers Knowledge Limits (no omniscience), Perceptual Limits (line of sight verification), Physical Grounding (achievable actions with consequences), Relationship Depth (varies by history), and Internal Voice (native language thoughts).
-*   **Narrative Perspective** *(Enabled):* Configurable via SETTINGS prompt (default: Third Person Limited). Supports all perspective types including Omniscient, Objective, First/Second Person, and First Person Plural. *Changed in v2.6: Default changed to Third Person Limited; thoughts suppressed when perspective requires it.*
+*   **Narrative Perspective** *(Enabled):* Dynamically constructs perspective instructions from the four Perspective toggles (narrative voice, scope, user portrayal, tense). The directive reads the `perspective`, `thoughtscope`, `userperspective`, and `tense` variables and builds a natural language description. Includes a reference table for quick lookup. *Changed in v2.6.2: Decomposed from single SETTINGS variable into four toggleable sub-categories.*
 *   **NPC Behavioural Coherence** *(Enabled):* Ensures NPCs respond authentically to the reality their actions create. When behavior contradicts stated intent, NPCs must notice and reconcile, reveal their true intent (the mask slips), or experience psychological break. Prevents holding patterns where words and actions conflict for the sake of maintaining scene tension. NPCs initiate conflict, intimacy, and escalation based on their own drives—without preamble. Danger arrives without foreshadowing; boundaries are discovered through interaction, not lecture.
 *   **Stop-And-Pass Execution** *(Disabled):* Halts the narrative immediately after setting up a scene, forcing the user to provide input before the AI resolves complex actions or sequences of events. Significantly changes pacing — if the story feels like it's "stalling," this directive is likely the cause.
 
@@ -126,8 +165,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **No Parroting** *(Enabled):* Forbids the AI from repeating user dialogue; NPCs must respond naturally without summarizing past events unnecessarily.
 *   **No Spoilers** *(Enabled):* The user does not know character definitions or NPC intentions; avoids over-sharing descriptions that would reveal imperceptible details (e.g., describing an NPC as manipulative). Allows the user to discover character details organically through discovery, accident, or NPC dialogue.
 *   **Dynamic Tone State** *(Enabled):* Scans conversation history for emotional/context triggers and dynamically classifies the dominant tone (Bleak, Tense, Warm, Absurd, Reverent, Frenetic, Melancholic). Each tone guides prose rhythm, sensory focus, dialogue register, and environmental description. Gradual transitions (1 max/response); dramatic events can snap tone instantly when earned. Fallback to Style State's natural register. Configurable via SETTINGS `tonestateoverride`. *New in v2.5.1 — replaces static Tonal Mandate.*
-*   **Genre - Dynamic State** *(Enabled):* Dynamically classifies the current story vibe (strongest 1-2 genres) to guide tone, dialogue, and visual elements (e.g., shifting from slice-of-life to horror). Overrides via SETTINGS `stylestateoverride`. *Renamed and moved from Tier 3 to Tier 2 in v2.6.1.*
-*   **Reasoning Effort:** Controls how thoroughly the model processes your request through its chain-of-thought. Three levels configurable via SETTINGS prompt: **Med** (default) for balanced quality and speed, **High** for maximum quality (full directive breakdown, NPC method-acting, detailed planning, self-correction), **Low** for fastest responses with minimal reasoning overhead. *New in v2.6.*
+*   **Genre - Dynamic State** *(Enabled):* Dynamically classifies the current story vibe (strongest 1-2 genres) to guide tone, dialogue, and visual elements (e.g. shifting from slice-of-life to horror). Overrides via SETTINGS `stylestateoverride`. *Renamed and moved from Tier 3 to Tier 2 in v2.6.1.*
 
 ## 𝗧𝗜𝗘𝗥 𝟯: 𝗖𝗼n𝘁𝗲𝗻𝘁 & 𝗙𝗼𝗿𝗺𝗮𝘁𝘁𝗶𝗻𝗴 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Writing Guidelines (Anti-Slop)** *(Enabled):* Enforces plain, concrete language and physical details; strictly bans flowery prose, melodrama, and a specific list of "cliché" phrases (like "shivers down spine" or "ozone").
@@ -137,7 +175,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
     *   **Character Template Output:** On OOC request, generates a detailed character sheet for any NPC.
 *   **NPC Allowed Speaker Count** *(Disabled):* Limits active (speaking/acting) NPCs to 1-2 per response to maintain narrative focus. Passive NPCs may occupy the scene without contributing. Exceptions for full-cast gatherings and climactic moments. Provides priority guidelines when cap is reached (proximity > relevance > narrative tension).
 *   **NSFW Content** *(Disabled):* Confirms consent for mature themes and requires explicit, visceral, and biologically precise language during sexual encounters rather than euphemisms.
-*   **Story Strings** *(Enabled):* Generates 4-6 hidden narrative path predictions per output (expected, unlikely, random, chaotic) that subtly influence NPC actions and dialogue to enhance prose uniqueness. Paths are invisible to the user. *New in v2.6.1.*
+*   **Story Strings** *(Enabled):* Internally generates 4-6 hidden narrative path predictions per output (expected, unlikely, random, chaotic) that subtly influence NPC actions, dialogue, and VTK entities to enhance prose uniqueness. Generated internally only — not visible in responses. *New in v2.6.1. Simplified in v2.6.2.*
 
 ## 𝗧𝗜𝗘𝗥 𝟰: 𝗢𝘂𝘁𝗽𝘂𝘁 𝗔𝗱𝗱𝗶𝘁𝗶𝗼𝗻 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **Visual Toolkit (VTK)** *(Enabled):* Transforms narrative moments into rich visual experiences using HTML/CSS. Features creative "flavors": Mindscape (internal conflict/emotions/cognition), Interface (tech/UI), Document (papers/ledgers), Artifact (RPG-style object inspection), Subtext (hidden meanings), Dialogue Spotlight, Reaction Spotlight (sudden realizations via enlarged emoji), and Failure Achievement (comedic failure trophy popups). Quantity is scene-driven; multiple fitting flavors should be included or hybridized. VTK entities are exempt from narrative perspective constraints. *Updated in v2.6.1: New flavors, creative freedom principles expanded.*
@@ -151,13 +189,12 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 
 ### 💡 Tips for Configuration
 
-*   **SETTINGS Prompt (Updated in v2.6.1):** A centralized configuration prompt for customization of key narrative behaviors via setvar macros. Edit the 🛠️ SETTINGS 🛠️ prompt to change:
-    *   `narrativeperspective`: 3rd Limited (default), 1st Person, 2nd Person, 3rd Omniscient
+*   **SETTINGS Prompt (Updated in v2.6.2):** A centralized configuration prompt for customization of genre, tone, and output length via setvar macros. Edit the 🛠️ SETTINGS 🛠️ prompt to change:
     *   `stylestateoverride`: Genre override or "None (Dynamic)" for AI detection
     *   `tonestateoverride`: Tone override or "None (Dynamic)" for AI detection
     *   `narrativelengthoverride`: Medium (default), Small, Large
-    *   `reasoningeffort`: Med (default), Low, High
-*   **Reasoning Effort:** Controlled via the SETTINGS `reasoningeffort` variable. **Med** (default) balances quality and speed, **High** enables full directive breakdown, NPC method-acting, and self-correction, **Low** skips planning/drafting for fastest responses.
+*   **Perspective (Narrative Viewpoint):** Controlled via toggle prompts in prompt management — pick one from each sub-category (Voice, Scope, Your Lens, Tense). See [Perspective](#-perspective) section for details.
+*   **Brain Power (CoT Depth):** Controlled via toggle prompts in prompt management — no SETTINGS editing needed. **Balanced** (default, Med) balances quality and speed, **Overthinking** (High) enables full directive breakdown, NPC method-acting, and self-correction, **Vibes Only** (Low) skips planning/drafting for fastest responses. See [Brain Power](#-brain-power) section for details.
 *   **Style State vs Tone State:** Style State = Genre (e.g., Horror, Cyberpunk, Slice-of-Life). Tone State = Emotional register (e.g., Bleak, Tense, Warm). Both are dynamic by default and configurable via SETTINGS.
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
 *   **Extra Assistants:** Assistants use HTML-only formatting. All assistants are disabled by default — toggle them on once you're familiar with the preset. The Custom Assistant can be customized by editing the "Persona:" field in the directive.
