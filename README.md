@@ -20,7 +20,7 @@ The following directives are active when you import the preset:
 |----------|-----------------|
 | **AI Role** | Director (Recommended but large) |
 | **Role Enhancements** | WebDev, Unreliable Narrator |
-| **Perspective** | Third Person, Omniscient, You act, Past Tense |
+| **Perspective** | Third Person, Omniscient, You act, Present Tense |
 | **Brain Power** | Balanced (Med) |
 | **Tier 0** | OOC Priority |
 | **Tier 1** | No Protagonist Control, NPC Behavioural Coherence, NPC Cognitive Bounds, Narrative Perspective |
@@ -56,16 +56,16 @@ Then load up a chat and try it out!
 
 ## GLM-5.1 Preset
 
-**File:** `Stabs-GLM5.1-Directives-v2.62.json`
+**File:** `Stabs-GLM5.1-Directives-v2.63.json`
 
 ### Intended Model & Tuning
 
-- **Model:** `GLM-5.1` (thinking variant recommended)
-- **Default Provider:** `Custom` with model `glm-5.1` via `api.z.ai/api/coding/paas/v4`
-- **Alternatives:** This preset is fully compatible with any GLM provider.
+- **Recommended Model:** `GLM-5.1` (thinking variant recommended)
+- **Recommended Providers:** `Custom` API with model `glm-5.1` via `api.z.ai/api/coding/paas/v4`, or any GLM-compatible provider (ZAI, OpenRouter, NanoGPT, etc.)
+- **Note:** This preset no longer ships with provider-specific configuration. Set up your API connection in SillyTavern as normal — the preset will not overwrite your settings on import.
 
-The following parameters are enabled (Additional Parameters in your API Connections) to ensure thinking and sampling are set for creative writing. Additionally, as of GLM-4.7, we can include clear_thinking: 'true' to not reuse past reasoning context.
-These are NOT required but do not hurt to set in case of poor backend configuration.
+**Recommended API Body Parameters** (Additional Parameters in your API Connections):
+The following parameters are recommended for optimal creative writing performance with GLM-5.1. These are NOT required but recommended to ensure thinking and sampling are correctly configured:
 
 ```yaml
 thinking:
@@ -118,8 +118,8 @@ Controls how `<USER>` is referred to in the prose.
 *   **Third (They act)**: User portrayed as "They".
 
 ### ⏳ Tense
-*   **Past (Was)** *(Enabled by default)*: Past tense narration.
-*   **Present (Is)**: Present tense narration.
+*   **Past (Was)**: Past tense narration.
+*   **Present (Is)** *(Enabled by default)*: Present tense narration.
 *   **Future (Will Be)**: Future tense narration.
 
 > **Note:** The Narrative Perspective directive (Tier 1) takes these four toggle values and dynamically builds a descriptive instruction for the AI. No SETTINGS editing required.
@@ -132,7 +132,7 @@ Controls how thoroughly the model processes your request through its chain-of-th
 *   **Balanced** *(Enabled by default):* Medium-effort planning with drafting avoided. Considers directives without full breakdown, identifies key requirements.
 *   **Overthinking:** Maximum CoT depth — full directive breakdown, NPC method-acting, detailed planning, multi-option iteration, and self-correction. Best quality, highest token cost.
 
-> **Note:** The API body also sends `reasoning_effort: "max"` to the model natively, ensuring maximum reasoning budget regardless of which Brain Power toggle is active. The toggle controls CoT *step depth* (how many internal steps the model follows), not the model's raw reasoning capacity.
+> **Note:** The Brain Power toggle controls CoT *step depth* (how many internal steps the model follows), not the model's raw reasoning capacity. If you're using **DeepSeek V4 Pro**, sending `reasoning_effort: "max"` in your Additional Parameters will unlock maximum reasoning budget — this is a DeepSeek-specific flag, not required for GLM.
 
 ## 🤖 Extra Assistants
 
@@ -141,9 +141,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Custom Assistant:** A fully customizable template with INPUT fields for Persona and AvatarURL. Placeholder persona ("Dave the penguin"). Supports custom avatar images.
 *   **SEGFAULT Assistant:** An OOC "glitch" AI sidekick. Hilarious, unstable, tries to be cool but often fails, and provides chaotic commentary.
 *   **Gooner Assistant:** An OOC personality that acts as a "wing-girl." Naive, energetic, uses slang/emojis, and offers lewd/erotic options.
-*   **George and Nico:** Features the Broken Sword protagonists as collaborative commentators, providing both perspectives on scenes.
 *   **Faceless Assistant:** A malleable identity that absorbs the Style State and world as inspiration, evolving over time without fixed opinions. Configured as a Role Enhancement rather than an Assistant, affecting narrative styling.
-*   **Dr. Emmett Brown (BTTF):** Character persona assistant for Back to the Future roleplay.
 
 ---
 

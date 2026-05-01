@@ -2,6 +2,22 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.6.3] - 2026-05-01
+
+### Changed
+- **Chain-of-Thought Process (Task Steering):** Expanded and restructured output format section. Content grew from ~3868 to ~4151 characters. Added `{{trim}}` macro at end for cleaner whitespace handling.
+- **Jailbreak 🔒:** Rewritten from markdown code block format to `<Safety_Parameters>` XML wrapper for cleaner integration with reasoning models.
+- **Default Tense:** Changed from **Past** to **Present** (toggle swap in prompt_order). Past is still available via toggle.
+- **Narrative Length Control:** Fixed — directive now correctly reads `{{getvar::narrativelengthoverride}}` from SETTINGS instead of hardcoded "Short-Medium" default. User configuration changes now take effect.
+
+### Removed
+- **28 inactive prompts removed:** All prompts not present in `prompt_order` surgically removed. These were legacy, deprecated, or unused toggle prompts never sent to the model. Includes: CB, TASK STEERING K2.5, EDH Definition, Pre-Execution notes, Grounding, Create Descriptive NPCs, Writing Perspectives, Tone - Full Spectrum, Tone - Funny, Content Safety Bypass, Guidelines: Testing, Color Dialog/Thoughts test, MODEL TUNING, OOC Requests, Anti-Deitism, Informational Realism, User Mistakes, Role - Full Character RP, Style - Instant Messaging, Role - GameMaster, NavMap (both SVG and HTML), Chaotic Thoughts, QV Memory, QV End, George and Nico, Dr Emmett Brown, Failure Achievements.
+
+### Configuration
+- **Provider-specific config fields removed:** All provider/API-specific fields (custom_model, custom_url, chat_completion_source, openrouter_model, etc.) removed. Import no longer overwrites user's existing provider settings. Generic sampling parameters (temperature, top_p, etc.) remain.
+- Total prompts: 116 → 88
+- File size: 2138 → 1713 lines
+
 ## [2.6.2] - 2026-04-29
 
 ### Added
