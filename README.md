@@ -56,7 +56,7 @@ Then load up a chat and try it out!
 
 ## GLM-5.1 Preset
 
-**File:** `Stabs-GLM5.1-Directives-v2.63.json`
+**File:** `Stabs-GLM5.1-Directives-v2.7.0.json`
 
 ### Intended Model & Tuning
 

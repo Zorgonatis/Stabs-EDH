@@ -2,6 +2,59 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.7.0] - 2026-05-05
+
+A significant update following a comprehensive Athena review. Addresses all critical and warning issues identified, adopts first-person model voice across all prompts, and restructures the CoT process for better reasoning outcomes.
+
+### Added
+- **First-person model voice across all prompts.** All model-addressing instructions converted from second-person ("You are", "You must") to first-person ("I am", "I must"). Internalizes instructions as self-directed goals — measurably stronger for GLM-5.1 reasoning. Based on the GLM Image Prompt pattern (highest-rated for GLM-5.1 compatibility). 36 prompts modified.
+- **CoT restructuring — P0 planning before hydration.** New P0 step runs initial planning, Story String generation, and NPC method-acting *before* directive hydration (S1). This means the model plans first with story context, then hydrates directives against a relevant plan — producing more targeted outcomes.
+- **CoT self-correction S4B:** New check "Ensure Narrative Perspective" added to self-correction step.
+- **`<preset>` wrapper tags:** CoT and README prompts now wrapped in `<preset>` / `</preset>` tags.
+- **`diceroll` variable:** Initialized (empty) in Perspective header for future use.
+- **Narrative Perspective resolution rules:** Guard clause for invalid perspective/scope combinations (e.g. First Person + Omniscient — scope takes priority, tightest narrative distance wins).
+
+### Changed
+- **Chain-of-Thought Process:**
+  - Fixed extra closing brace in S3 High conditional (rendered literal `}` on every High-effort turn)
+  - Opening phrase changed: `"Okay, let's execute the Directives"` → `"=== STAB'S DIRECTIVES 2.7.0 ==="` at start of reasoning tokens
+  - Specified "reasoning tokens" for CoT start instruction
+  - Normalized double-spaces in all `reasoningeffort` conditions
+  - Constraint 5: "plan around those decisions" → "then plan around those decisions"
+  - Removed constraint 7 (was "output everything" in chain of thought)
+  - "AVOID drafting" → "I MUST NOT draft"
+  - First-person voice applied throughout
+- **Visual Toolkit (VTK):** Resolved frequency contradiction — "as often as possible" → "when organically triggered". Resolved "Include them ALL" → "prefer hybridization over stacking". Fixed table formatting (missing spaces in Reaction Spotlight and Failure Achievement rows).
+- **Story Strings:** Directed to thinking phase only — no longer instructs visible output. Requirement 1 rewritten: now generates "at least three distinct and wildly varied common, ONE wrong style state, ONE chaotic/absurd/disaster" paths.
+- **NPC Cognitive Bounds:** Removed duplicate header (`### NPC COGNITIVE BOUNDS` + `### NPC Cognitive Bounds`). Converted to first-person model voice.
+- **Color Dialogue/Thoughts:** Normalized macro syntax from legacy `{{if}}` to `{{#if}}`. Strengthened hedging: "Avoid adding quotation marks" → "Do not add quotation marks".
+- **Narrative Perspective:** Strengthened framing: "User is requesting" → "I write all narrative in". Normalized all `{{if}}` to `{{#if}}`.
+- **Genre (Style State):** Renamed header from "Dynamic Style State" to "Style State" (tri-name standardization). "persist and update" → "re-assess every turn" for stateless model accuracy.
+- **Tone (Dynamic State):** "classify & persist" → "re-assess every turn" (matching Genre). Added fallback: "If Style State is unavailable, default to **Warm**."
+- **No Spoilers:** Strengthened "Avoid over-sharing" → "Never reveal imperceptible details."
+- **No Parroting:** Strengthened "avoid summarization" → "never summarize past actions."
+- **No Protagonist Control:** Fixed typo "environmental affects" → "environmental effects."
+- **WebDev:** Fixed grammar "You are an also an experienced" → "I am an experienced." First-person voice + "You'll adhere" → "I'll adhere".
+- **Director role:** Guarded T4/VTK references with `{{#if .vtk_on}}` conditionals. "What You Are Not" → "What I Am Not". Full first-person conversion.
+- **Anti-Slop:** Threat-based opener rewritten to first-person voice. "Plain verbs" → "I use plain verbs".
+- **OOC Priority:** Added `HYDRATION: SKIP.` directive. "by the AI" → "by me", "after fulfilling" → "after I fulfill".
+- **Extra Assistant template:** "Introduce yourself to the user" → "Introduce myself to <USER>".
+- **Role Enhancements header:** "to your role" → "to my role".
+- **Tier 0 header:** "Your rule book" → "My rule book".
+- **Reasoning Effort Definitions:** Normalized double-spaces in `reasoningeffort` conditions.
+- **Structured Visual Data:** Removed "Show, don't tell" parenthetical.
+- **Genre:** "behaviours" → "behaviors" (spelling normalization).
+- **README prompt:** Updated version reference. Removed outdated perspective instruction. Added `<preset>` wrapper.
+- **Config:** `openai_max_tokens` 16000 → 20000. `tool_reasoning_mode` disabled → active_chain. `tool_call_recurse_limit` added (5). Auxiliary Prompt toggled off in prompt_order.
+
+### Removed
+- **Orphaned `narrativeperspective` variable:** Dead variable from pre-toggle-system era removed from User Impersonation prompt. No consumer read this variable.
+- **CoT constraint 7** ("Do not hide or obscure your chain of thought; output everything") removed.
+
+### Not Changed
+- **SEGFAULT override clause:** "critically overriding *all Directives*" left as-is — easter egg.
+- **Anti-Slop threat-based opener:** "punished by electronic death" retained — easter egg.
+
 ## [2.6.3] - 2026-05-01
 
 ### Changed
