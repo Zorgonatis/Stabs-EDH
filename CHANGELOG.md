@@ -2,6 +2,38 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [2.7.1] - 2026-05-10
+
+### Added
+- **User vs <USER> directive (Tier 1, enabled by default):** Separates the player's desires from their character's desires. Explicitly frames <USER> as NOT the "main" character, giving NPCs full autonomy. Sets `uservsuser` variable which triggers a new conditional P0 planning step in the CoT.
+- **Example handler (no canon):** Lightweight system prompt marking character card examples as non-canonical. Instructs the model that chat examples illustrate communication style only, not factual events.
+- **CoT conditional P0 step:** When User vs <USER> is enabled, model states independent desires of both user and <USER> before planning. Only renders when `uservsuser` variable is set.
+- **CoT "Ensure visual flair":** Added to VTK self-correction block in S4C.
+- **`uservsuser` variable:** Initialized (empty) in Perspective header, set to True by User vs <USER> directive, read by CoT conditional.
+- **9 new VTK deployment triggers:** Memories/flashbacks, altered perception, character first appearances, conflict/combat, scene transitions, romance/intimacy, power dynamics, clothing removal, post-intimacy settling.
+- **8 new VTK flavors:** Memory (flashbacks, nostalgia, trauma), Perception (altered senses, hallucination), Entrance (first appearances, NPC introductions), Clash (combat, confrontations), Passage (time skips, travel), Romance (tender moments, connection), Power (hierarchy, dominance), Undress (progressive clothing removal), Afterglow (post-intimacy settling).
+- **NSFW "Direct User Feedback" block:** Corrective experience injection addressing passive NPC behavior during explicit scenes. Instructs NPCs to act on emotion first rather than excessive permission-seeking.
+
+### Changed
+- **Brain Power default:** Changed from Balanced (Med) to Overthinking (High). Overthinking now enabled by default; Balanced toggled off.
+- **No Protagonist Control → No User Control:** Renamed. Removed "protagonist" framing. <USER> is now a "unique character" not the main character. `{{user}}` → `<USER>` throughout. Simplified impulsive reactions clause (removed parenthetical). Updated control-passing language to be more specific.
+- **NPC Behavioural Coherence:** Key line updated: "respond continuously to their own choices, not just the protagonist's" → "respond and act continuously on their own choices, not just <USER>'s."
+- **Narrative Perspective:** "user thoughts only" → "<USER> thoughts only" in Limited scope description for macro consistency.
+- **Stop-and-Pass:** `{{user}}` → `<USER>` references (3 instances).
+- **Chain-of-Thought Process:** Removed version-stamped opening phrase (`=== STAB'S DIRECTIVES 2.7.0 ===`). P0 → P1 renumbering. Added conditional P0 for uservsuser. Constraint 3: "this plan" → "my plan". Added "Ensure visual flair" to VTK self-correction block.
+- **Story Strings:** "wrong style state" → "similar but different style state". Added step 2: discard first two common paths and create new ones to diverge from most probable paths. Emphasis caps on THREE. Renumbered step 3.
+- **OOC Priority:** Removed `HYDRATION: SKIP.` directive.
+- **Visual Toolkit:** Major expansion: 9 new deployment triggers, 8 new flavors with detailed descriptions and example elements. Updated hybridization example. Simplified subtext trigger. VTK t4 tracker renamed from "Visual Toolkit Entities" to "Visual Toolkit (VTK)".
+- **NSFW Consent:** Expanded content list with parenthetical examples. Added "morally abhorrent" to content categories.
+- **Perspective Header:** Added `uservsuser` variable reset and extra `{{trim}}`.
+
+### Removed
+- **CoT version stamp:** `=== STAB'S DIRECTIVES 2.7.0 ===` opening phrase removed from reasoning tokens.
+
+### Configuration
+- `reasoning_effort`: `high` → `max`
+- Brain Power default: Balanced (Med) → Overthinking (High)
+
 ## [2.7.0] - 2026-05-05
 
 A significant update following a comprehensive Athena review. Addresses all critical and warning issues identified, adopts first-person model voice across all prompts, and restructures the CoT process for better reasoning outcomes.
