@@ -18,15 +18,15 @@ The following directives are active when you import the preset:
 
 | Category | Active Directive |
 |----------|-----------------|
-| **AI Role** | Director (Recommended but large) |
+| **AI Role** | Director (Recommended) |
 | **Role Enhancements** | WebDev, Unreliable Narrator |
 | **Perspective** | Third Person, Omniscient, You act, Present Tense |
-| **Brain Power** | Overthinking (High) |
+| **Brain Power** | Balanced (Med) |
 | **Tier 0** | OOC Priority |
 | **Tier 1** | No User Control, User vs <USER>, NPC Behavioural Coherence, NPC Cognitive Bounds, Narrative Perspective |
 | **Tier 2** | Genre - Dynamic State, Narrative Length Control, No Parroting, No Spoilers, Dynamic Tone State |
 | **Tier 3** | Writing Guidelines (Anti-Slop), Better NPCs, Story Strings |
-| **Tier 4** | Visual Toolkit, Color Dialogue/Thoughts, Environmental Factors |
+| **Tier 4** | Visual Toolkit, Color Dialogue/Thoughts, Environmental Factors, Behind the Scenes (BTS) |
 
 > **Tip:** Directives not listed above are available but disabled — toggle them on in your prompt management to activate.
 
@@ -56,7 +56,7 @@ Then load up a chat and try it out!
 
 ## GLM-5.1 Preset
 
-**File:** `Stabs-GLM5.1-Directives-v2.7.1.json`
+**File:** `Stabs-GLM5.1-Directives-v3.0.0.json`
 
 ### Intended Model & Tuning
 
@@ -129,10 +129,10 @@ Controls how `<USER>` is referred to in the prose.
 Controls how thoroughly the model processes your request through its chain-of-thought. Select **one** via toggle in prompt management — no SETTINGS editing required. *New in v2.6.2 — replaces the SETTINGS-based `reasoningeffort` variable.*
 
 *   **Vibes Only** *(Disabled):* Minimal planning, skips drafting steps entirely, no self-correction — fastest response, lowest token cost.
-*   **Balanced:** Medium-effort planning with drafting avoided. Considers directives without full breakdown, identifies key requirements.
-*   **Overthinking** *(Enabled by default):* Maximum CoT depth — full directive breakdown, NPC method-acting, detailed planning, multi-option iteration, and self-correction. Best quality, highest token cost.
+*   **Balanced** *(Enabled by default):* Medium-effort planning with drafting avoided. Considers directives without full breakdown, identifies key requirements.
+*   **Overthinking** *(Disabled):* Maximum CoT depth — full directive breakdown, NPC method-acting, detailed planning, multi-option iteration, and self-correction. Best quality, highest token cost.
 
-> **Note:** The Brain Power toggle controls CoT *step depth* (how many internal steps the model follows), not the model's raw reasoning capacity. If you're using **DeepSeek V4 Pro**, sending `reasoning_effort: "max"` in your Additional Parameters will unlock maximum reasoning budget — this is a DeepSeek-specific flag, not required for GLM.
+> **Note:** The Brain Power toggle controls CoT *step depth* (how many internal steps the model follows), not the model's raw reasoning capacity. For maximum reasoning budget, send `reasoning_effort: "max"` in your Additional Parameters. With Brain Power set to Overthinking, the CoT 3.0 process runs at full depth — full directive breakdown, NPC method-acting, multi-option drafting, and self-correction.
 
 ## 🤖 Extra Assistants
 
@@ -180,9 +180,32 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Visual Toolkit (VTK)** *(Enabled):* Transforms narrative moments into rich visual experiences using HTML/CSS. Features creative "flavors": Mindscape (internal conflict/emotions), Interface (tech/UI), Document (papers/ledgers), Artifact (RPG-style inspection), Subtext (hidden meanings), Dialogue Spotlight, Reaction Spotlight (enlarged emoji), Failure Achievement (comedic failure popups), Memory (flashbacks/nostalgia), Perception (altered senses), Entrance (NPC introductions), Clash (combat/confrontations), Passage (time transitions), Romance (intimacy/connection), Power (hierarchy/dominance), Undress (clothing removal), and Afterglow (post-intimacy). Quantity is scene-driven; multiple fitting flavors should be hybridized. VTK entities are exempt from narrative perspective constraints. *Updated in v2.7.1: 8 new flavors, 9 new deployment triggers.*
 *   **Persistent Color of Dialogue** *(Enabled):* Assigns unique, high-contrast color codes to every NPC's speech and internal thoughts for easy readability and speaker identification. Internal thoughts in VTK entities are exempt from perspective-based thought suppression.
 *   **Environmental Factors** *(Enabled):* Displays time, location, and weather at the top of responses. Includes a **Time Scaling table** that advances time based on action type (dialogue: +5-15 min, inspection: +15-30 min, travel: +10-45 min, extended tasks: +1-3 hours). Features a **Time Skip Protocol** that can resolve lengthy actions or pause for user input if intervention is possible.
-*   **NPC Tracker** *(Disabled):* Generates a detailed, collapsible stats block for every active NPC tracking their condition, inventory, and evolving relationship metrics (Trust, Intimacy, Loyalty) scored -100 to 100.
+*   **Behind the Scenes (BTS)** *(Enabled):* Persistent world-state tracking block with 8 toggleable sub-categories: Physical State, Emotional State, Appearance, Relationships, Inventory, Stats, Narrative threads, and Off-Screen Simulation. Uses compact delta notation (changes only) with periodic checkpoints. Genre-aware emphasis adapts tracked detail to the active Style State. Token-budgeted: 80–150 chars for deltas, 200–350 for checkpoints. Toggle individual categories on/off. Visible/hidden output mode. *New in v3.0.0 — replaces NPC Tracker.*
 *   **POV Image Model** *(Disabled):* Generates a dense, first-person paragraph prompt at end of responses optimized for AI image generators. Two variants available: GLM and Gemini.
 *   **Structured Visual Data (SVD)** *(Disabled):* Outputs a YAML data block of the scene's visual elements for advanced processing (on OOC request only).
+
+## 🎬 Behind the Scenes (BTS)
+
+*New in v3.0.0* — A persistent world-state tracking system that maintains continuity across the entire session. BTS appends a compact state block to every response, tracking character states, relationships, inventory, narrative threads, and off-screen character activity.
+
+### Tracked Categories (all toggleable)
+- **Physical:** HP, wounds, status effects, fatigue, body position
+- **Emotional:** Mood trends, stress, focus, moodlet stacks with turn durations
+- **Appearance:** Outfit layers, hair, clothing condition
+- **Relationships:** Per-NPC metrics (-100 to 100), romantic tension, NPC-to-NPC dynamics
+- **Inventory:** Items, equipment durability, currency, quest items
+- **Stats:** Core attributes, HP/Mana/Stamina, active buffs/debuffs
+- **Narrative:** Plot threads, quests, tension, dramatic irony, foreshadowing seeds
+- **Off-Screen:** Location and activity for characters not in the current scene
+
+### Key Features
+- **Delta notation:** Only changes are reported each turn, keeping blocks compact
+- **Periodic checkpoints:** Full state dumps every ~10 turns, on scene transitions, or on request
+- **Genre-aware emphasis:** Combat scenes emphasize Physical/Stats; Romance emphasizes Emotional/Relationships
+- **Off-Screen simulation:** Characters not in scene still advance — resting progresses, waiting progresses, no freezes
+- **Token-budgeted:** Hard caps prevent BTS from consuming too much context (400 char max)
+
+> **Tip:** BTS is enabled by default with all categories active. Toggle individual categories off in prompt management if you don't need them. Use the Visible Output toggle to show BTS blocks in `<details>` tags instead of hidden HTML comments.
 
 ---
 
@@ -193,7 +216,8 @@ OOC personalities that appear at the bottom of responses to provide commentary a
     *   `tonestateoverride`: Tone override or "None (Dynamic)" for AI detection
     *   `narrativelengthoverride`: Medium (default), Small, Large
 *   **Perspective (Narrative Viewpoint):** Controlled via toggle prompts in prompt management — pick one from each sub-category (Voice, Scope, Your Lens, Tense). See [Perspective](#-perspective) section for details.
-*   **Brain Power (CoT Depth):** Controlled via toggle prompts in prompt management — no SETTINGS editing needed. **Overthinking** (default, High) enables full directive breakdown, NPC method-acting, and self-correction, **Balanced** (Med) balances quality and speed, **Vibes Only** (Low) skips planning/drafting for fastest responses. See [Brain Power](#-brain-power) section for details.
+*   **Brain Power (CoT Depth):** Controlled via toggle prompts in prompt management — no SETTINGS editing needed. **Balanced** (default, Med) provides structured planning without drafting, **Overthinking** (High) enables full directive breakdown, NPC method-acting, multi-option drafting, and self-correction via the theatrical CoT phases, **Vibes Only** (Low) skips planning/drafting for fastest responses. See [Brain Power](#-brain-power) section for details.
+*   **Chain-of-Thought 3.0:** The CoT process now uses theatrical phases (Script Analysis → Table Read → Blocking → Rehearsal → Dress Rehearsal → Curtain). Every enabled directive is explicitly addressed by name. Brain Power controls the depth of each phase — at Balanced (default), the model plans without drafting; at Overthinking, it drafts multiple options and self-corrects rigorously.
 *   **Style State vs Tone State:** Style State = Genre (e.g., Horror, Cyberpunk, Slice-of-Life). Tone State = Emotional register (e.g., Bleak, Tense, Warm). Both are dynamic by default and configurable via SETTINGS.
 *   **Don't like HTML outputs?:** All prompts that generate HTML are tagged with a world icon (🌐) to easily find and disable.
 *   **Extra Assistants:** Assistants use HTML-only formatting. All assistants are disabled by default — toggle them on once you're familiar with the preset. The Custom Assistant can be customized by editing the "Persona:" field in the directive.

@@ -2,6 +2,58 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [3.0.0] - 2026-05-13
+
+A major release featuring two new foundational systems: Behind the Scenes (BTS) world-state tracking and a completely rewritten Chain-of-Thought process. Includes structural changes to support character card overrides, a new preset-level jailbreak, and default Brain Power adjustment.
+
+### Added
+- **Behind the Scenes (BTS) system (Tier 4, enabled by default):** Persistent world-state tracking block appended to every response. Replaces the previous NPC Tracker. Features 8 toggleable sub-categories:
+  - **Physical State:** HP, wounds, status effects, fatigue, hygiene/hunger/thirst
+  - **Emotional State:** Mood, stress, focus, fear, arousal, moodlet stacks with turn durations
+  - **Appearance:** Outfit layers, hair, makeup, scent, clothing condition
+  - **Relationships:** Per-NPC metrics (-100 to 100), romantic tension, grudges, debts, NPC-to-NPC tracking
+  - **Inventory:** Items, equipment durability, currency, consumables, quest items
+  - **Stats:** Core attributes, skill modifiers, HP/Mana/Stamina, buffs/debuffs
+  - **Narrative:** Plot threads, quests, choice flags, tension, dramatic irony, foreshadowing seeds
+  - **Off-Screen Simulation:** Location, activity, and mood for characters not in scene; 6-character cap; 3-turn rule
+  - Genre-aware emphasis (combat → physical, romance → emotional, etc.)
+  - Delta notation (changes only) with periodic full checkpoints (~10 turns)
+  - Visible/hidden output toggle; HTML comment or `<details>` wrapping
+  - Strict token budget: 80–150 target for deltas, 200–350 for checkpoints
+  - Sets `bts_on` and 8 `bts_*` sub-variables
+- **Chain-of-Thought 3.0 🎭 (enabled by default):** Complete rewrite of the reasoning process using theatrical phase framing. Replaces the previous incremental CoT entirely. Six phases:
+  - **Phase I: Script Analysis** — OOC check, input parsing, user vs <USER> separation, scene context
+  - **Phase II: Table Read** — Directive review, Tone/Genre classification, NPC assessment with method-acting, Perspective confirmation, BTS state review, writing rules refresh
+  - **Phase III: Blocking** — Narrative beats, Story Strings (now ordered after Tone/Genre), BTS delta planning, VTK pre-selection, skeleton structure
+  - **Phase IV: Rehearsal** — Content creation (depth-scaled by Brain Power), VTK placement, BTS integration, Environmental Factors, Color Dialogue
+  - **Phase V: Dress Rehearsal** — Self-correction, perspective check, BTS verification, VTK validation
+  - **Phase VI: Curtain** — Final output delivery
+  - Introduces `<depth_mode>` block for cleaner reasoning effort calibration
+  - Every enabled directive is now explicitly addressed by name in a specific phase step
+  - `{{getvar::csworkaround}}` moved inside `<parameters>` block
+- **Preset-level Jailbreak (`Jailbreak (PRESET) 🔒`, disabled by default):** Separate from the card override slot. Contains safety parameter declarations. Enables users to toggle jailbreak at the preset level without affecting character card jailbreaks.
+- **Main Prompt Override header:** System prompt marking that overrides take priority over all preset conditions.
+- **Generic Writer Role (`║ Role - Generic Writer`, disabled):** Fallback writing partner role, available as a lighter alternative to the Director.
+- **2 new regex scripts:** Strip BTS Delta and Strip BTS Delta (Visible) from sent context, preventing state blocks from accumulating in the prompt.
+
+### Changed
+- **Brain Power default:** Changed from Overthinking (High) to Balanced (Med). Balanced now enabled by default; Overthinking toggled off.
+- **Main Prompt slot repurposed:** `║ Role - Writer` → `Main Prompt (Override)`. Content emptied to allow character card system prompt overrides. Preset now uses Director role exclusively for its AI persona.
+- **Jailbreak slot repurposed:** `Chain-of-Thought Process 🎯` → `Jailbreak from CARD`. Content emptied to allow character card jailbreak overrides. CoT is now a separate prompt (`Chain-of-Thought 3.0 🎭`).
+- **Post-History (Override):** Renamed from `Jailbreak 🔒`. Toggled ON by default. Content simplified to empty override slot.
+- **Director role:** Renamed from `║ Role - Director (Recommended but large)` → `║ Role - Director (Recommended)`.
+- **Perspective header:** Added `bts_on` and 8 `bts_*` variable resets. Removed extra `{{trim}}`.
+- **Persona Start:** Clarified "the user" → "the user character".
+- **Better NPCs:** OOC character template request now explicitly identified as an OOC request (triggers OOC Priority handling).
+- **Temperature:** Changed from `1` → `0.85`.
+
+### Removed
+- **NPC Tracker:** Replaced entirely by the BTS system. All NPC tracking functionality subsumed into BTS with expanded categories and notation.
+
+### Configuration
+- `temperature`: `1` → `0.85`
+- Brain Power default: Overthinking (High) → Balanced (Med)
+
 ## [2.7.1] - 2026-05-10
 
 ### Added
