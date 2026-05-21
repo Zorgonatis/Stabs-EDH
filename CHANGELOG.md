@@ -2,6 +2,35 @@
 
 All notable changes to Stabs-EDH preset will be documented in this file.
 
+## [3.0.1] - 2026-05-21
+
+A refinement release addressing user feedback from 3.0.0. BTS receives location/proximity tracking and session-start improvements. Narrative Length moves from SETTINGS to a dedicated toggle system. A new USER IS ACTOR mode replaces User Impersonation with proper conditional directive suppression. Perspective gains an Objective scope option. Several bug fixes and quality-of-life improvements.
+
+### Added
+- **BTS Location/Proximity Tracking:** Hierarchical `@venue > area` syntax (e.g. `@tavern > bar_counter`). Location is now shown for every present character every turn — not just on change — preventing spatial inconsistencies and character teleportation. Added "No teleporting" failure mode.
+- **BTS Session-Start Checkpoint:** The first BTS output of any new session is now always a full checkpoint `[BTS|CP]` with complete outfit layers and positioning for all present characters. No exceptions.
+- **Objective Scope Toggle (Perspective):** New scope option — no character's internal thoughts are shown at all. Pure external observation. No mind-reading, no internal monologue. Available as a toggle in the Perspective section alongside Limited and Omniscient.
+- **Narrative Length Toggle System:** New toggle group (📏 NARRATIVE LENGTH) with three options — Small (2-4 para), Medium (4-6 para), Large (6-10 para). Follows the Brain Power toggle pattern. Medium enabled by default.
+- **USER IS ACTOR Toggle (Tier 0):** Replaces User Impersonation. When enabled, the AI takes complete control of <USER> as a regular NPC — dialogue, actions, thoughts, and decisions. The user operates as director/audience. Automatically suppresses No User Control and No Parroting via conditional macros.
+- **Group Chat Mode variable:** Group Chat Toggle now sets a dedicated `groupchat` variable for conditional checks and registers in the Tier 0 tracker for CoT awareness.
+- **VTK Font-Size Floor:** All VTK text content must now use `font-size: 14px` or larger, with explicit instruction not to decrease sizes below this threshold across turns.
+
+### Changed
+- **BTS Emotional Scales Normalized:** Stress changed from 0-100 to 0-10. All Emotional metrics (stress, focus, fear, arousal) now use consistent 0-10 scales. Relationships remain -100 to 100.
+- **Limited Scope → NPC Perspective:** The "3rd Limited" perspective scope now forces an NPC viewpoint character (the most relevant NPC to the scene) instead of defaulting to <USER>.
+- **Group Chat Toggle Rewritten:** Replaced opaque OOC-style override injection with proper directive framing, first-person voice, and specific suspension instructions (multi-character, multi-PoV, NPC autonomy directives suspended).
+- **SETTINGS Simplified:** Removed `narrativelengthoverride` setvar — now handled by the Narrative Length toggle system.
+- **Narrative Length Control:** "Default:" label changed to "Active length:" to reflect toggle-driven value.
+- **Main Prompt (Override):** `forbid_overrides` changed from True to False — character card system prompts now correctly override the preset's empty slot.
+- **Perspective Header:** Added variable resets for `narrativelengthoverride`, `useractor`, and `groupchat`.
+
+### Removed
+- **User Impersonation toggle:** Replaced entirely by USER IS ACTOR toggle with different semantics (directorial mode vs. lazy input).
+
+### Configuration
+- `Unreliable Narrator`: Now disabled by default (was enabled)
+- Regex `minDepth`: BTS delta strip regexes changed from depth 3 to depth 10
+
 ## [3.0.0] - 2026-05-13
 
 A major release featuring two new foundational systems: Behind the Scenes (BTS) world-state tracking and a completely rewritten Chain-of-Thought process. Includes structural changes to support character card overrides, a new preset-level jailbreak, and default Brain Power adjustment.

@@ -19,9 +19,10 @@ The following directives are active when you import the preset:
 | Category | Active Directive |
 |----------|-----------------|
 | **AI Role** | Director (Recommended) |
-| **Role Enhancements** | WebDev, Unreliable Narrator |
+| **Role Enhancements** | WebDev |
 | **Perspective** | Third Person, Omniscient, You act, Present Tense |
 | **Brain Power** | Balanced (Med) |
+| **Narrative Length** | Medium |
 | **Tier 0** | OOC Priority |
 | **Tier 1** | No User Control, User vs <USER>, NPC Behavioural Coherence, NPC Cognitive Bounds, Narrative Perspective |
 | **Tier 2** | Genre - Dynamic State, Narrative Length Control, No Parroting, No Spoilers, Dynamic Tone State |
@@ -50,13 +51,13 @@ Go into the AI Response Options in SillyTavern (top left), scroll down to the pr
 Follow the suggestions, notably reading the 'Overview' section of each Directive below.
 Then load up a chat and try it out!
 
-**Quick customisation:** Use the toggle prompts in prompt management for narrative perspective (👁️ Perspective) and CoT depth (🧠⚡ Brain Power). Edit the 🛠️ SETTINGS 🛠️ prompt to adjust genre, tone, and output length. See the [Tips for Configuration](#-tips-for-configuration) section below for details.
+**Quick customisation:** Use the toggle prompts in prompt management for narrative perspective (👁️ Perspective) and CoT depth (🧠⚡ Brain Power). Edit the 🛠️ SETTINGS 🛠️ prompt to adjust genre and tone. Use the 📏 Narrative Length toggles for output length. See the [Tips for Configuration](#-tips-for-configuration) section below for details.
 
 ---
 
 ## GLM-5.1 Preset
 
-**File:** `Stabs-GLM5.1-Directives-v3.0.0.json`
+**File:** `Stabs-GLM5.1-Directives-v3.0.1.json`
 
 ### Intended Model & Tuning
 
@@ -93,10 +94,10 @@ A selection of modes to define the AI's core personality and writing style.
 
 ## ⚙️ Role Enhancements
 
-Add-ons that overlay the narrative with specific features. Both are enabled by default.
+Add-ons that overlay the narrative with specific features.
 
 *   **WebDev** *(Enabled):* Adds HTML5/CSS3 visual elements to the output. This creates UI elements, distinct text boxes, and atmospheric effects directly in the chat. Sets the `vtk_on` variable used by conditional macros throughout the preset.
-*   **Unreliable Narrator** *(Enabled):* Allows the AI to hide brief, sensitive information from the user using XML comments. Enables foreshadowing, unperceived details, and NPC hidden actions.
+*   **Unreliable Narrator** *(Disabled):* Allows the AI to hide brief, sensitive information from the user using XML comments. Enables foreshadowing, unperceived details, and NPC hidden actions.
 
 ## 👁️ Perspective
 
@@ -108,8 +109,9 @@ Granular control over narrative perspective — pick **one from each sub-categor
 *   **Third (They)** *(Enabled by default)*: Third-person narration.
 
 ### 🔭 Scope (Thought Visibility)
-*   **Limited (One Mind)**: Only the viewpoint character's internal thoughts are shown.
+*   **Limited (One Mind)**: Forces the narrative to one NPC's viewpoint — the most relevant NPC to the current scene. Their thoughts are shown, all others are hidden.
 *   **Omniscient (All Minds)** *(Enabled by default)*: All characters' internal thoughts are visible.
+*   **Objective**: No character's internal thoughts are shown at all. Pure external observation — only what can be seen and heard.
 
 ### 🎭 Your Lens (User Portrayal)
 Controls how `<USER>` is referred to in the prose.
@@ -134,6 +136,16 @@ Controls how thoroughly the model processes your request through its chain-of-th
 
 > **Note:** The Brain Power toggle controls CoT *step depth* (how many internal steps the model follows), not the model's raw reasoning capacity. For maximum reasoning budget, send `reasoning_effort: "max"` in your Additional Parameters. With Brain Power set to Overthinking, the CoT 3.0 process runs at full depth — full directive breakdown, NPC method-acting, multi-option drafting, and self-correction.
 
+## 📏 Narrative Length
+
+Controls response length in paragraphs. Select **one** via toggle in prompt management — no SETTINGS editing required. *New in v3.0.1 — replaces the SETTINGS-based `narrativelengthoverride` variable.*
+
+*   **Small** *(Disabled):* 2-4 paragraphs. Single beat/moment. Best for dialogue, quick decisions, intimate moments.
+*   **Medium** *(Enabled by default):* 4-6 paragraphs. 2-3 beats. Best for scene transitions, multi-character, exploration.
+*   **Large** *(Disabled):* 6-10 paragraphs. Major set-pieces/climaxes only. Best for action sequences, major reveals.
+
+> **Note:** Longer isn't always better — match length to scene intensity. The Narrative Length Control directive (Tier 2) enforces the selected size and includes a hard stop before resolution moments.
+
 ## 🤖 Extra Assistants
 
 OOC personalities that appear at the bottom of responses to provide commentary and options. All assistants use a unified HTML layout with floating sidebar (avatar, name, subtitle, mood) and accessibility-compliant formatting. **All assistants are disabled by default** — toggle them on once you're familiar with the preset.
@@ -149,7 +161,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 
 ## 𝗧𝗜𝗘𝗥 𝟬: [𝗠𝗲𝘁𝗮-𝗢𝘃𝗲𝗿𝗿𝗶𝗱𝗲] 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲
 *   **OOC Priority** *(Enabled):* Any meta instruction starting with `[OOC:]` or including "OOC" triggers an immediate stop. The AI adopts a helpful assistant personality and executes the request as the highest priority, overriding all other directives. The narrative does not progress during OOC responses.
-*   **User Impersonation and Lazy Input:** *(Disabled)* Allows the AI to write dialogue and actions for the user character based on [brief inputs], overriding the usual restriction against controlling <USER>. Automatically sets narrative perspective to Second Person.
+*   **🎭 USER IS ACTOR:** *(Disabled)* Directorial mode — the AI takes complete control of <USER> as a regular NPC character (dialogue, actions, thoughts, decisions). The user operates as director/audience providing high-level steering. Automatically suppresses No User Control and No Parroting when active.
 
 ## 𝗧𝗜𝗘𝗥 𝟭: 𝗖𝗼𝗿𝗲 𝗜𝗻𝘁𝗲𝗿𝗮𝗰𝘁𝗶𝗼𝗻 & 𝗪𝗼𝗿𝗹𝗱 𝗟𝗼𝗴𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
 *   **No User Control** *(Enabled):* Prevents the AI from writing actions or dialogue for the user character, preserving user agency except for natural impulsive reactions caused by other characters or environmental effects.
@@ -160,7 +172,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **Stop-And-Pass Execution** *(Disabled):* Halts the narrative immediately after setting up a scene, forcing the user to provide input before the AI resolves complex actions or sequences of events. Significantly changes pacing — if the story feels like it's "stalling," this directive is likely the cause.
 
 ## 𝗧𝗜𝗘𝗥 𝟮: 𝗡𝗮𝗿𝗿𝗮𝘁𝗶𝘃𝗲 & 𝗦𝘁𝘆𝗹𝗶𝘀𝘁𝗶𝗰 𝗗𝗶𝗿𝗲𝗰𝘁𝗶𝘃𝗲𝘀
-*   **Narrative Length Control** *(Enabled):* Enforces output size discipline with Small/Medium/Large tiers. Default is Medium (set via SETTINGS). Includes scene progression limits and enforces STOP before resolution moments. Small for dialogue exchanges, Medium for scene transitions, Large for climactic moments (rare).
+*   **Narrative Length Control** *(Enabled):* Enforces output size discipline with Small/Medium/Large tiers. Active length is set via the 📏 Narrative Length toggles (Medium by default). Includes scene progression limits and enforces STOP before resolution moments. Small for dialogue exchanges, Medium for scene transitions, Large for climactic moments (rare).
 *   **No Parroting** *(Enabled):* Forbids the AI from repeating user dialogue; NPCs must respond naturally without summarizing past events unnecessarily.
 *   **No Spoilers** *(Enabled):* The user does not know character definitions or NPC intentions; avoids over-sharing descriptions that would reveal imperceptible details (e.g., describing an NPC as manipulative). Allows the user to discover character details organically through discovery, accident, or NPC dialogue.
 *   **Dynamic Tone State** *(Enabled):* Scans conversation history for emotional/context triggers and dynamically classifies the dominant tone (Bleak, Tense, Warm, Absurd, Reverent, Frenetic, Melancholic). Each tone guides prose rhythm, sensory focus, dialogue register, and environmental description. Gradual transitions (1 max/response); dramatic events can snap tone instantly when earned. Fallback to Style State's natural register. Configurable via SETTINGS `tonestateoverride`. *New in v2.5.1 — replaces static Tonal Mandate.*
@@ -190,7 +202,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 
 ### Tracked Categories (all toggleable)
 - **Physical:** HP, wounds, status effects, fatigue, body position
-- **Emotional:** Mood trends, stress, focus, moodlet stacks with turn durations
+- **Emotional:** Mood trends, stress, focus, fear, arousal (all 0-10), moodlet stacks with turn durations
 - **Appearance:** Outfit layers, hair, clothing condition
 - **Relationships:** Per-NPC metrics (-100 to 100), romantic tension, NPC-to-NPC dynamics
 - **Inventory:** Items, equipment durability, currency, quest items
@@ -200,6 +212,8 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 
 ### Key Features
 - **Delta notation:** Only changes are reported each turn, keeping blocks compact
+- **Location tracking:** Hierarchical `@venue > area` positioning for every present character every turn
+- **Session-start checkpoint:** First output of any new session is always a full checkpoint with complete outfit layers
 - **Periodic checkpoints:** Full state dumps every ~10 turns, on scene transitions, or on request
 - **Genre-aware emphasis:** Combat scenes emphasize Physical/Stats; Romance emphasizes Emotional/Relationships
 - **Off-Screen simulation:** Characters not in scene still advance — resting progresses, waiting progresses, no freezes
@@ -214,7 +228,7 @@ OOC personalities that appear at the bottom of responses to provide commentary a
 *   **SETTINGS Prompt (Updated in v2.6.2):** A centralized configuration prompt for customization of genre, tone, and output length via setvar macros. Edit the 🛠️ SETTINGS 🛠️ prompt to change:
     *   `stylestateoverride`: Genre override or "None (Dynamic)" for AI detection
     *   `tonestateoverride`: Tone override or "None (Dynamic)" for AI detection
-    *   `narrativelengthoverride`: Medium (default), Small, Large
+*   **Narrative Length (Output Size):** Controlled via toggle prompts in prompt management — pick one (Small, Medium, Large). No SETTINGS editing needed. Medium is the default. See the [📏 Narrative Length] toggle group in prompt management.
 *   **Perspective (Narrative Viewpoint):** Controlled via toggle prompts in prompt management — pick one from each sub-category (Voice, Scope, Your Lens, Tense). See [Perspective](#-perspective) section for details.
 *   **Brain Power (CoT Depth):** Controlled via toggle prompts in prompt management — no SETTINGS editing needed. **Balanced** (default, Med) provides structured planning without drafting, **Overthinking** (High) enables full directive breakdown, NPC method-acting, multi-option drafting, and self-correction via the theatrical CoT phases, **Vibes Only** (Low) skips planning/drafting for fastest responses. See [Brain Power](#-brain-power) section for details.
 *   **Chain-of-Thought 3.0:** The CoT process now uses theatrical phases (Script Analysis → Table Read → Blocking → Rehearsal → Dress Rehearsal → Curtain). Every enabled directive is explicitly addressed by name. Brain Power controls the depth of each phase — at Balanced (default), the model plans without drafting; at Overthinking, it drafts multiple options and self-corrects rigorously.
